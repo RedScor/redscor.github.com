@@ -101,7 +101,9 @@ Check your app&amp;#39;s storage">
 <li>If necessary, tap &quot;Show all apps&quot;</li>
 <li>Check your app&#39;s storage</li>
 </ul>
-<h2><a name="more"></a></h2>
+<a name="more"></a>
+
+<hr>
 <p>因為我用的圖片暫存是我自己寫的，不是用網路上找的，例如SDWebImage這個有名的第三方Library。</p>
 <p>所以著手來改一下自己的程式碼吧。</p>
 <p>原本找到Document資料夾下的語法應該是這樣</p>
@@ -112,7 +114,7 @@ Check your app&amp;#39;s storage">
 </pre></td><td class="code"><pre><span class="comment">//找到Document目錄</span>
 <span class="built_in">NSString</span> <em>applicationDocumentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span class="literal">YES</span>) objectAtIndex:<span class="number">0</span>];
 <span class="comment">//儲存到Document目錄下</span>
-    <span class="built_in">NSString</span> </em>storePath = [applicationDocumentsDir stringByAppendingPathComponent:你的String];
+<span class="built_in">NSString</span> </em>storePath = [applicationDocumentsDir stringByAppendingPathComponent:你的String];
 </pre></td></tr></table></figure></notextile>
 
 <p>現在要改成如下 </p>
@@ -132,9 +134,9 @@ Check your app&amp;#39;s storage">
 14
 15
 </pre></td><td class="code"><pre><span class="comment">//找到根目錄下的cache目錄</span>
-    <span class="built_in">NSArray</span> <em>paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
+<span class="built_in">NSArray</span> <em>paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
 <span class="comment">//再找到cache目錄下的ImageCache資料夾</span>
-<span class="comment">//因為我想把照片都存到一個目錄去管理，而不是都丟到cache下    </span>
+<span class="comment">//因為我想把照片都存到一個目錄去管理，而不是都丟到cache下</span>
 <span class="built_in">NSString</span> </em>cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">&quot;ImageCache&quot;</span>];
 <span class="comment">//設一布林值去做判斷</span>
 <span class="built_in">BOOL</span> isDir = <span class="literal">NO</span>;
@@ -143,7 +145,7 @@ Check your app&amp;#39;s storage">
 <span class="comment">//也就是上面寫的ImageCache目錄</span>
 <span class="keyword">if</span> (! [[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:cacheDirectory isDirectory:&amp;isDir] &amp;&amp; isDir == <span class="literal">NO</span>) {
         [[<span class="built_in">NSFileManager</span> defaultManager] createDirectoryAtPath:cacheDirectory withIntermediateDirectories:<span class="literal">NO</span> attributes:<span class="literal">nil</span> error:&amp;error];
-    }
+}
 <span class="comment">//寫入cacheDirectory中</span>
 <span class="built_in">NSString</span> </em>storePath  = [cacheDirectory stringByAppendingPathComponent:你的String];
 </pre></td></tr></table></figure></notextile>
@@ -168,23 +170,27 @@ Check your app&amp;#39;s storage">
 15
 16
 17
-</pre></td><td class="code"><pre> +(<span class="keyword">void</span>)RemoveDocumentFiles
- {
-<span class="built_in">NSArray</span> <em>paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
-<span class="built_in">NSString</span> </em>cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">&quot;ImageCache&quot;</span>];
-
-<span class="built_in">NSFileManager</span> <em>fileMgr = [[[<span class="built_in">NSFileManager</span> alloc] init] autorelease];
-<span class="built_in">NSError</span> </em>error = <span class="literal">nil</span>;
-<span class="built_in">NSArray</span> <em>directoryContents = [fileMgr contentsOfDirectoryAtPath:cacheDirectory error:&amp;error];
-     <span class="keyword">if</span> (error == <span class="literal">nil</span>) {
-         <span class="keyword">for</span> (<span class="built_in">NSString</span> </em>path in directoryContents) {
-<span class="built_in">NSString</span> *fullPath = [cacheDirectory stringByAppendingPathComponent:path];
-             <span class="built_in">BOOL</span> removeSuccess = [fileMgr removeItemAtPath:fullPath error:&amp;error];
-             <span class="keyword">if</span> (!removeSuccess) {
-                 <span class="comment">// Error handling</span>
-
-             }
-         }
+18
+19
+</pre></td><td class="code"><pre>+(<span class="keyword">void</span>)RemoveCacheFiles
+{
+    <span class="built_in">NSArray</span> <em>paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
+    <span class="built_in">NSString</span> </em>cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">&quot;ImageCache&quot;</span>];
+    <span class="built_in">NSFileManager</span> <em>fileMgr = [[[<span class="built_in">NSFileManager</span> alloc] init] autorelease];
+    <span class="built_in">NSError</span> </em>error = <span class="literal">nil</span>;
+    <span class="built_in">NSArray</span> <em>directoryContents = [fileMgr contentsOfDirectoryAtPath:cacheDirectory error:&amp;error];
+    <span class="keyword">if</span> (error == <span class="literal">nil</span>) {
+        <span class="keyword">for</span> (<span class="built_in">NSString</span> </em>path in directoryContents) {
+            <span class="built_in">NSString</span> *fullPath = [cacheDirectory stringByAppendingPathComponent:path];
+            <span class="built_in">BOOL</span> removeSuccess = [fileMgr removeItemAtPath:fullPath error:&amp;error];
+            <span class="keyword">if</span> (!removeSuccess) {
+                <span class="comment">// Error handling</span>
+            }
+        }
+    } <span class="keyword">else</span> {
+        <span class="comment">// Error handling</span>
+    }
+}
 </pre></td></tr></table></figure></notextile>
 
 <p>這樣就完成了改寫自己程式碼的東西了，暫存的資料既不會被iTunes備份也不會上傳到iCloud更不會因為這原因被APPLE退件了。</p>
