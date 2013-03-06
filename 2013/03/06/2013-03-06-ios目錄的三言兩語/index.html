@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS目錄的三言兩語 | 五更's Blog</title>
+  <meta name="author" content="Red Scor">
+  
+  <meta name="description" content="發文章先幹一下，媽的蘋果又退我們件，又是該死的iap問題
+ Audio story is set to consumable. 
+這什麼鳥理由，怕我們跟apple 線上音樂衝突到嗎，查了一下StackOverFlow也是有一堆人因為這問題被退。
+好吧，先不管iap的事情，這次還有一個退件原因是因為我把暫存圖存到了Document資料夾下
+因為在iOS SandBox下 只有tmp和library/cache下不會被iTunes和iCloud備份。
+你硬要存到Document的話，要寫一段Code去特別聲明這個資料夾是不備份的。
+但你要存一些東西又要暫存資料呢，只好另尋方法。
+網路最常用的就是存到library/cache中，這樣你存得資料就不會被備份到。
+你要查看你存的東西會不會被備份可以用此方法
+
+Install and launch your app
+Go to Settings &gt; iCloud &gt; Storage &amp; Backup &gt; Manage Storage 
+If necessary, tap &quot;Show all apps&quot;
+Check your app&amp;#39;s storage">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="iOS目錄的三言兩語"/>
+  <meta property="og:site_name" content="五更's Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="五更's Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39025083-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">五更's Blog</a></h1>
+  <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+<a href="http://info.flagcounter.com/vGjq"><img src="http://s04.flagcounter.com/mini/vGjq/bg_F0FEFF/txt_D91818/border_B627CC/flags_0/" alt="Flag Counter" border="0"></a>
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-06T05:35:42.000Z"><a href="/2013/03/06/2013-03-06-ios目錄的三言兩語/">Mar 6 2013  (13:35:42)</a></time>
+      
+      
+  
+    <h1 class="title">iOS目錄的三言兩語</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>發文章先幹一下，媽的蘋果又退我們件，又是該死的iap問題</p>
+<p><strong> Audio story is set to consumable. </strong></p>
+<p>這什麼鳥理由，怕我們跟apple 線上音樂衝突到嗎，查了一下StackOverFlow也是有一堆人因為這問題被退。</p>
+<p>好吧，先不管iap的事情，這次還有一個退件原因是因為我把暫存圖存到了Document資料夾下<br>
+因為在iOS SandBox下 只有tmp和library/cache下不會被iTunes和iCloud備份。</p>
+<p>你硬要存到Document的話，要寫一段Code去特別聲明這個資料夾是不備份的。</p>
+<p>但你要存一些東西又要暫存資料呢，只好另尋方法。
+<br>網路最常用的就是存到library/cache中，這樣你存得資料就不會被備份到。</p>
+<p>你要查看你存的東西會不會被備份可以用此方法</p>
+<ul>
+<li>Install and launch your app</li>
+<li>Go to Settings &gt; iCloud &gt; Storage &amp; Backup &gt; Manage Storage </li>
+<li>If necessary, tap &quot;Show all apps&quot;</li>
+<li>Check your app&#39;s storage</li>
+</ul>
+<h2><a name="more"></a></h2>
+<p>因為我用的圖片暫存是我自己寫的，不是用網路上找的，例如SDWebImage這個有名的第三方Library。</p>
+<p>所以著手來改一下自己的程式碼吧。</p>
+<p>原本找到Document資料夾下的語法應該是這樣</p>
+<notextile><figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">//找到Document目錄</span>
+<span class="built_in">NSString</span> <em>applicationDocumentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span class="literal">YES</span>) objectAtIndex:<span class="number">0</span>];
+<span class="comment">//儲存到Document目錄下</span>
+    <span class="built_in">NSString</span> </em>storePath = [applicationDocumentsDir stringByAppendingPathComponent:你的String];
+</pre></td></tr></table></figure></notextile>
+
+<p>現在要改成如下 </p>
+<notextile><figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="comment">//找到根目錄下的cache目錄</span>
+    <span class="built_in">NSArray</span> <em>paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
+<span class="comment">//再找到cache目錄下的ImageCache資料夾</span>
+<span class="comment">//因為我想把照片都存到一個目錄去管理，而不是都丟到cache下    </span>
+<span class="built_in">NSString</span> </em>cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">&quot;ImageCache&quot;</span>];
+<span class="comment">//設一布林值去做判斷</span>
+<span class="built_in">BOOL</span> isDir = <span class="literal">NO</span>;
+<span class="built_in">NSError</span> <em>error;
+<span class="comment">//如果cacheDirectory目錄不存在，則先建立一個cacheDirectory</span>
+<span class="comment">//也就是上面寫的ImageCache目錄</span>
+<span class="keyword">if</span> (! [[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:cacheDirectory isDirectory:&amp;isDir] &amp;&amp; isDir == <span class="literal">NO</span>) {
+        [[<span class="built_in">NSFileManager</span> defaultManager] createDirectoryAtPath:cacheDirectory withIntermediateDirectories:<span class="literal">NO</span> attributes:<span class="literal">nil</span> error:&amp;error];
+    }
+<span class="comment">//寫入cacheDirectory中</span>
+<span class="built_in">NSString</span> </em>storePath  = [cacheDirectory stringByAppendingPathComponent:你的String];
+</pre></td></tr></table></figure></notextile>
+
+<p>上面你的String中，你可先做UTF8編碼或是base64做處理，隨自己高興</p>
+<p>這樣就完成了把照片存到/library/cache中的ImageCache中</p>
+<p>有些友善的APP還會提供刪除暫存的工作，可以用如下Method</p>
+<notextile><figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre> +(<span class="keyword">void</span>)RemoveDocumentFiles
+ {
+<span class="built_in">NSArray</span> <em>paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
+<span class="built_in">NSString</span> </em>cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">&quot;ImageCache&quot;</span>];
+
+<span class="built_in">NSFileManager</span> <em>fileMgr = [[[<span class="built_in">NSFileManager</span> alloc] init] autorelease];
+<span class="built_in">NSError</span> </em>error = <span class="literal">nil</span>;
+<span class="built_in">NSArray</span> <em>directoryContents = [fileMgr contentsOfDirectoryAtPath:cacheDirectory error:&amp;error];
+     <span class="keyword">if</span> (error == <span class="literal">nil</span>) {
+         <span class="keyword">for</span> (<span class="built_in">NSString</span> </em>path in directoryContents) {
+<span class="built_in">NSString</span> *fullPath = [cacheDirectory stringByAppendingPathComponent:path];
+             <span class="built_in">BOOL</span> removeSuccess = [fileMgr removeItemAtPath:fullPath error:&amp;error];
+             <span class="keyword">if</span> (!removeSuccess) {
+                 <span class="comment">// Error handling</span>
+
+             }
+         }
+</pre></td></tr></table></figure></notextile>
+
+<p>這樣就完成了改寫自己程式碼的東西了，暫存的資料既不會被iTunes備份也不會上傳到iCloud更不會因為這原因被APPLE退件了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:redscor.github.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/iOS/">iOS</a><small>3</small></li>
+  
+    <li><a href="/tags/iPhone/">iPhone</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget twitter">
+  <h3 class="title">Tweets</h3>
+  <ul id="tweets"></ul>
+</div>
+
+<script type="text/javascript">
+var twitter_stream = ['RedscorYuan', 7, false];
+var moment_js_path = '/js/moment.min.js';
+</script>
+<script src="/js/twitter.js"></script>
+
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Red Scor
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'redscor';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
