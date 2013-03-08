@@ -107,7 +107,7 @@ Check your app&amp;#39;s storage">
 <p>因為我用的圖片暫存是我自己寫的，不是用網路上找的，例如SDWebImage這個有名的第三方Library。</p>
 <p>所以著手來改一下自己的程式碼吧。</p>
 <p>原本找到Document資料夾下的語法應該是這樣</p>
-<notextile><figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<notextile><figure class="highlight lang-objc"><figcaption><span>Document directory </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -118,7 +118,7 @@ Check your app&amp;#39;s storage">
 </pre></td></tr></table></figure></notextile>
 
 <p>現在要改成如下 </p>
-<notextile><figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<notextile><figure class="highlight lang-objc"><figcaption><span>找到cache Dir 創建自定目錄 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -153,7 +153,7 @@ Check your app&amp;#39;s storage">
 <p>上面你的String中，你可先做UTF8編碼或是base64做處理，隨自己高興</p>
 <p>這樣就完成了把照片存到/library/cache中的ImageCache中</p>
 <p>有些友善的APP還會提供刪除暫存的工作，可以用如下Method</p>
-<notextile><figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<notextile><figure class="highlight lang-objc"><figcaption><span>刪除自定cache中資料夾檔案 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
