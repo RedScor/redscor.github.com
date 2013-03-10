@@ -124,7 +124,7 @@
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/ACG/">ACG</a><small>3</small></li>
+    <li><a href="/ACG/">ACG</a><small>4</small></li>
   
     <li><a href="/iOS/">iOS</a><small>2</small></li>
   
@@ -145,9 +145,11 @@
   
     <li><a href="/tags/iPhone/">iPhone</a><small>2</small></li>
   
-    <li><a href="/tags/光之美少女/">光之美少女</a><small>1</small></li>
+    <li><a href="/tags/光之美少女/">光之美少女</a><small>2</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
+  
+    <li><a href="/tags/心跳！光之美少女/">心跳！光之美少女</a><small>1</small></li>
   
     <li><a href="/tags/漫畫/">漫畫</a><small>1</small></li>
   
@@ -201,6 +203,16 @@ var disqus_shortname = 'redscor';
 (function($){
   $('.fancybox').fancybox();
 })(jQuery);
+
+function addBlankTargetForLinks () {
+  $('a[href^="http"]').each(function(){
+		$(this).attr('target', '_blank');
+	});
+}
+ 
+$(document).bind('DOMNodeInserted', function(event) {
+	addBlankTargetForLinks();
+});
 </script>
 
 </body>
