@@ -107,11 +107,13 @@
 3
 4
 5
-</pre></td><td class="code"><pre>//這裡需注意的是initWithTarget：self &lt;--
-UIPanGestureRecognizer *tableviewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
+6
+</pre></td><td class="code"><pre><span class="constant">UIPanGestureRecognizer</span> *tableviewPanGestureRecognizer = [[<span class="constant">UIPanGestureRecognizer</span> alloc] <span class="symbol">initWithTarget:</span><span class="keyword">self</span>.navigationController.parentViewController <span class="symbol">action:</span><span class="variable">@selector</span>(<span class="symbol">revealGesture:</span>)];
 
-//這裡的self.aTableView是我自己的Tableview property 你可以決定你自己的View
-[self.aTableView addGestureRecognizer:tableviewPanGestureRecognizer];
+<span class="regexp">//</span>這裡的<span class="keyword">self</span>.aTableView是我自己的<span class="constant">Tableview</span> property 你可以決定你自己的<span class="constant">View</span>
+[<span class="keyword">self</span>.aTableView <span class="symbol">addGestureRecognizer:</span>tableviewPanGestureRecognizer];
+<span class="regexp">//</span>下面會講到為什麼要設delegate
+tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 </pre></td></tr></table></figure>
 
 <p>這樣就可以完成了左右手識添加，可是還有一步，就是它連上下手勢都加進去了
@@ -119,6 +121,7 @@ UIPanGestureRecognizer *tableviewPanGestureRecognizer = [[UIPanGestureRecognizer
 所以必須要借助 <em>UIPanGestureRecognizer</em> 這裡面的<strong>Delegate</strong> 方法</p>
 <p>首先在<code>.h</code>檔中加入 <strong>UIGestureRecognizerDelegate</strong> 這個 <em>Protocol</em></p>
 <p>然後再<code>.m</code>檔中，- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer 這個delegate中寫入偵測方法</p>
+<p>所以在上面的method中 要加入delegate指向自己</p>
 <figure class="highlight lang-objc"><figcaption><span>加入偵測手勢 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
