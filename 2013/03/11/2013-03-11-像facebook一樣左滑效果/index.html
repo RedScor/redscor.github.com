@@ -155,7 +155,12 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <p>找到裡面的 </p>
 <p><code>- (void)revealController:(ZUUIRevealController *)revealController willRevealRearViewController:(UIViewController *)rearViewController</code><br>這個Method</p>
 <p>加入以下程式碼 (就不詳細講了有問題再提出)</p>
-<p><em>需先在<code>.h</code>檔中 加入 `UIView </em>touchIntercepterView;`</p>
+<p>*需先在<code>.h</code>檔中 加入 </p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">UIView</span> *touchIntercepterView;
+</pre></td></tr></table></figure>
+
+<p>然後再<code>.m</code>檔中</p>
 <figure class="highlight lang-objc"><figcaption><span>加入點擊和拖拉返回兩個手識 完整程式碼 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
