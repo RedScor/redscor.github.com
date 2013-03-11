@@ -95,19 +95,21 @@
 <p>
 
 <p>然後應該會看到</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre>UIPanGestureRecognizer *navigationBarPanGestureRecognizer = <span class="string">[[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
-[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
+</pre></td><td class="code"><pre><span class="constant">UIPanGestureRecognizer</span> *navigationBarPanGestureRecognizer = [[<span class="constant">UIPanGestureRecognizer</span> alloc] <span class="symbol">initWithTarget:</span><span class="keyword">self</span>.navigationController.parentViewController <span class="symbol">action:</span><span class="variable">@selector</span>(<span class="symbol">revealGesture:</span>)];
+[<span class="keyword">self</span>.navigationController.navigationBar <span class="symbol">addGestureRecognizer:</span>navigationBarPanGestureRecognizer];
 </pre></td></tr></table></figure>
 
 <p>我們就在下面加入同樣對主頁面的View進行添加手勢</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>//這裡需注意的是initWithTarget：**self**
-UIPanGestureRecognizer *tableviewPanGestureRecognizer = <span class="string">[[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
+5
+</pre></td><td class="code"><pre>//這裡需注意的是initWithTarget：self &lt;--
+UIPanGestureRecognizer *tableviewPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
+
 //這裡的self.aTableView是我自己的Tableview property 你可以決定你自己的View
 [self.aTableView addGestureRecognizer:tableviewPanGestureRecognizer];
 </pre></td></tr></table></figure>
@@ -150,7 +152,7 @@ UIPanGestureRecognizer *tableviewPanGestureRecognizer = <span class="string">[[U
 <p>找到裡面的 </p>
 <p><code>- (void)revealController:(ZUUIRevealController *)revealController willRevealRearViewController:(UIViewController *)rearViewController</code><br>這個Method</p>
 <p>加入以下程式碼 (就不詳細講了有問題再提出)</p>
-<figure class="highlight lang-objc"><figcaption><span>加入點擊和拖拉返回兩個手識 </span></figcaption><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-objc"><figcaption><span>加入點擊和拖拉返回兩個手識 完整程式碼 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -163,19 +165,29 @@ UIPanGestureRecognizer *tableviewPanGestureRecognizer = <span class="string">[[U
 11
 12
 13
-</pre></td><td class="code"><pre><span class="keyword">if</span> (touchIntercepterView == <span class="keyword">nil</span>) {
-		touchIntercepterView = <span class="string">[[UIView alloc] initWithFrame:revealController.frontViewController.view.frame];
-//加入點擊返回		
-UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre>- (<span class="keyword">void</span>)revealController:(ZUUIRevealController *)revealController willRevealRearViewController:(<span class="built_in">UIViewController</span> *)rearViewController 
+{
+	<span class="keyword">if</span> (touchIntercepterView == <span class="literal">nil</span>) {
+		touchIntercepterView = [[<span class="built_in">UIView</span> alloc] initWithFrame:revealController<span class="variable">.frontViewController</span><span class="variable">.view</span><span class="variable">.frame</span>];
+		<span class="comment">//加入點擊返回</span>
+		UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@<span class="keyword">selector</span>(revealToggle:)];
 		[touchIntercepterView addGestureRecognizer:tapGestureRecognizer];
 		[tapGestureRecognizer release];
-//加入拖拉手勢		
-UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealGesture:)];
+		<span class="comment">//加入拖拉手勢</span>
+		UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:revealController action:@<span class="keyword">selector</span>(revealGesture:)];
 		[touchIntercepterView addGestureRecognizer:panGestureRecognizer];
 		[panGestureRecognizer release];
-		
-[revealController.frontViewController.view insertSubview:touchIntercepterView atIndex:INT_MAX];
+
+		[revealController<span class="variable">.frontViewController</span><span class="variable">.view</span> insertSubview:touchIntercepterView atIndex:INT_MAX];
 	}
+	
+	<span class="built_in">NSLog</span>(@<span class="string">"%@"</span>, NSStringFromSelector(_cmd));
+}
 </pre></td></tr></table></figure>
 
 <p>然後再找到</p>
@@ -186,10 +198,10 @@ UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] i
 4
 5
 </pre></td><td class="code"><pre><span class="function"><span class="title">if</span> <span class="params">(touch<span class="variable">IntercepterView</span> != nil)</span> {
-		[<span class="title">touchIntercepterView</span> <span class="title">removeFromSuperview</span>];
-		[<span class="title">touchIntercepterView</span> <span class="title">release</span>];
-		<span class="title">touchIntercepterView</span> = <span class="title">nil</span>;
-	}
+	[<span class="title">touchIntercepterView</span> <span class="title">removeFromSuperview</span>];
+	[<span class="title">touchIntercepterView</span> <span class="title">release</span>];
+	<span class="title">touchIntercepterView</span> = <span class="title">nil</span>;
+}
 </pre></td></tr></table></figure>
 
 <p>這樣就完完全全跟Facebook功能一樣，能拖拉到右邊，也能點擊返回和拖拉返回主頁面了。</p>
