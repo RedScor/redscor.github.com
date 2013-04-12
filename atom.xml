@@ -4,13 +4,105 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.com/atom.xml" rel="self"/>
   <link href="http://redscor.github.com"/>
-  <updated>2013-03-25T08:35:51.849Z</updated>
+  <updated>2013-04-12T07:07:36.617Z</updated>
   <id>http://redscor.github.com/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[EGOTableViewPullRefresh下拉更新]]></title>
+    <link href="http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/"/>
+    <id>http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/</id>
+    <published>2013-04-12T06:45:48.000Z</published>
+    <updated>2013-04-12T07:07:15.000Z</updated>
+    <content type="html"><![CDATA[<p>在很久之前 Twitter一個APP實現了這個下拉式更新的方式。</p>
+<p>可是因為沒有對外發表，網路一堆人在詢問，這時github上有個人實現了這個方法。</p>
+<p>把他叫做EGOTableViewPullRefresh，之後Facebook App還偷拿去用，因此扯上官司。</p>
+<p>廢話不多講，這次當然不是要講如何去用這個Library，而是實現類似Facebook一登入後，取代著螢幕中間有個黑方塊的等待視窗，而是用預設下拉式的更新。</p>
+<p>要實現這個方法，我們需要改進一點EGOTableViewPullRefresh原本的Code</p>
+<p>在ViewDidload中，官方例子有下列Code </p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">if</span> (_refreshHeaderView == <span class="literal">nil</span>) {
+		
+	EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] 		initWithFrame:CGRectMake(<span class="number">0.0</span>f, <span class="number">0.0</span>f - <span class="keyword">self</span><span class="variable">.rearTableView</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>, 		<span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.rearTableView</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>)];
+		view<span class="variable">.delegate</span> = <span class="keyword">self</span>;
+		[<span class="keyword">self</span><span class="variable">.rearTableView</span> addSubview:view];
+		_refreshHeaderView = view;
+		[view release];
+		
+}
+[_refreshHeaderView refreshLastUpdatedDate];
+</pre></td></tr></table></figure>
+
+<p>再此Code中 我們需先改寫讓一個tableview一進ViewDidload中先下拉到原本EGO預設的更新長度(預設40 height)</p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre>if (_refreshHeaderView == nil) {
+
+		_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(<span class="number">0.0</span>f, <span class="number">0.0</span>f - self.aTableView.bounds.size.height, <span class="number">320.0</span>f, self.aTableView.bounds.size.height)];
+		_refreshHeaderView.backgroundColor = [UIColor colorWithWhite:<span class="number">0.812</span> alpha:<span class="number">1.000</span>];
+		_refreshHeaderView.<span class="class"><span class="keyword">delegate</span> = <span class="title">self</span>;
+		[<span class="title">self</span>.<span class="title">aTableView</span> <span class="title">addSubview</span>:<span class="title">_refreshHeaderView</span>];
+		<span class="title">self</span>.<span class="title">aTableView</span>.<span class="title">showsVerticalScrollIndicator</span> = <span class="title">YES</span>;
+	}
+	[<span class="title">self</span> <span class="title">EnterReloadData</span>];
+	[<span class="title">_refreshHeaderView</span> <span class="title">setState</span>:<span class="title">EGOOPullRefreshLoading</span>];
+
+	[<span class="title">UIView</span> <span class="title">beginAnimations</span>:<span class="title">nil</span> <span class="title">context</span>:<span class="title">NULL</span>];
+	[<span class="title">UIView</span> <span class="title">setAnimationDuration</span>:0.2];
+	<span class="title">self</span>.<span class="title">aTableView</span>.<span class="title">contentInset</span> = <span class="title">UIEdgeInsetsMake</span>(40.0<span class="title">f</span>, 0.0<span class="title">f</span>, 0.0<span class="title">f</span>, 0.0<span class="title">f</span>);
+	[<span class="title">UIView</span> <span class="title">commitAnimations</span>];
+</pre></td></tr></table></figure>
+
+<p>因為我下載的EGO沒有把 State這個屬性設成property 所以我們需自行在</p>
+<p><code>EGORefreshTableHeaderView.h</code> 中 加入 <code>@property(nonatomic,assign) EGOPullRefreshState state;</code></p>
+<p>然後再m檔中補上<code>@synthesize state=_state;</code></p>
+<p>上面的程式碼主要就是把 把tableview往下方移動到x軸40的地方 <br>
+然後去setState 把狀態設成Loading。</p>
+<p>我們需自行再加入一個Method </p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>-(<span class="keyword">void</span>)EnterReloadData
+{
+	[<span class="keyword">self</span> reloadTableViewDataSource];
+
+}
+</pre></td></tr></table></figure>
+
+<p>因為EGO delegate的關係，會去自動偵測你拉到40後會去call <code>- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view</code> 這個Delegate Method </p>
+<p>這個Method又會去Call <code>reloadTableViewDataSource</code> 所以我們做一個Method叫<code>EnterReloadData</code> 自行去Call </p>
+<p>其他方法就跟原本用法差不多了，因為之前改的東西有點多，應該就是這些，有遺漏的請指教。</p>
+]]></content>
+    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[魔法少女奈葉 A's 劇場版]]></title>
     <link href="http://redscor.github.com/2013/03/23/nanoha-As-movie/"/>
