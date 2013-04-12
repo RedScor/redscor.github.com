@@ -9,85 +9,7 @@
   <meta name="description" content="在很久之前 Twitter一個APP實現了這個下拉式更新的方式。
 可是因為沒有對外發表，網路一堆人在詢問，這時github上有個人實現了這個方法。
 把他叫做EGOTableViewPullRefresh，之後Facebook App還偷拿去用，因此扯上官司。
-廢話不多講，這次當然不是要講如何去用這個Library，而是實現類似Facebook一登入後，取代著螢幕中間有個黑方塊的等待視窗，而是用預設下拉式的更新。
-要實現這個方法，我們需要改進一點EGOTableViewPullRefresh原本的Code
-在ViewDidload中，官方例子有下列Code 
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-if (_refreshHeaderView == nil) {
-		
-	EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] 		initWithFrame:CGRectMake(0.0f, 0.0f - self.rearTableView.bounds.size.height, 		self.view.frame.size.width, self.rearTableView.bounds.size.height)];
-		view.delegate = self;
-		[self.rearTableView addSubview:view];
-		_refreshHeaderView = view;
-		[view release];
-		
-}
-[_refreshHeaderView refreshLastUpdatedDate];
-
-
-再此Code中 我們需先改寫讓一個tableview一進ViewDidload中先下拉到原本EGO預設的更新長度(預設40 height)
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-if (_refreshHeaderView == nil) {
-
-		_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.aTableView.bounds.size.height, 320.0f, self.aTableView.bounds.size.height)];
-		_refreshHeaderView.backgroundColor = [UIColor colorWithWhite:0.812 alpha:1.000];
-		_refreshHeaderView.delegate = self;
-		[self.aTableView addSubview:_refreshHeaderView];
-		self.aTableView.showsVerticalScrollIndicator = YES;
-	}
-	[self EnterReloadData];
-	[_refreshHeaderView setState:EGOOPullRefreshLoading];
-
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.2];
-	self.aTableView.contentInset = UIEdgeInsetsMake(40.0f, 0.0f, 0.0f, 0.0f);
-	[UIView commitAnimations];
-
-
-因為我下載的EGO沒有把 State這個屬性設成property 所以我們需自行在
-EGORefreshTableHeaderView.h 中 加入 @property(nonatomic,assign) EGOPullRefreshState state;
-然後再m檔中補上@synthesize state=_state;
-上面的程式碼主要就是把 把tableview往下方移動到x軸40的地方 
-然後去setState 把狀態設成Loading。
-我們需自行再加入一個Method 
-1
-2
-3
-4
-5
--(void)EnterReloadData
-{
-	[self reloadTableViewDataSource];
-
-}
-
-
-因為EGO delegate的關係，會去自動偵測你拉到40後會去call - (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view 這個Delegate Method 
-這個Method又會去Call reloadTableViewDataSource 所以我們做一個Method叫EnterReloadData 自行去Call 
-其他方法就跟原本用法差不多了，因為之前改的東西有點多，應該就是這些，有遺漏的請指教。">
+廢話不多講，這次當然不是要講如何去用這個Library，而是實現類似Facebook一登入後，取代著螢幕中間有個黑方塊的等待視窗，而是用預設下拉式的更新。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -166,6 +88,8 @@ EGORefreshTableHeaderView.h 中 加入 @property(nonatomic,assign) EGOPullRefres
 <p>可是因為沒有對外發表，網路一堆人在詢問，這時github上有個人實現了這個方法。</p>
 <p>把他叫做EGOTableViewPullRefresh，之後Facebook App還偷拿去用，因此扯上官司。</p>
 <p>廢話不多講，這次當然不是要講如何去用這個Library，而是實現類似Facebook一登入後，取代著螢幕中間有個黑方塊的等待視窗，而是用預設下拉式的更新。</p>
+<a name="more"></a>
+
 <p>要實現這個方法，我們需要改進一點EGOTableViewPullRefresh原本的Code</p>
 <p>在ViewDidload中，官方例子有下列Code </p>
 <figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
@@ -180,11 +104,11 @@ EGORefreshTableHeaderView.h 中 加入 @property(nonatomic,assign) EGOPullRefres
 10
 </pre></td><td class="code"><pre><span class="keyword">if</span> (_refreshHeaderView == <span class="literal">nil</span>) {
 		
-	EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] 		initWithFrame:CGRectMake(<span class="number">0.0</span>f, <span class="number">0.0</span>f - <span class="keyword">self</span><span class="variable">.rearTableView</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>, 		<span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.rearTableView</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>)];
-		view<span class="variable">.delegate</span> = <span class="keyword">self</span>;
-		[<span class="keyword">self</span><span class="variable">.rearTableView</span> addSubview:view];
-		_refreshHeaderView = view;
-		[view release];
+	EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] 	initWithFrame:CGRectMake(<span class="number">0.0</span>f, <span class="number">0.0</span>f - <span class="keyword">self</span><span class="variable">.rearTableView</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>,<span class="keyword">self</span><span class="variable">.view</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.rearTableView</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>)];
+	view<span class="variable">.delegate</span> = <span class="keyword">self</span>;
+	[<span class="keyword">self</span><span class="variable">.rearTableView</span> addSubview:view];
+	_refreshHeaderView = view;
+	[view release];
 		
 }
 [_refreshHeaderView refreshLastUpdatedDate];
@@ -208,19 +132,19 @@ EGORefreshTableHeaderView.h 中 加入 @property(nonatomic,assign) EGOPullRefres
 15
 </pre></td><td class="code"><pre>if (_refreshHeaderView == nil) {
 
-		_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(<span class="number">0.0</span>f, <span class="number">0.0</span>f - self.aTableView.bounds.size.height, <span class="number">320.0</span>f, self.aTableView.bounds.size.height)];
-		_refreshHeaderView.backgroundColor = [UIColor colorWithWhite:<span class="number">0.812</span> alpha:<span class="number">1.000</span>];
-		_refreshHeaderView.<span class="class"><span class="keyword">delegate</span> = <span class="title">self</span>;
-		[<span class="title">self</span>.<span class="title">aTableView</span> <span class="title">addSubview</span>:<span class="title">_refreshHeaderView</span>];
-		<span class="title">self</span>.<span class="title">aTableView</span>.<span class="title">showsVerticalScrollIndicator</span> = <span class="title">YES</span>;
-	}
-	[<span class="title">self</span> <span class="title">EnterReloadData</span>];
-	[<span class="title">_refreshHeaderView</span> <span class="title">setState</span>:<span class="title">EGOOPullRefreshLoading</span>];
+	_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(<span class="number">0.0</span>f, <span class="number">0.0</span>f - self.aTableView.bounds.size.height, <span class="number">320.0</span>f, self.aTableView.bounds.size.height)];
+	_refreshHeaderView.backgroundColor = [UIColor colorWithWhite:<span class="number">0.812</span> alpha:<span class="number">1.000</span>];
+	_refreshHeaderView.<span class="class"><span class="keyword">delegate</span> = <span class="title">self</span>;
+	[<span class="title">self</span>.<span class="title">aTableView</span> <span class="title">addSubview</span>:<span class="title">_refreshHeaderView</span>];
+	<span class="title">self</span>.<span class="title">aTableView</span>.<span class="title">showsVerticalScrollIndicator</span> = <span class="title">YES</span>;
+}
+[<span class="title">self</span> <span class="title">EnterReloadData</span>];
+[<span class="title">_refreshHeaderView</span> <span class="title">setState</span>:<span class="title">EGOOPullRefreshLoading</span>];
 
-	[<span class="title">UIView</span> <span class="title">beginAnimations</span>:<span class="title">nil</span> <span class="title">context</span>:<span class="title">NULL</span>];
-	[<span class="title">UIView</span> <span class="title">setAnimationDuration</span>:0.2];
-	<span class="title">self</span>.<span class="title">aTableView</span>.<span class="title">contentInset</span> = <span class="title">UIEdgeInsetsMake</span>(40.0<span class="title">f</span>, 0.0<span class="title">f</span>, 0.0<span class="title">f</span>, 0.0<span class="title">f</span>);
-	[<span class="title">UIView</span> <span class="title">commitAnimations</span>];
+[<span class="title">UIView</span> <span class="title">beginAnimations</span>:<span class="title">nil</span> <span class="title">context</span>:<span class="title">NULL</span>];
+[<span class="title">UIView</span> <span class="title">setAnimationDuration</span>:0.2];
+<span class="title">self</span>.<span class="title">aTableView</span>.<span class="title">contentInset</span> = <span class="title">UIEdgeInsetsMake</span>(40.0<span class="title">f</span>, 0.0<span class="title">f</span>, 0.0<span class="title">f</span>, 0.0<span class="title">f</span>);
+[<span class="title">UIView</span> <span class="title">commitAnimations</span>];
 </pre></td></tr></table></figure>
 
 <p>因為我下載的EGO沒有把 State這個屬性設成property 所以我們需自行在</p>
