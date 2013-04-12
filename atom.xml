@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.com/atom.xml" rel="self"/>
   <link href="http://redscor.github.com"/>
-  <updated>2013-04-12T07:12:18.226Z</updated>
+  <updated>2013-04-12T07:17:06.300Z</updated>
   <id>http://redscor.github.com/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,11 +16,14 @@
     <link href="http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/"/>
     <id>http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/</id>
     <published>2013-04-12T06:45:48.000Z</published>
-    <updated>2013-04-12T07:12:13.000Z</updated>
+    <updated>2013-04-12T07:17:01.000Z</updated>
     <content type="html"><![CDATA[<p>在很久之前 Twitter一個APP實現了這個下拉式更新的方式。</p>
 <p>可是因為沒有對外發表，網路一堆人在詢問，這時github上有個人實現了這個方法。</p>
 <p>把他叫做EGOTableViewPullRefresh，之後Facebook App還偷拿去用，因此扯上官司。</p>
 <p>廢話不多講，這次當然不是要講如何去用這個Library，而是實現類似Facebook一登入後，取代著螢幕中間有個黑方塊的等待視窗，而是用預設下拉式的更新。</p>
+<p>如圖</p>
+<img src="http://i.imgur.com/nPbAw2g.png" title="更新" alt="更新">
+
 <a name="more"></a>
 
 <p>要實現這個方法，我們需要改進一點EGOTableViewPullRefresh原本的Code</p>
