@@ -4,13 +4,134 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.com/atom.xml" rel="self"/>
   <link href="http://redscor.github.com"/>
-  <updated>2013-04-12T07:17:06.300Z</updated>
+  <updated>2013-04-15T14:07:26.864Z</updated>
   <id>http://redscor.github.com/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[iOS評分功能]]></title>
+    <link href="http://redscor.github.com/2013/04/15/ios評分功能/"/>
+    <id>http://redscor.github.com/2013/04/15/ios評分功能/</id>
+    <published>2013-04-15T13:37:55.000Z</published>
+    <updated>2013-04-15T14:06:58.000Z</updated>
+    <content type="html"><![CDATA[<p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="string">[[UIApplication sharedApplication] openURL:
+ [NSURL URLWithString:[NSString stringWithFormat:
+ @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/
+ viewContentsUserReviews?type=Purple+Software&amp;id=%@",APP_STORE_ID]]</span>];
+</pre></td></tr></table></figure>
+
+<p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br>
+在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。</p>
+<a name="more"></a>
+
+<p>方法是在一個國外網站看到的，在此實現一下。</p>
+<p>首先我們建一個繼承UIViewController 的Class</p>
+<p>然後再H檔中<code>#import &lt;StoreKit/StoreKit.h&gt;</code> </p>
+<p>再interface中我們增加一個小菊花，</p>
+<p><code>UIActivityIndicatorView *activityView;</code> </p>
+<p>也增加一個Method <code>- (void)AppStoreGrade:(UIViewController *)VC;</code></p>
+<p>然後再<code>M檔中</code></p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre>- (void)AppStoreGrade:(UIViewController *)VC
+{
+	<span class="keyword">if</span> ([self respondsToSelector:@selector(openAppStore:)]) {
+		
+		//設定小菊花
+		activityView = <span class="string">[[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(150.0f, 144.0f, 40.0f, 40.0f)];
+		activityView.activityIndicatorViewStyle =UIActivityIndicatorViewStyleWhiteLarge;
+		[VC.view addSubview:activityView];
+	[self performSelector:@selector(openAppStore:) withObject:VC];
+	}
+}
+</pre></td></tr></table></figure>
+
+<p>建立SKStoreProductViewController的方法如下</p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>SKStoreProductViewController *storeProductVC = <span class="string">[[SKStoreProductViewController alloc]init];
+
+[storeProductVC setDelegate:rear];
+//設定Delegate 你要在那邊呼叫的Class，這邊我實例化了一個叫rear的Class 
+[storeProductVC loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:APP_STORE_ID} completionBlock:nil];
+
+//彈出視圖
+[VC presentViewController:storeProductVC animated:YES completion:nil];
+
+</pre></td></tr></table></figure>
+
+<p>以上程式碼足以彈出一個視圖秀出app store你appid的頁面，為什麼要設定小菊花是因為在3G下會有點延遲<br>所以需中間有個轉轉轉的讓使用者知道程式還在運作中。</p>
+<p>在我們需要呼叫的Class H檔中匯入下面Protocol<code>SKStoreProductViewControllerDelegate</code></p>
+<p>再M檔中 我們可以這樣呼叫</p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>GradeViewController *grade = <span class="string">[[GradeViewController alloc]init];
+//GradeViewController 就是我們剛寫的Class囉
+	[grade AppStoreGrade:self];
+[grade release];
+</pre></td></tr></table></figure>
+
+
+<p>然後寫一個delegate函數</p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>- (void)<span class="method">productViewControllerDidFinish:</span>(<span class="class">SKStoreProductViewController</span> *)viewController
+{
+	[viewController <span class="method">dismissViewControllerAnimated:</span><span class="class">YES</span> <span class="method">completion:</span><span class="keyword">nil</span>];
+}
+</pre></td></tr></table></figure>
+
+<p>這樣就完成了。</p>
+<p>然後我們怎麼要兼容iOS 6以下的設備呢，有人可能會想說用UIdevice 去取iOS版本去判斷，</p>
+<p>其實不用那麼麻煩，下一個if就可以了唷。</p>
+<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>
+<span class="keyword">if</span> (<span class="constant">NSStringFromClass</span>([<span class="constant">SKStoreProductViewController</span> <span class="keyword">class</span>]) != <span class="keyword">nil</span>) {
+    <span class="regexp">//</span>支援iOS <span class="number">6</span>
+}<span class="keyword">else</span>{
+   <span class="regexp">//</span>不支援iOS <span class="number">6</span>
+}
+</pre></td></tr></table></figure>
+
+<p>寫到這邊，各位應該知道如何兼容了吧，不過我自己覺得這樣寫還是有點缺點，應該是都能寫成一個Class 去呼叫成模組的，然後不是代Cintroller進去而是帶APPId進去才是好方法呢。</p>
+<p>可惜能力還不夠阿...</p>
+]]></content>
+    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[EGOTableViewPullRefresh下拉更新]]></title>
     <link href="http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/"/>

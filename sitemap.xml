@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://redscor.github.com/2013/04/15/ios評分功能/</loc>
+    <lastmod>2013-04-15T14:06:58.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/</loc>
     <lastmod>2013-04-12T07:17:01.000Z</lastmod>
   </url>
