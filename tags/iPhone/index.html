@@ -85,14 +85,14 @@
     <div class="entry">
       
         <p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre><span class="string">[[UIApplication sharedApplication] openURL:
- [NSURL URLWithString:[NSString stringWithFormat:
- @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/
- viewContentsUserReviews?type=Purple+Software&amp;id=%@",APP_STORE_ID]]</span>];
+</pre></td><td class="code"><pre>[[<span class="constant">UIApplication</span> sharedApplication] <span class="symbol">openURL:</span>
+ [<span class="constant">NSURL</span> <span class="constant">URLWithString</span><span class="symbol">:</span>[<span class="constant">NSString</span> <span class="symbol">stringWithFormat:</span>
+ @<span class="string">"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/
+ viewContentsUserReviews?type=Purple+Software&amp;id=%@"</span>,<span class="constant">APP_STORE_ID</span>]]];
 </pre></td></tr></table></figure>
 
 <p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br>

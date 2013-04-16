@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.com/atom.xml" rel="self"/>
   <link href="http://redscor.github.com"/>
-  <updated>2013-04-16T05:55:58.570Z</updated>
+  <updated>2013-04-16T05:59:39.856Z</updated>
   <id>http://redscor.github.com/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,16 +16,16 @@
     <link href="http://redscor.github.com/2013/04/15/ios評分功能/"/>
     <id>http://redscor.github.com/2013/04/15/ios評分功能/</id>
     <published>2013-04-15T13:37:55.000Z</published>
-    <updated>2013-04-16T05:55:48.000Z</updated>
+    <updated>2013-04-16T05:59:34.000Z</updated>
     <content type="html"><![CDATA[<p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre><span class="string">[[UIApplication sharedApplication] openURL:
- [NSURL URLWithString:[NSString stringWithFormat:
- @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/
- viewContentsUserReviews?type=Purple+Software&amp;id=%@",APP_STORE_ID]]</span>];
+</pre></td><td class="code"><pre>[[<span class="constant">UIApplication</span> sharedApplication] <span class="symbol">openURL:</span>
+ [<span class="constant">NSURL</span> <span class="constant">URLWithString</span><span class="symbol">:</span>[<span class="constant">NSString</span> <span class="symbol">stringWithFormat:</span>
+ @<span class="string">"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/
+ viewContentsUserReviews?type=Purple+Software&amp;id=%@"</span>,<span class="constant">APP_STORE_ID</span>]]];
 </pre></td></tr></table></figure>
 
 <p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br>
@@ -39,7 +39,7 @@
 <p><code>UIActivityIndicatorView *activityView;</code> </p>
 <p>也增加一個Method <code>- (void)AppStoreGrade:(UIViewController *)VC;</code></p>
 <p>然後再<code>M檔中</code></p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -50,21 +50,21 @@
 9
 10
 11
-</pre></td><td class="code"><pre>- (void)AppStoreGrade:(UIViewController *)VC
+</pre></td><td class="code"><pre>- (void)<span class="constant">AppStoreGrade</span><span class="symbol">:</span>(<span class="constant">UIViewController</span> *)<span class="constant">VC</span>
 {
-	<span class="keyword">if</span> ([self respondsToSelector:@selector(openAppStore:)]) {
-		
-		//設定小菊花
-		activityView = <span class="string">[[UIActivityIndicatorView alloc] initWithFrame: CGRectMake(150.0f, 144.0f, 40.0f, 40.0f)];
-		activityView.activityIndicatorViewStyle =UIActivityIndicatorViewStyleWhiteLarge;
-		[VC.view addSubview:activityView];
-	[self performSelector:@selector(openAppStore:) withObject:VC];
+	<span class="keyword">if</span> ([<span class="keyword">self</span> <span class="symbol">respondsToSelector:</span><span class="variable">@selector</span>(<span class="symbol">openAppStore:</span>)]) 
+	{	
+		<span class="regexp">//</span>設定小菊花
+		activityView = [[<span class="constant">UIActivityIndicatorView</span> alloc] <span class="symbol">initWithFrame:</span> <span class="constant">CGRectMake</span>(<span class="number">150.0</span>f, <span class="number">144.0</span>f, <span class="number">40.0</span>f, <span class="number">40.0</span>f)];
+		activityView.activityIndicatorViewStyle =<span class="constant">UIActivityIndicatorViewStyleWhiteLarge</span>;
+		[<span class="constant">VC</span>.view <span class="symbol">addSubview:</span>activityView];
+	[<span class="keyword">self</span> <span class="symbol">performSelector:</span><span class="variable">@selector</span>(<span class="symbol">openAppStore:</span>) <span class="symbol">withObject:</span><span class="constant">VC</span>];
 	}
 }
 </pre></td></tr></table></figure>
 
 <p>建立SKStoreProductViewController的方法如下</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -73,39 +73,39 @@
 7
 8
 9
-</pre></td><td class="code"><pre>SKStoreProductViewController *storeProductVC = <span class="string">[[SKStoreProductViewController alloc]init];
+</pre></td><td class="code"><pre><span class="constant">SKStoreProductViewController</span> *storeProductVC = [[<span class="constant">SKStoreProductViewController</span> alloc]init];
 
-[storeProductVC setDelegate:rear];
-//設定Delegate 你要在那邊呼叫的Class，這邊我實例化了一個叫rear的Class 
-[storeProductVC loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:APP_STORE_ID} completionBlock:nil];
+[storeProductVC <span class="symbol">setDelegate:</span>rear];
+<span class="regexp">//</span>設定<span class="constant">Delegate</span> 你要在那邊呼叫的<span class="constant">Class</span>，這邊我實例化了一個叫rear的<span class="constant">Class</span> 
+[storeProductVC <span class="symbol">loadProductWithParameters:</span>@{<span class="constant">SKStoreProductParameterITunesItemIdentifier</span><span class="symbol">:APP_STORE_ID</span>} <span class="symbol">completionBlock:</span><span class="keyword">nil</span>];
 
-//彈出視圖
-[VC presentViewController:storeProductVC animated:YES completion:nil];
+<span class="regexp">//</span>彈出視圖
+[<span class="constant">VC</span> <span class="symbol">presentViewController:</span>storeProductVC <span class="symbol">animated:</span><span class="constant">YES</span> <span class="symbol">completion:</span><span class="keyword">nil</span>];
 
 </pre></td></tr></table></figure>
 
 <p>以上程式碼足以彈出一個視圖秀出app store你appid的頁面，為什麼要設定小菊花是因為在3G下會有點延遲<br>所以需中間有個轉轉轉的讓使用者知道程式還在運作中。</p>
 <p>在我們需要呼叫的Class H檔中匯入下面Protocol<code>SKStoreProductViewControllerDelegate</code></p>
 <p>再M檔中 我們可以這樣呼叫</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>GradeViewController *grade = <span class="string">[[GradeViewController alloc]init];
-//GradeViewController 就是我們剛寫的Class囉
-	[grade AppStoreGrade:self];
+</pre></td><td class="code"><pre><span class="constant">GradeViewController</span> *grade = [[<span class="constant">GradeViewController</span> alloc]init];
+<span class="regexp">//</span><span class="constant">GradeViewController</span> 就是我們剛寫的<span class="constant">Class</span>囉
+	[grade <span class="constant">AppStoreGrade</span><span class="symbol">:self</span>];
 [grade release];
 </pre></td></tr></table></figure>
 
 
 <p>然後寫一個delegate函數</p>
-<figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>- (void)<span class="method">productViewControllerDidFinish:</span>(<span class="class">SKStoreProductViewController</span> *)viewController
+</pre></td><td class="code"><pre>- (void)<span class="symbol">productViewControllerDidFinish:</span>(<span class="constant">SKStoreProductViewController</span> *)viewController
 {
-	[viewController <span class="method">dismissViewControllerAnimated:</span><span class="class">YES</span> <span class="method">completion:</span><span class="keyword">nil</span>];
+	[viewController <span class="symbol">dismissViewControllerAnimated:</span><span class="constant">YES</span> <span class="symbol">completion:</span><span class="keyword">nil</span>];
 }
 </pre></td></tr></table></figure>
 
@@ -126,7 +126,7 @@
 }
 </pre></td></tr></table></figure>
 
-<p>寫到這邊，各位應該知道如何兼容了吧，不過我自己覺得這樣寫還是有點缺點，應該是都能寫成一個Class 去呼叫成模組的，然後不是代Cintroller進去而是帶APPId進去才是好方法呢。</p>
+<p>寫到這邊，各位應該知道如何兼容了吧，不過我自己覺得這樣寫還是有點缺點，應該是都能寫成一個Class 去呼叫成模組的，然後不是代Controller進去而是帶APPID進去才是好方法呢。</p>
 <p>可惜能力還不夠阿...</p>
 <p>成果如下圖</p>
 <img src="http://i.imgur.com/zrFR1Ns.png" title="iOS 6" alt="iOS6 App Store">]]></content>
