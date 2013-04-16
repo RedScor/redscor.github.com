@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.com/atom.xml" rel="self"/>
   <link href="http://redscor.github.com"/>
-  <updated>2013-04-16T05:59:39.856Z</updated>
+  <updated>2013-04-16T07:44:19.551Z</updated>
   <id>http://redscor.github.com/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.com/2013/04/15/ios評分功能/"/>
     <id>http://redscor.github.com/2013/04/15/ios評分功能/</id>
     <published>2013-04-15T13:37:55.000Z</published>
-    <updated>2013-04-16T05:59:34.000Z</updated>
+    <updated>2013-04-16T07:44:11.000Z</updated>
     <content type="html"><![CDATA[<p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
@@ -64,7 +64,7 @@
 </pre></td></tr></table></figure>
 
 <p>建立SKStoreProductViewController的方法如下</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -73,15 +73,31 @@
 7
 8
 9
-</pre></td><td class="code"><pre><span class="constant">SKStoreProductViewController</span> *storeProductVC = [[<span class="constant">SKStoreProductViewController</span> alloc]init];
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>SKStoreProductViewController *storeProductVC = [[SKStoreProductViewController alloc]init];
+<span class="keyword">if</span>([activityView isAnimating]){
+			<span class="keyword">return</span>;
+}
+[activityView startAnimating]; <span class="comment">//菊花啟動</span>
 
-[storeProductVC <span class="symbol">setDelegate:</span>rear];
-<span class="regexp">//</span>設定<span class="constant">Delegate</span> 你要在那邊呼叫的<span class="constant">Class</span>，這邊我實例化了一個叫rear的<span class="constant">Class</span> 
-[storeProductVC <span class="symbol">loadProductWithParameters:</span>@{<span class="constant">SKStoreProductParameterITunesItemIdentifier</span><span class="symbol">:APP_STORE_ID</span>} <span class="symbol">completionBlock:</span><span class="keyword">nil</span>];
-
-<span class="regexp">//</span>彈出視圖
-[<span class="constant">VC</span> <span class="symbol">presentViewController:</span>storeProductVC <span class="symbol">animated:</span><span class="constant">YES</span> <span class="symbol">completion:</span><span class="keyword">nil</span>];
-
+[storeProductVC setDelegate:rear];
+<span class="comment">//設定Delegate 你要在那邊呼叫的Class，這邊我實例化了一個叫rear的Class </span>
+[storeProductVC loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:APP_STORE_ID} 
+completionBlock:^(BOOL result, NSError *error) {
+	[activityView stopAnimating];<span class="comment">//停止小菊花			</span>
+	<span class="keyword">if</span> (error) 
+		NSLog(@<span class="string">"error : %@, UserInfo : %@"</span>,error,[error userInfo]);
+	<span class="keyword">else</span>
+		<span class="comment">//推出頁面顯示app 位置</span>
+	[VC presentViewController:storeProductVC animated:YES completion:nil];
+}];
 </pre></td></tr></table></figure>
 
 <p>以上程式碼足以彈出一個視圖秀出app store你appid的頁面，為什麼要設定小菊花是因為在3G下會有點延遲<br>所以需中間有個轉轉轉的讓使用者知道程式還在運作中。</p>
