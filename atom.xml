@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[RedScor's Blog]]></title>
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
-  <link href="http://redscor.github.com/atom.xml" rel="self"/>
-  <link href="http://redscor.github.com"/>
-  <updated>2013-04-17T04:49:05.150Z</updated>
-  <id>http://redscor.github.com/</id>
+  <link href="http://redscor.github.io/atom.xml" rel="self"/>
+  <link href="http://redscor.github.io"/>
+  <updated>2013-04-17T07:32:43.385Z</updated>
+  <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
@@ -13,8 +13,8 @@
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
     <title type="html"><![CDATA[iOS評分功能]]></title>
-    <link href="http://redscor.github.com/2013/04/15/ios評分功能/"/>
-    <id>http://redscor.github.com/2013/04/15/ios評分功能/</id>
+    <link href="http://redscor.github.io/2013/04/15/ios評分功能/"/>
+    <id>http://redscor.github.io/2013/04/15/ios評分功能/</id>
     <published>2013-04-15T13:37:55.000Z</published>
     <updated>2013-04-17T04:48:50.000Z</updated>
     <content type="html"><![CDATA[<p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
@@ -150,13 +150,13 @@ completionBlock:^(BOOL result, NSError *error) {
 <p>經過半天的修改，已成功修改成匯入Class 代入APPID就可以呼叫和Dismiss了</p>
 <p>程式連結如右 <a href="https://github.com/RedScor/AppRater">GitHub</a></p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
-    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[EGOTableViewPullRefresh下拉更新]]></title>
-    <link href="http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/"/>
-    <id>http://redscor.github.com/2013/04/12/egotableviewpullrefresh下拉更新/</id>
+    <link href="http://redscor.github.io/2013/04/12/egotableviewpullrefresh下拉更新/"/>
+    <id>http://redscor.github.io/2013/04/12/egotableviewpullrefresh下拉更新/</id>
     <published>2013-04-12T06:45:48.000Z</published>
     <updated>2013-04-12T07:17:01.000Z</updated>
     <content type="html"><![CDATA[<p>在很久之前 Twitter一個APP實現了這個下拉式更新的方式。</p>
@@ -247,13 +247,13 @@ completionBlock:^(BOOL result, NSError *error) {
 <p>這個Method又會去Call <code>reloadTableViewDataSource</code> 所以我們做一個Method叫<code>EnterReloadData</code> 自行去Call </p>
 <p>其他方法就跟原本用法差不多了，因為之前改的東西有點多，應該就是這些，有遺漏的請指教。</p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
-    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[魔法少女奈葉 A's 劇場版]]></title>
-    <link href="http://redscor.github.com/2013/03/23/nanoha-As-movie/"/>
-    <id>http://redscor.github.com/2013/03/23/nanoha-As-movie/</id>
+    <link href="http://redscor.github.io/2013/03/23/nanoha-As-movie/"/>
+    <id>http://redscor.github.io/2013/03/23/nanoha-As-movie/</id>
     <published>2013-03-23T07:19:02.000Z</published>
     <updated>2013-03-25T08:34:52.000Z</updated>
     <content type="html"><![CDATA[<p>不得不說，這次的劇場版太有誠意了，滿滿兩小時半，比起TV版，戰鬥更華麗，也刪掉一些無用的回加強了一些重要的回合，和改編一點點小小的劇情。</p>
@@ -366,13 +366,13 @@ completionBlock:^(BOOL result, NSError *error) {
 <p>三人共同丟到天空喊著  </p>
 <h2>S E T  - U P</h2>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/動畫/" term="動畫"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/動畫/" term="動畫"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[2013年春番介紹]]></title>
-    <link href="http://redscor.github.com/2013/03/18/2013-03-18-2013年春番介紹/"/>
-    <id>http://redscor.github.com/2013/03/18/2013-03-18-2013年春番介紹/</id>
+    <link href="http://redscor.github.io/2013/03/18/2013-03-18-2013年春番介紹/"/>
+    <id>http://redscor.github.io/2013/03/18/2013-03-18-2013年春番介紹/</id>
     <published>2013-03-18T02:20:15.000Z</published>
     <updated>2013-03-18T13:55:25.000Z</updated>
     <content type="html"><![CDATA[<p>這次是要介紹春番的介紹，雖然有很多很多強大的片，可是都沒啥聽過。</p>
@@ -409,13 +409,13 @@ completionBlock:^(BOOL result, NSError *error) {
 <p>轉貼至ニコニコ動画</p>
 <p><a href="http://www.nicovideo.jp/watch/sm20339948">ニコニコ動画_sm20339948</a></p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/ニコニコ動画/" term="ニコニコ動画"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/ニコニコ動画/" term="ニコニコ動画"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[ドキドキ！プリキュア - 07]]></title>
-    <link href="http://redscor.github.com/2013/03/17/2013-03-17-dokidoki-precure-07/"/>
-    <id>http://redscor.github.com/2013/03/17/2013-03-17-dokidoki-precure-07/</id>
+    <link href="http://redscor.github.io/2013/03/17/2013-03-17-dokidoki-precure-07/"/>
+    <id>http://redscor.github.io/2013/03/17/2013-03-17-dokidoki-precure-07/</id>
     <published>2013-03-17T08:26:59.000Z</published>
     <updated>2013-03-17T09:52:56.000Z</updated>
     <content type="html"><![CDATA[<p>第七話 『ギリギリの戦い！さらば、プリキュア！！』</p>
@@ -635,14 +635,14 @@ completionBlock:^(BOOL result, NSError *error) {
 <h3>『きゅぴらっぱ～！ふしぎ赤ちゃん誕生！！』</h3>
 <img src="http://i.imgur.com/nVwXL7p.jpg">
 <img src="http://i.imgur.com/6aMyNv4.jpg''">]]></content>
-    <category scheme="http://redscor.github.com/tags/心跳！光之美少女/" term="心跳！光之美少女"/>
-    <category scheme="http://redscor.github.com/tags/光之美少女/" term="光之美少女"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/心跳！光之美少女/" term="心跳！光之美少女"/>
+    <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[微笑光美 劇場版 (下)]]></title>
-    <link href="http://redscor.github.com/2013/03/16/2013-03-16-smile-precure-movie/"/>
-    <id>http://redscor.github.com/2013/03/16/2013-03-16-smile-precure-movie/</id>
+    <link href="http://redscor.github.io/2013/03/16/2013-03-16-smile-precure-movie/"/>
+    <id>http://redscor.github.io/2013/03/16/2013-03-16-smile-precure-movie/</id>
     <published>2013-03-16T10:01:04.000Z</published>
     <updated>2013-03-16T10:39:21.000Z</updated>
     <content type="html"><![CDATA[<p>續上回</p>
@@ -737,13 +737,13 @@ completionBlock:^(BOOL result, NSError *error) {
 
 <p>最終一家和樂融融</p>
 <img src="http://i.imgur.com/XP41MHp.jpg" alt="魔王好可愛阿">]]></content>
-    <category scheme="http://redscor.github.com/tags/光之美少女/" term="光之美少女"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[微笑光美 劇場版 (上)]]></title>
-    <link href="http://redscor.github.com/2013/03/13/2013-03-13-smile-precure---movie/"/>
-    <id>http://redscor.github.com/2013/03/13/2013-03-13-smile-precure---movie/</id>
+    <link href="http://redscor.github.io/2013/03/13/2013-03-13-smile-precure---movie/"/>
+    <id>http://redscor.github.io/2013/03/13/2013-03-13-smile-precure---movie/</id>
     <published>2013-03-13T02:48:58.000Z</published>
     <updated>2013-03-13T03:55:14.000Z</updated>
     <content type="html"><![CDATA[<p>這次是上季Smile Precure (微笑 光之美少女) 的劇場版。
@@ -1035,13 +1035,13 @@ Nico邀請美幸一行人去繪本的世界玩，美幸一行人也答應前往�
 <br></p>
 <h2>待續</h2>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/光之美少女/" term="光之美少女"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[像Facebook一樣左滑效果]]></title>
-    <link href="http://redscor.github.com/2013/03/11/2013-03-11-像facebook一樣左滑效果/"/>
-    <id>http://redscor.github.com/2013/03/11/2013-03-11-像facebook一樣左滑效果/</id>
+    <link href="http://redscor.github.io/2013/03/11/2013-03-11-像facebook一樣左滑效果/"/>
+    <id>http://redscor.github.io/2013/03/11/2013-03-11-像facebook一樣左滑效果/</id>
     <published>2013-03-11T05:58:10.000Z</published>
     <updated>2013-03-12T06:33:51.000Z</updated>
     <content type="html"><![CDATA[<p>其實這個效果是一個國外的APP叫Path首先推出，然後Facebook引進來用。</p>
@@ -1180,13 +1180,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 <p>這樣就完完全全跟Facebook功能一樣，能拖拉到右邊，也能點擊返回和拖拉返回主頁面了。</p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
-    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[ドキドキ！プリキュア - 06]]></title>
-    <link href="http://redscor.github.com/2013/03/10/2013-03-10-光跳-光之美少女---06/"/>
-    <id>http://redscor.github.com/2013/03/10/2013-03-10-光跳-光之美少女---06/</id>
+    <link href="http://redscor.github.io/2013/03/10/2013-03-10-光跳-光之美少女---06/"/>
+    <id>http://redscor.github.io/2013/03/10/2013-03-10-光跳-光之美少女---06/</id>
     <published>2013-03-10T06:46:21.000Z</published>
     <updated>2013-03-10T07:46:17.000Z</updated>
     <content type="html"><![CDATA[<p>這次要來介紹每週都會看的光之美少女，雖然東映在出是屬於子供向的動畫。</p>
@@ -1293,14 +1293,14 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 <p>New Stage的OP也挺好聽的</p>
 <div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/ND5yi6hnRNk" frameborder="0" allowfullscreen></iframe></div>]]></content>
-    <category scheme="http://redscor.github.com/tags/心跳！光之美少女/" term="心跳！光之美少女"/>
-    <category scheme="http://redscor.github.com/tags/光之美少女/" term="光之美少女"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/心跳！光之美少女/" term="心跳！光之美少女"/>
+    <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[魔法少女伊莉雅3-08]]></title>
-    <link href="http://redscor.github.com/2013/03/08/2013-03-08-魔法少女伊莉雅3-08/"/>
-    <id>http://redscor.github.com/2013/03/08/2013-03-08-魔法少女伊莉雅3-08/</id>
+    <link href="http://redscor.github.io/2013/03/08/2013-03-08-魔法少女伊莉雅3-08/"/>
+    <id>http://redscor.github.io/2013/03/08/2013-03-08-魔法少女伊莉雅3-08/</id>
     <published>2013-03-08T02:44:18.000Z</published>
     <updated>2013-03-08T03:38:41.000Z</updated>
     <content type="html"><![CDATA[<p>話說某社FATE剛出完 <strong> <em>Fate/Zero</em> </strong>，可是內容都在嘴砲…就顯得很無聊</p>
@@ -1330,13 +1330,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <p>話說這部動漫還真是不錯看，原作是四格漫畫，可是變成動畫後反而更不俗，尤其是色色的話題。</p>
 <p>話說津田怎麼連當後宮王的自覺都沒有呢，唉唉。</p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/漫畫/" term="漫畫"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/漫畫/" term="漫畫"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[幾首動畫OP]]></title>
-    <link href="http://redscor.github.com/2013/03/07/2013-03-07-幾首動畫op/"/>
-    <id>http://redscor.github.com/2013/03/07/2013-03-07-幾首動畫op/</id>
+    <link href="http://redscor.github.io/2013/03/07/2013-03-07-幾首動畫op/"/>
+    <id>http://redscor.github.io/2013/03/07/2013-03-07-幾首動畫op/</id>
     <published>2013-03-07T07:12:51.000Z</published>
     <updated>2013-03-08T03:21:05.000Z</updated>
     <content type="html"><![CDATA[<p>第一首要來介紹的歌手是「ZAQ」</p>
@@ -1365,13 +1365,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 <p>這邊先簡短介紹一下，<del>上班中偷寫不能寫太多XD</del></p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/動畫歌曲/" term="動畫歌曲"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/動畫歌曲/" term="動畫歌曲"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[光美之半頭?]]></title>
-    <link href="http://redscor.github.com/2013/03/07/2013-03-07-光美之半頭/"/>
-    <id>http://redscor.github.com/2013/03/07/2013-03-07-光美之半頭/</id>
+    <link href="http://redscor.github.io/2013/03/07/2013-03-07-光美之半頭/"/>
+    <id>http://redscor.github.io/2013/03/07/2013-03-07-光美之半頭/</id>
     <published>2013-03-07T01:49:48.000Z</published>
     <updated>2013-03-08T03:21:24.000Z</updated>
     <content type="html"><![CDATA[<p>今天在Pixiv上看到有個畫家畫了幾張主角和人氣高的光美半頭的圖像</p>
@@ -1399,14 +1399,14 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 <p>有空再來寫些看過的感想</p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/光之美少女/" term="光之美少女"/>
-    <category scheme="http://redscor.github.com/tags/Pixiv/" term="Pixiv"/>
-    <category scheme="http://redscor.github.com/categories/ACG/" term="ACG"/>
+    <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
+    <category scheme="http://redscor.github.io/tags/Pixiv/" term="Pixiv"/>
+    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[iOS目錄的三言兩語]]></title>
-    <link href="http://redscor.github.com/2013/03/06/2013-03-06-ios目錄的三言兩語/"/>
-    <id>http://redscor.github.com/2013/03/06/2013-03-06-ios目錄的三言兩語/</id>
+    <link href="http://redscor.github.io/2013/03/06/2013-03-06-ios目錄的三言兩語/"/>
+    <id>http://redscor.github.io/2013/03/06/2013-03-06-ios目錄的三言兩語/</id>
     <published>2013-03-06T05:35:42.000Z</published>
     <updated>2013-03-12T15:56:49.000Z</updated>
     <content type="html"><![CDATA[<p>發文章先幹一下，媽的蘋果又退我們件，又是該死的iap問題</p>
@@ -1518,13 +1518,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 <p>這樣就完成了改寫自己程式碼的東西了，暫存的資料既不會被iTunes備份也不會上傳到iCloud更不會因為這原因被APPLE退件了。</p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
-    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[安裝設定Hexo]]></title>
-    <link href="http://redscor.github.com/2013/03/06/安裝設定hexo/"/>
-    <id>http://redscor.github.com/2013/03/06/安裝設定hexo/</id>
+    <link href="http://redscor.github.io/2013/03/06/安裝設定hexo/"/>
+    <id>http://redscor.github.io/2013/03/06/安裝設定hexo/</id>
     <published>2013-03-06T02:37:27.000Z</published>
     <updated>2013-03-07T01:44:46.000Z</updated>
     <content type="html"><![CDATA[<p>本來在OctoPress上架了一個Blog</p>
@@ -1577,12 +1577,12 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <p>如果你熟悉Command line中git指令 同樣的步驟也可以
 <br><del>絕對不是我忘了git指令</del></p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/hexo/" term="hexo"/>
+    <category scheme="http://redscor.github.io/tags/hexo/" term="hexo"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[iPhone App]]></title>
-    <link href="http://redscor.github.com/2013/03/05/iphone-app/"/>
-    <id>http://redscor.github.com/2013/03/05/iphone-app/</id>
+    <link href="http://redscor.github.io/2013/03/05/iphone-app/"/>
+    <id>http://redscor.github.io/2013/03/05/iphone-app/</id>
     <published>2013-03-05T04:48:25.000Z</published>
     <updated>2013-03-11T01:44:55.000Z</updated>
     <content type="html"><![CDATA[<h2>Listen-Travel(英譯)</h2>
@@ -1610,13 +1610,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <a href="https://itunes.apple.com/app/id600387059?mt=8">link</a> &lt;-點擊可打開iTunes 或是到App Store 搜尋聽旅行或是VoiceTour 即可</p>
 <h2><em>apple Sucks</em></h2>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/iPhone/" term="iPhone"/>
-    <category scheme="http://redscor.github.com/categories/iOS/" term="iOS"/>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Justin.tv banned]]></title>
-    <link href="http://redscor.github.com/2013/03/05/justin.tv-banned/"/>
-    <id>http://redscor.github.com/2013/03/05/justin.tv-banned/</id>
+    <link href="http://redscor.github.io/2013/03/05/justin.tv-banned/"/>
+    <id>http://redscor.github.io/2013/03/05/justin.tv-banned/</id>
     <published>2013-03-05T03:40:16.000Z</published>
     <updated>2013-03-05T05:32:34.000Z</updated>
     <content type="html"><![CDATA[<h2>Justin 帳號又被ban</h2>
@@ -1630,6 +1630,6 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <p>暫時先到新台<a href="http://zh-tw.justin.tv/redscor02">link</a> </p>
 <p>目前已經回報管理員問原因和能不能有機會能要回原帳號</p>
 ]]></content>
-    <category scheme="http://redscor.github.com/tags/Justin.tv/" term="Justin.tv"/>
+    <category scheme="http://redscor.github.io/tags/Justin.tv/" term="Justin.tv"/>
   </entry>
 </feed>
