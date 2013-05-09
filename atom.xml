@@ -4,13 +4,64 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-04-23T03:26:10.985Z</updated>
+  <updated>2013-05-09T02:34:23.282Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[NSDate倒數計時的小心得]]></title>
+    <link href="http://redscor.github.io/2013/05/09/nsdate倒數計時的小心得/"/>
+    <id>http://redscor.github.io/2013/05/09/nsdate倒數計時的小心得/</id>
+    <published>2013-05-09T02:09:09.000Z</published>
+    <updated>2013-05-09T02:34:09.000Z</updated>
+    <content type="html"><![CDATA[<p>關於NADate用法，常配合NSDateFormatter使用，一般我們想到要計算現在到幾天後過期，一般直覺就是取現在時間，然後把他用TimeInterval1970時間，再去加上多少杪來算時間，再去比較時間大小。</p>
+<p>這在一般單純需要計算時，是蠻有用的，但是如果你是要處理一些檔案，設定幾天後到期，</p>
+<p>例如你把下載的資料或是圖片存到某一資料夾，你設第三天後過期，又不想一次把整個資料夾全砍掉，現在提供一種方法給大家參考。</p>
+<a name="more"></a>
+
+<p>在檔案管理的API中，<code>attributesOfItemAtPath</code> 這個方法可以取得檔案的資訊，</p>
+<p>你可以這樣寫</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="constant">NSDictionary</span> *attrs = [[<span class="constant">NSFileManager</span> defaultManager] <span class="symbol">attributesOfItemAtPath:</span>filePath <span class="symbol">error:</span><span class="keyword">nil</span>];
+</pre></td></tr></table></figure>
+
+<p>filePath你可以隨便給個檔案然後去Print-Object 一下attrs，</p>
+<p>會發現有很多屬性，諸如: NSFileSize , NSFileModificationDate 等等</p>
+<p>你可以取檔案中的Modify Date，然後去跟你設定的時間去做比較，</p>
+<p>取出來是NSDate格式～你直覺想到可以轉成TimeInterval去比較，現在有個簡單方法</p>
+<p>NSDate 有個屬性叫</p>
+<p><code>- (NSDate *)earlierDate:(NSDate *)anotherDate;</code></p>
+<p><code>- (NSDate *)laterDate:(NSDate *)anotherDate;</code></p>
+<p>earlierDate是輸入一個NSDate時間，取比較早的時間返回，用法如下</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>
+<span class="constant">NSDate</span> *nowDate = [<span class="constant">NSDate</span> date];
+<span class="constant">NSDate</span> *tomorrowDate = [<span class="constant">NSDate</span> <span class="symbol">dateWithTimeIntervalSinceNow:</span><span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>]
+
+<span class="constant">NSDate</span> *answerDate = [nowDate <span class="symbol">earlierDate:</span>tomorrowDate];
+<span class="regexp">//</span>結果會傳回nowDate 
+
+用<span class="symbol">laterDate:</span> 則會回傳tomorrowDate
+
+</pre></td></tr></table></figure>
+
+<p>這作法跟轉成TimeInterval 去比大小是一樣的意思，不過既然內建有好用的api 那就用吧。
+<br> 程式碼也縮短不少呢</p>
+]]></content>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[閒聊最近動畫]]></title>
     <link href="http://redscor.github.io/2013/04/23/閒聊最近動畫/"/>

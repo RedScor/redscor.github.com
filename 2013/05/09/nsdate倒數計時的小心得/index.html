@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>幾首動畫OP | RedScor's Blog</title>
+  <title>NSDate倒數計時的小心得 | RedScor's Blog</title>
   <meta name="author" content="Red Scor">
   
-  <meta name="description" content="第一首要來介紹的歌手是「ZAQ」
-在日本NicoNico 上幫過很多人做詞做曲的一個全能型幕後藝人
-上一季開始，走向幕前自己唱起歌來，歌曲曲風都很不錯也很多元。話不多說先來聽看看">
+  <meta name="description" content="關於NADate用法，常配合NSDateFormatter使用，一般我們想到要計算現在到幾天後過期，一般直覺就是取現在時間，然後把他用TimeInterval1970時間，再去加上多少杪來算時間，再去比較時間大小。
+這在一般單純需要計算時，是蠻有用的，但是如果你是要處理一些檔案，設定幾天後到期，
+例如你把下載的資料或是圖片存到某一資料夾，你設第三天後過期，又不想一次把整個資料夾全砍掉，現在提供一種方法給大家參考。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="幾首動畫OP"/>
+  <meta property="og:title" content="NSDate倒數計時的小心得"/>
   <meta property="og:site_name" content="RedScor's Blog"/>
 
   
@@ -73,41 +73,57 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-07T07:12:51.000Z"><a href="/2013/03/07/2013-03-07-幾首動畫op/">Mar 7 2013  (15:12:51)</a></time>
+        <time datetime="2013-05-09T02:09:09.000Z"><a href="/2013/05/09/nsdate倒數計時的小心得/">May 9 2013  (10:09:09)</a></time>
       
       
   
-    <h1 class="title">幾首動畫OP</h1>
+    <h1 class="title">NSDate倒數計時的小心得</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>第一首要來介紹的歌手是「ZAQ」</p>
-<p>在日本NicoNico 上幫過很多人做詞做曲的一個全能型幕後藝人
-<br>上一季開始，走向幕前自己唱起歌來，歌曲曲風都很不錯也很多元。話不多說先來聽看看</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/3C2HUIAAPdM" frameborder="0" allowfullscreen></iframe></div>
+        <p>關於NADate用法，常配合NSDateFormatter使用，一般我們想到要計算現在到幾天後過期，一般直覺就是取現在時間，然後把他用TimeInterval1970時間，再去加上多少杪來算時間，再去比較時間大小。</p>
+<p>這在一般單純需要計算時，是蠻有用的，但是如果你是要處理一些檔案，設定幾天後到期，</p>
+<p>例如你把下載的資料或是圖片存到某一資料夾，你設第三天後過期，又不想一次把整個資料夾全砍掉，現在提供一種方法給大家參考。</p>
 <a name="more"></a>
-這一首是這季新番 <strong>鎖鎖美同學，提不起勁</strong> 的OP
 
-內容是個<del>廢材女</del> 美麗的妹妹遇到了各式各樣的事情，包括超展開的巫女，神佛?
+<p>在檔案管理的API中，<code>attributesOfItemAtPath</code> 這個方法可以取得檔案的資訊，</p>
+<p>你可以這樣寫</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="constant">NSDictionary</span> *attrs = [[<span class="constant">NSFileManager</span> defaultManager] <span class="symbol">attributesOfItemAtPath:</span>filePath <span class="symbol">error:</span><span class="keyword">nil</span>];
+</pre></td></tr></table></figure>
 
-<img src="http://i1219.photobucket.com/albums/dd430/moxian96698/66B498CE622A56FE201322221494566_zpsf30e7664.jpg" title="鎖鎖美" alt="小時候">
-<img src="http://z.abang.com/f/dongman/1/3/Q/V/-/-/suosuomei.jpg" title="鎖鎖美" alt="長大版">
+<p>filePath你可以隨便給個檔案然後去Print-Object 一下attrs，</p>
+<p>會發現有很多屬性，諸如: NSFileSize , NSFileModificationDate 等等</p>
+<p>你可以取檔案中的Modify Date，然後去跟你設定的時間去做比較，</p>
+<p>取出來是NSDate格式～你直覺想到可以轉成TimeInterval去比較，現在有個簡單方法</p>
+<p>NSDate 有個屬性叫</p>
+<p><code>- (NSDate *)earlierDate:(NSDate *)anotherDate;</code></p>
+<p><code>- (NSDate *)laterDate:(NSDate *)anotherDate;</code></p>
+<p>earlierDate是輸入一個NSDate時間，取比較早的時間返回，用法如下</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre>
+<span class="constant">NSDate</span> *nowDate = [<span class="constant">NSDate</span> date];
+<span class="constant">NSDate</span> *tomorrowDate = [<span class="constant">NSDate</span> <span class="symbol">dateWithTimeIntervalSinceNow:</span><span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>]
 
-<p>接下來要介紹的是「佐咲紗花」</p>
-<p>歌唱比賽出身的佐咲，實力當然是不容小觀，美麗的外表更是大大的加分</p>
-<p>歌迷人數成倍數成長中。</p>
-<p>要介紹的歌曲是上一季，<strong>美少女死神 還我H之魂！</strong> 的OP。</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/H0gDlwaPlMU" frameborder="0" allowfullscreen></iframe></div>
+<span class="constant">NSDate</span> *answerDate = [nowDate <span class="symbol">earlierDate:</span>tomorrowDate];
+<span class="regexp">//</span>結果會傳回nowDate 
 
-<p>做詞做曲的剛好就是上面的ZAQ，佐咲的實力在這首歌無所遁形，果然是實力堅強，
-<br>就看她現場唱這首表現的如何了。</p>
-<p>剩下是要聽一下上一季BD賣的不錯的 <strong>中二病也想談戀愛</strong> 的OP</p>
-<p>曲風也是很好玩，屁股扭扭扭的www</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/NeiIS4AVa-k" frameborder="0" allowfullscreen></iframe></div>
+用<span class="symbol">laterDate:</span> 則會回傳tomorrowDate
 
-<p>這邊先簡短介紹一下，<del>上班中偷寫不能寫太多XD</del></p>
+</pre></td></tr></table></figure>
+
+<p>這作法跟轉成TimeInterval 去比大小是一樣的意思，不過既然內建有好用的api 那就用吧。
+<br> 程式碼也縮短不少呢</p>
 
       
     </div>
@@ -116,13 +132,13 @@
         
   
   <div class="categories">
-    <a href="/categories/ACG/">ACG</a>
+    <a href="/categories/iOS/">iOS</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/動畫歌曲/">動畫歌曲</a>
+    <a href="/tags/iPhone/">iPhone</a>
   </div>
 
         
