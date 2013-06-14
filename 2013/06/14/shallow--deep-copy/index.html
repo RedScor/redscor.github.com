@@ -3,22 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>魔法少女伊莉雅3-08 | RedScor's Blog</title>
+  <title>shallow &amp; Deep Copy | RedScor's Blog</title>
   <meta name="author" content="Red Scor">
   
-  <meta name="description" content="話說某社FATE剛出完  Fate/Zero ，可是內容都在嘴砲…就顯得很無聊
-我最愛的伊莉雅居然只出場不到10分鐘，整整25集(?)阿。
-還有人專門的伊莉雅漫畫 叫 魔法少女伊莉雅 。 目前已經出到第三部了，挺不錯看。
-喜歡伊莉雅的一定不能錯過。
-話說第三部講著伊莉雅來到的異世界，遇到了縮小的金閃閃和一個穿著體育服打不死的女生，
-自己的好碰友(美遊)又被抓走，想去救人時，被打個半死落跑…
-來到第八回，先來看個圖A_A
-///">
+  <meta name="description" content="今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。
+就是深層copy 和 淺copy
+在Objective - C 中 像是NSDictionaryt NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。
+你按住Command 點進去會發現他們都實現了NSCopying 這個Protocol 。
+也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉
+例如 [[UIColor redColor]copy];">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="魔法少女伊莉雅3-08"/>
+  <meta property="og:title" content="shallow &amp; Deep Copy"/>
   <meta property="og:site_name" content="RedScor's Blog"/>
 
   
@@ -80,42 +78,106 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-08T02:44:18.000Z"><a href="/2013/03/08/2013-03-08-魔法少女伊莉雅3-08/">Mar 8 2013  (10:44:18)</a></time>
+        <time datetime="2013-06-14T07:53:16.000Z"><a href="/2013/06/14/shallow--deep-copy/">Jun 14 2013  (15:53:16)</a></time>
       
       
   
-    <h1 class="title">魔法少女伊莉雅3-08</h1>
+    <h1 class="title">shallow &amp; Deep Copy</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>話說某社FATE剛出完 <strong> <em>Fate/Zero</em> </strong>，可是內容都在嘴砲…就顯得很無聊</p>
-<p>我最愛的伊莉雅居然只出場不到10分鐘，整整25集(?)阿。</p>
-<p>還有人專門的伊莉雅漫畫 叫 <strong>魔法少女伊莉雅</strong> 。 目前已經出到第三部了，挺不錯看。
-<br>喜歡伊莉雅的一定不能錯過。</p>
-<p>話說第三部講著伊莉雅來到的異世界，遇到了縮小的金閃閃和一個穿著體育服打不死的女生，</p>
-<p>自己的好碰友(美遊)又被抓走，想去救人時，被打個半死落跑…</p>
-<p>來到第八回，先來看個圖A_A</p>
-<img src="http://i.imgur.com/3a53Fad.jpg" title="小黑對伊莉雅" alt="小黑的胖子 >///<">
+        <p>今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。</p>
+<p>就是深層copy 和 淺copy</p>
+<p>在Objective - C 中 像是NSDictionaryt NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。</p>
+<p>你按住Command 點進去會發現他們都實現了NSCopying 這個Protocol 。</p>
+<p>也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉<br>
+例如 <code>[[UIColor redColor]copy];</code></p>
+<p>
+
+<hr>
 <a name="more"></a>
-<br>
-姐姐教訓完妹妹後 當然要拿回饋(舌技and寢技)
-<img src="http://i.imgur.com/ChIeqri.jpg" title="伊莉雅O_O" alt="啾">
-<br>
 
-<img src="http://i.imgur.com/DdVgpVW.jpg" title="沒話說了.." alt="謝謝款待..">
-<br>
+<p>在Xcode中，對於基本數據類型 int , Bool Float 等等是直接賦值 。<br>
+但是對於指標類的型態 就有深淺層拷貝的差別，跟在C++中基本差不多，指向同一對像，生成新對像。</p>
+<p>Xcode 為了優化 對於不可變(immutable)的Object 進行COPY 預設的都是淺層拷貝。</p>
+<p>例如</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="constant">NSDictionary</span> *firstDic = [[<span class="constant">NSDictionary</span> alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="keyword">nil</span>];
+<span class="constant">NSDictionary</span> *secondDic= [firstDic copy];
+<span class="constant">NSLog</span>(@<span class="string">"test Dict:%p,retain Count: %ld\ndest Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);
+</pre></td></tr></table></figure>
 
-<img src="http://i.imgur.com/QamP0Ou.jpg" title="在做啥" alt="我們在玩摔角遊戲啦>\\\\<">
 
-<p>第二部就不錯看了，期待第三部的後續A_A</p>
-<p>話說看到個消息，妄想同學會又要出OVA了，是因為OVA比較放的開沒限制嗎。沒關係一直出我不在意^^</p>
-<img src="http://blog-imgs-43.fc2.com/d/a/y/daybreakforce/20100718233537b45.jpg" title="妄想學生會" alt="生徒會役員共 - 三人">
+<p>輸出結果會是<br>
+<code>test Dict:0x100115570,retain Count: 2</code> <br>
+<code>dest Dict:0x100115570, retain Count: 2</code></p>
+<p>兩個指針指向同一個地方，RetainCount +1 證明他是指向同一個對像</p>
+<p>這也很好理解 調用copy 他會返回一個不可變的動像，原本的firstDic也是一個不可變，因為都是不可變，
+所以就乾脆指向同一位址就可以了。 所以這邊的COPY和Retain是並無差別</p>
+<p>如果把NSDictionary 改成NSMutableDictionary 的話，</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="constant">NSMutableDictionary</span> *firstDic = [[<span class="constant">NSDictionary</span> alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="keyword">nil</span>];
+<span class="constant">NSMutableDictionary</span> *secondDic= [firstDic copy];
+<span class="constant">NSLog</span>(@<span class="string">"test Dict:%p,retain Count: %ld\ndest Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);
+</pre></td></tr></table></figure>
 
-<p><a href="http://www.starchild.co.jp/special/seitokai/ova/">妄想同學會OVA網址</a> 請點右鍵開新網頁</p>
-<p>話說這部動漫還真是不錯看，原作是四格漫畫，可是變成動畫後反而更不俗，尤其是色色的話題。</p>
-<p>話說津田怎麼連當後宮王的自覺都沒有呢，唉唉。</p>
+
+<p>輸出結果會發現RetainCount 兩個都變成 1 指向的位址也變成不同。</p>
+<p>但是需注意的是這裡SecondDic雖然你宣告的一個NSMutableDictionary 可是copy返回的是一個不可變的，
+<br> 所以如果你要對SecondDic做操作時，可能馬上就會Crash。</p>
+<p>所以這邊NSMutableDictionary SecondDic 需改成NSDictionary secondDic 才行</p>
+<p>或是調用<code>Mutablecopy</code>  這是會返回一個可變的Object 。</p>
+<p>如果你的Class 是一個自定義的話，當你執行 copy 或 Mutablecopy時一定馬上當，</p>
+<p>你需先在protocol <NSCopying> 
+然後再m檔中</p>
+<p>一一對你的屬性對深或淺的實現 例如下列方法</p>
+<p><code>m檔中</code></p>
+<p>實現 <code>- (id)copyWithZone:(NSZone *)zone;</code></p>
+<p>假如你的Class 名叫做 Family </p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre>
+- (id)copyWithZone:(NSZone *)zone;
+{   //shadow Copy
+/*	family *f = [[[self class]allocWithZone:zone]init];
+	f.name = _Name;
+	f.peopleCount = _peopleCount;*/
+	
+	//Deep Copy
+	family *f = [[[self class]allocWithZone:zone]init];
+	f.name = [_name copy];
+	f.peopleCount = [_peopleCount copy];
+	[_Name release];
+	[_peopleCount release];
+		
+	return person;
+}
+</pre></td></tr></table></figure>
+
+
+<p>可以NSLog一下 兩個family 和 family.name 的指針</p>
+<p>會發現淺拷貝的變量指針是指向同一對像，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
+<p>再看看深層拷貝， 就會發現family的name 兩個指針是不同的，也代表這是真正的實現了COPY這個定義</p>
 
       
     </div>
@@ -124,13 +186,13 @@
         
   
   <div class="categories">
-    <a href="/categories/ACG/">ACG</a>
+    <a href="/categories/iOS/">iOS</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/漫畫/">漫畫</a>
+    <a href="/tags/iPhone/">iPhone</a>
   </div>
 
         
