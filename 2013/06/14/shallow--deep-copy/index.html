@@ -8,7 +8,7 @@
   
   <meta name="description" content="今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。
 就是深層copy 和 淺copy
-在Objective - C 中 像是NSDictionaryt NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。
+在Objective - C 中 像是NSDictionaryt, NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。
 你按住Command 點進去會發現他們都實現了NSCopying 這個Protocol 。
 也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉
 例如 [[UIColor redColor]copy];">
@@ -90,7 +90,7 @@
       
         <p>今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。</p>
 <p>就是深層copy 和 淺copy</p>
-<p>在Objective - C 中 像是NSDictionaryt NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。</p>
+<p>在Objective - C 中 像是NSDictionaryt, NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。</p>
 <p>你按住Command 點進去會發現他們都實現了NSCopying 這個Protocol 。</p>
 <p>也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉<br>
 例如 <code>[[UIColor redColor]copy];</code></p>
@@ -108,15 +108,15 @@
 3
 </pre></td><td class="code"><pre><span class="constant">NSDictionary</span> *firstDic = [[<span class="constant">NSDictionary</span> alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="keyword">nil</span>];
 <span class="constant">NSDictionary</span> *secondDic= [firstDic copy];
-<span class="constant">NSLog</span>(@<span class="string">"test Dict:%p,retain Count: %ld\ndest Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);
+<span class="constant">NSLog</span>(@<span class="string">"first Dict:%p,retain Count: %ld\n second Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);
 </pre></td></tr></table></figure>
 
 
 <p>輸出結果會是<br>
-<code>test Dict:0x100115570,retain Count: 2</code> <br>
-<code>dest Dict:0x100115570, retain Count: 2</code></p>
-<p>兩個指針指向同一個地方，RetainCount +1 證明他是指向同一個對像</p>
-<p>這也很好理解 調用copy 他會返回一個不可變的動像，原本的firstDic也是一個不可變，因為都是不可變，
+<code>first Dict:0x100115570,retain Count: 2</code> <br>
+<code>second Dict:0x100115570, retain Count: 2</code></p>
+<p>兩個指針指向同一個地方，RetainCount +1 證明他是指向同一個對象</p>
+<p>這也很好理解 調用copy 他會返回一個不可變的對象，原本的firstDic也是一個不可變，因為都是不可變，
 所以就乾脆指向同一位址就可以了。 所以這邊的COPY和Retain是並無差別</p>
 <p>如果把NSDictionary 改成NSMutableDictionary 的話，</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
@@ -133,8 +133,8 @@
 <br> 所以如果你要對SecondDic做操作時，可能馬上就會Crash。</p>
 <p>所以這邊NSMutableDictionary SecondDic 需改成NSDictionary secondDic 才行</p>
 <p>或是調用<code>Mutablecopy</code>  這是會返回一個可變的Object 。</p>
-<p>如果你的Class 是一個自定義的話，當你執行 copy 或 Mutablecopy時一定馬上當，</p>
-<p>你需先在protocol <NSCopying> 
+<p>如果你的Class 是一個自定義的話，當你執行 copy 或 MutableCopy時一定馬上當，</p>
+<p>你需先在@interface 加入protocol <code>&lt;NSCopying&gt;</code>
 然後再m檔中</p>
 <p>一一對你的屬性對深或淺的實現 例如下列方法</p>
 <p><code>m檔中</code></p>
@@ -158,15 +158,15 @@
 16
 </pre></td><td class="code"><pre>
 - (id)copyWithZone:(NSZone *)zone;
-{   //shadow Copy
-/*	family *f = [[[self class]allocWithZone:zone]init];
+{   //shallow Copy
+/*	Family *f = [[[self class]allocWithZone:zone]init];
 	f.name = _Name;
 	f.peopleCount = _peopleCount;*/
 	
 	//Deep Copy
-	family *f = [[[self class]allocWithZone:zone]init];
-	f.name = [_name copy];
-	f.peopleCount = [_peopleCount copy];
+	Family *f = [[[self class]allocWithZone:zone]init];
+	f.name = [_name copy]; //NSString 
+	f.peopleCount = [_peopleCount copy]; //NSNumber
 	[_Name release];
 	[_peopleCount release];
 		
@@ -176,11 +176,11 @@
 
 
 <p>可以NSLog一下 兩個family 和 family.name 的指針</p>
-<p>會發現淺拷貝的變量指針是指向同一對像，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
+<p>會發現淺拷貝的變量指針是指向同一對象，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
 <p>再看看深層拷貝， 就會發現family的name 兩個指針是不同的，也代表這是真正的實現了COPY這個定義</p>
 <h2>結論</h2>
 <ul>
-<li><p>在Foundation中，當我們COPY是一個immutable(不可變)對像時，它的作用相當於retain (Xcode 優化)</p>
+<li><p>在Foundation中，當我們COPY是一個immutable(不可變)對象時，它的作用相當於retain (Xcode 優化)</p>
 </li>
 <li><p>當使用mutableCopy時，不管源本對像是可變或不可變，都會回傳一個可變的而且實行真正的Copy</p>
 </li>
