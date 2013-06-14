@@ -178,6 +178,15 @@
 <p>可以NSLog一下 兩個family 和 family.name 的指針</p>
 <p>會發現淺拷貝的變量指針是指向同一對像，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
 <p>再看看深層拷貝， 就會發現family的name 兩個指針是不同的，也代表這是真正的實現了COPY這個定義</p>
+<h2>結論</h2>
+<ul>
+<li><p>在Foundation中，當我們COPY是一個immutable(不可變)對像時，它的作用相當於retain (Xcode 優化)</p>
+</li>
+<li><p>當使用mutableCopy時，不管源本對像是可變或不可變，都會回傳一個可變的而且實行真正的Copy</p>
+</li>
+<li><p>當copy一個可變對像時，返回是一個不可變的，但也同樣實現了真正的Copy</p>
+</li>
+</ul>
 
       
     </div>
