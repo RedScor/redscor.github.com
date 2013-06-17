@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-06-17T09:03:32.716Z</updated>
+  <updated>2013-06-17T09:50:14.638Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2013/06/17/property--synthesize/"/>
     <id>http://redscor.github.io/2013/06/17/property--synthesize/</id>
     <published>2013-06-17T08:02:23.000Z</published>
-    <updated>2013-06-17T09:01:29.000Z</updated>
+    <updated>2013-06-17T09:50:02.000Z</updated>
     <content type="html"><![CDATA[<p>今天來聊聊一下自己對於@synthesize和 @property的見解。</p>
 <p>也就是新手常稿混的 @synthesize foo = _foo , self.foo 跟 _foo的差別。</p>
 <p>食蜂  </p>
@@ -45,12 +45,17 @@
 <p>當你寫成<code>@property (nonatomic,retain)NSString *carName;</code></p>
 <p>不僅僅是對外公開了這個屬性， 還為它之後賦值作變化</p>
 <p>在m檔中～我們在以前會看到這兩種寫法<br>@synthesize carName = _carName; or @synthesize carName;</p>
+<p>這裡 carName 等於property 的屬性名 _carName是個iVar</p>
 <p>在Xcode 4.5版後～如果你不設定@synthesize 他會自動幫我們補上 Var = _Var ,</p>
 <p>在m檔中～你會發現 有兩種方法可以賦值和取值 self.carName 和 _carName . </p>
 <p>這邊的 _carName 就相當等於iVar 的功能，是這個m檔中的全域變數。 是直接賦值的。</p>
 <p>但是很多人會稿混，self.var 和 _var 的不同</p>
-<p>當我們使用self.carName時，我們會調用Setter 
-一般簡單的Setter 我們會這樣寫<br></p>
+<p>當我們使用self.carName時，我們會調用Setter </p>
+<p>所以在objc 2.0版本前 需手動補上setter 和getter</p>
+<p>上面的@interface 就會多了兩個method
+<code>- (void) setcarName(NSString *)carName</code> <br>
+<code>- (NSString *) carName</code></p>
+<p>一般簡單的Setter 我們會這樣寫<br></p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
