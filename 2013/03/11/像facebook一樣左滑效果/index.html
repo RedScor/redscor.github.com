@@ -79,7 +79,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-11T05:58:10.000Z"><a href="/2013/03/11/2013-03-11-像facebook一樣左滑效果/">Mar 11 2013  (13:58:10)</a></time>
+        <time datetime="2013-03-11T05:58:10.000Z"><a href="/2013/03/11/像facebook一樣左滑效果/">Mar 11 2013  (13:58:10)</a></time>
       
       
   
@@ -102,6 +102,7 @@
 </pre></td><td class="code"><pre><span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.navigationController</span><span class="variable">.parentViewController</span> respondsToSelector:@<span class="keyword">selector</span>(revealGesture:)] &amp;&amp; [<span class="keyword">self</span><span class="variable">.navigationController</span><span class="variable">.parentViewController</span> respondsToSelector:@<span class="keyword">selector</span>(revealToggle:)])
 </pre></td></tr></table></figure>
 
+
 <p>
 
 <p>然後應該會看到</p>
@@ -110,6 +111,7 @@
 </pre></td><td class="code"><pre><span class="constant">UIPanGestureRecognizer</span> *navigationBarPanGestureRecognizer = [[<span class="constant">UIPanGestureRecognizer</span> alloc] <span class="symbol">initWithTarget:</span><span class="keyword">self</span>.navigationController.parentViewController <span class="symbol">action:</span><span class="variable">@selector</span>(<span class="symbol">revealGesture:</span>)];
 [<span class="keyword">self</span>.navigationController.navigationBar <span class="symbol">addGestureRecognizer:</span>navigationBarPanGestureRecognizer];
 </pre></td></tr></table></figure>
+
 
 <p>我們就在下面加入同樣對主頁面的View進行添加手勢</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
@@ -125,6 +127,7 @@
 <span class="regexp">//</span>下面會講到為什麼要設delegate
 tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 </pre></td></tr></table></figure>
+
 
 <p>這樣就可以完成了左右手識添加，可是還有一步，就是它連上下手勢都加進去了
 <br>以至於我們無法滾動TableView了
@@ -158,6 +161,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 }
 </pre></td></tr></table></figure>
 
+
 <p>到目前為止，我們完成了在主頁面讓上下兩個Controller都加入了手勢的功能，</p>
 <p>但是用這個Library一定覺得奇怪，為什麼我移到右邊了，我裡面的Cell還是能點，
 因為作者這方面沒有做處理，所以又到我們自己下功夫的地方了。</p>
@@ -169,6 +173,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">UIView</span> *touchIntercepterView;
 </pre></td></tr></table></figure>
+
 
 <p>然後再<code>.m</code>檔中</p>
 <figure class="highlight lang-objc"><figcaption><span>加入點擊和拖拉返回兩個手識 完整程式碼 </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -209,6 +214,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 }
 </pre></td></tr></table></figure>
 
+
 <p>然後再找到</p>
 <p><code>- (void)revealController:(ZUUIRevealController *)revealController didHideRearViewController:(UIViewController *)rearViewController</code><br> 加入下面程式碼</p>
 <figure class="highlight lang-objc"><figcaption><span>移除添加的View </span></figcaption><table><tr><td class="gutter"><pre>1
@@ -222,6 +228,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 	<span class="title">touchIntercepterView</span> = <span class="title">nil</span>;	
 }
 </pre></td></tr></table></figure>
+
 
 <p>這樣就完完全全跟Facebook功能一樣，能拖拉到右邊，也能點擊返回和拖拉返回主頁面了。</p>
 
@@ -299,9 +306,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
-  
-    <li><a href="/tags/Objective---C/">Objective - C</a><small>3</small></li>
+    <li><a href="/tags/Justintv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
@@ -313,7 +318,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
   
     <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
   
-    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
+    <li><a href="/tags/動畫-1/">動畫</a><small>1</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
   

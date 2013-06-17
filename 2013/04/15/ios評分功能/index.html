@@ -17,6 +17,7 @@
  viewContentsUserReviews?type=Purple+Software&amp;id=%@&quot;,APP_STORE_ID]]];
 
 
+
 現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，
 在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。">
   
@@ -106,6 +107,7 @@
  viewContentsUserReviews?type=Purple+Software&amp;id=%@"</span>,<span class="constant">APP_STORE_ID</span>]]];
 </pre></td></tr></table></figure>
 
+
 <p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br>
 在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。</p>
 <a name="more"></a>
@@ -140,6 +142,7 @@
 	}
 }
 </pre></td></tr></table></figure>
+
 
 <p>建立SKStoreProductViewController的方法如下</p>
 <figure class="highlight lang-js"><table><tr><td class="gutter"><pre>1
@@ -178,6 +181,7 @@ completionBlock:^(BOOL result, NSError *error) {
 }];
 </pre></td></tr></table></figure>
 
+
 <p>以上程式碼足以彈出一個視圖秀出app store你appid的頁面，為什麼要設定小菊花是因為在3G下會有點延遲<br>所以需中間有個轉轉轉的讓使用者知道程式還在運作中。</p>
 <p>在我們需要呼叫的Class H檔中匯入下面Protocol<code>SKStoreProductViewControllerDelegate</code></p>
 <p>再M檔中 我們可以這樣呼叫</p>
@@ -192,6 +196,7 @@ completionBlock:^(BOOL result, NSError *error) {
 </pre></td></tr></table></figure>
 
 
+
 <p>然後寫一個delegate函數</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
@@ -202,6 +207,7 @@ completionBlock:^(BOOL result, NSError *error) {
 	[viewController <span class="symbol">dismissViewControllerAnimated:</span><span class="constant">YES</span> <span class="symbol">completion:</span><span class="keyword">nil</span>];
 }
 </pre></td></tr></table></figure>
+
 
 <p>這樣就完成了。</p>
 <p>然後我們怎麼要兼容iOS 6以下的設備呢，有人可能會想說用UIdevice 去取iOS版本去判斷，</p>
@@ -220,9 +226,11 @@ completionBlock:^(BOOL result, NSError *error) {
 }
 </pre></td></tr></table></figure>
 
+
 <p>寫到這邊，各位應該知道如何兼容了吧，不過我自己覺得這樣寫還是有點缺點，應該是都能寫成一個Class 去呼叫成模組的，然後不是代Controller進去而是帶APPID進去才是好方法呢。</p>
 <p>成果如下圖</p>
 <img src="http://i.imgur.com/zrFR1Ns.png" title="iOS 6" alt="iOS6 App Store">
+
 
 
 <p>經過半天的修改，已成功修改成匯入Class 代入APPID就可以呼叫和Dismiss了</p>
@@ -302,9 +310,7 @@ completionBlock:^(BOOL result, NSError *error) {
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
-  
-    <li><a href="/tags/Objective---C/">Objective - C</a><small>3</small></li>
+    <li><a href="/tags/Justintv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
@@ -316,7 +322,7 @@ completionBlock:^(BOOL result, NSError *error) {
   
     <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
   
-    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
+    <li><a href="/tags/動畫-1/">動畫</a><small>1</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
   

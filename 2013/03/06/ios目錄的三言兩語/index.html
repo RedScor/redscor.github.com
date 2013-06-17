@@ -86,7 +86,7 @@ Check your app&amp;#39;s storage">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-03-06T05:35:42.000Z"><a href="/2013/03/06/2013-03-06-ios目錄的三言兩語/">Mar 6 2013  (13:35:42)</a></time>
+        <time datetime="2013-03-06T05:35:42.000Z"><a href="/2013/03/06/ios目錄的三言兩語/">Mar 6 2013  (13:35:42)</a></time>
       
       
   
@@ -127,6 +127,7 @@ Check your app&amp;#39;s storage">
 <span class="built_in">NSString</span> *storePath = [applicationDocumentsDir stringByAppendingPathComponent:你的String];
 </pre></td></tr></table></figure>
 
+
 <p>現在要改成如下 </p>
 <figure class="highlight lang-objc"><figcaption><span>找到cache Dir 創建自定目錄 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
@@ -159,6 +160,7 @@ Check your app&amp;#39;s storage">
 <span class="comment">//寫入cacheDirectory中</span>
 <span class="built_in">NSString</span> *storePath  = [cacheDirectory stringByAppendingPathComponent:你的String];
 </pre></td></tr></table></figure>
+
 
 <p>上面你的String中，你可先做UTF8編碼或是base64做處理，隨自己高興</p>
 <p>這樣就完成了把照片存到/library/cache中的ImageCache中</p>
@@ -202,6 +204,7 @@ Check your app&amp;#39;s storage">
 	}
 }
 </pre></td></tr></table></figure>
+
 
 <p>這樣就完成了改寫自己程式碼的東西了，暫存的資料既不會被iTunes備份也不會上傳到iCloud更不會因為這原因被APPLE退件了。</p>
 
@@ -279,9 +282,7 @@ Check your app&amp;#39;s storage">
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
-  
-    <li><a href="/tags/Objective---C/">Objective - C</a><small>3</small></li>
+    <li><a href="/tags/Justintv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
@@ -293,7 +294,7 @@ Check your app&amp;#39;s storage">
   
     <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
   
-    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
+    <li><a href="/tags/動畫-1/">動畫</a><small>1</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
   
