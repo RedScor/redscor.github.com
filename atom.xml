@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-06-17T08:52:14.002Z</updated>
+  <updated>2013-06-17T08:56:40.190Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2013/06/17/property--synthesize/"/>
     <id>http://redscor.github.io/2013/06/17/property--synthesize/</id>
     <published>2013-06-17T08:02:23.000Z</published>
-    <updated>2013-06-17T08:51:34.000Z</updated>
+    <updated>2013-06-17T08:56:34.000Z</updated>
     <content type="html"><![CDATA[<p>今天來聊聊一下自己對於@synthesize和 @property的見解。</p>
 <p>也就是新手常稿混的 @synthesize foo = _foo , self.foo 跟 _foo的差別。</p>
 <p>食蜂  </p>
@@ -116,6 +116,14 @@
   [_carName release];
 }
 </pre></td></tr></table></figure>
+
+
+<p>至於寫成 <code>@synthesize carName;</code></p>
+<p>則是把原本的_carName 用carName取代掉，其他功能都一樣。</p>
+<p>不過就是因為寫成這樣～很多人會混用self.carName = 和carName = ;</p>
+<p>這是相當不好的習慣，而且對於記憶體的使用很難掌握。</p>
+<p>當然你都是用ARC的去寫專案，不用清楚這個也可以，因為Xcode都幫你做好了，</p>
+<p>只是有些地方你混用程式Crash後，你不清楚記憶體管理流程，Debug會很辛苦。</p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/Objective---C/" term="Objective - C"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
