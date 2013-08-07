@@ -4,13 +4,43 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-06-17T09:50:14.638Z</updated>
+  <updated>2013-08-07T09:35:26.413Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[久違?]]></title>
+    <link href="http://redscor.github.io/2013/08/07/久違/"/>
+    <id>http://redscor.github.io/2013/08/07/久違/</id>
+    <published>2013-08-07T09:15:08.000Z</published>
+    <updated>2013-08-07T09:35:17.000Z</updated>
+    <content type="html"><![CDATA[<p>換了新公司，剛進一個月都比較忙，所以沒啥空寫寫BLOG，幾乎都在survey 一些 AWS(Amazon Web Service)。</p>
+<p>雖然我做的都比較簡單的，不過也因此複習了一下以前寫PHP的一些概念，只是Linux的指令安裝等等全還給老師…</p>
+<p><br></p>
+<p>現在在做一個公司的案子，碰到了點問題，也順利解決，就來寫寫筆記記錄一下。</p>
+<img src="http://i.imgur.com/wIkAg2R.jpg" title="嗯" alt="學姐 & 彌生">
+
+
+<p><a name="more"></a></p>
+<p><p>
+我想在一個ViewController裡控制兩個tableview，其實實作方法有兩種</p>
+<ul>
+<li>一種在一個ViewController中 利用SegmentedControl去控制或是客制Button <br>
+根據切換的index值 去reloadData 在每個tablevieDataSource中的method裡都必須去自行判斷。</li>
+<li>另一種是在一個ViewController中addsubView 兩個tableview，然後在ViewController中init兩個另外的Class的TableViewController，把delegate和dataSource都指向tableviewController。</li>
+</ul>
+<p>第二點另外要注意設定ViewController的tableview.view = tableview.tableview; </p>
+<p>這樣才會去執行TableviewControoler裡的ViewdidLoad。</p>
+<p>要注意的是如果你有需要用到Navigiation 的Push時，需要把ViewController的self.NavigiationController傳給兩個tableviewController。 這樣下面的tableview才會執行push</p>
+<p>然後在ViewController裡把不要出現的先Hidden，在SegmentedController裡就只要把要顯示的hidden = NO 要隱藏的設為Yes就好， 不用再reloadData。</p>
+<p>這樣講有點籠統。 有需要詳細說明的再告知。</p>
+]]></content>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[@property &amp; @synthesize]]></title>
     <link href="http://redscor.github.io/2013/06/17/property--synthesize/"/>
@@ -2279,25 +2309,5 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Justin.tv banned]]></title>
-    <link href="http://redscor.github.io/2013/03/05/justintv-banned/"/>
-    <id>http://redscor.github.io/2013/03/05/justintv-banned/</id>
-    <published>2013-03-05T03:40:16.000Z</published>
-    <updated>2013-03-05T05:32:34.000Z</updated>
-    <content type="html"><![CDATA[<h2>Justin 帳號又被ban</h2>
-<img src="http://i.imgur.com/1QL965H.jpg" title="台的標頭圖 " alt="被ban的標頭圖.">
-
-
-<p>原帳號
-<a href="http://zh-tw.justin.tv/redscor01">link</a> Justin.Tv
-因為不知為啥又被ban台</p>
-<p>明明也才不到十個人觀看，就是有一些人會無聊到去檢舉你
-害我一堆存檔影片都不見了</p>
-<p>暫時先到新台<a href="http://zh-tw.justin.tv/redscor02">link</a> </p>
-<p>目前已經回報管理員問原因和能不能有機會能要回原帳號</p>
-]]></content>
-    <category scheme="http://redscor.github.io/tags/Justintv/" term="Justin.tv"/>
   </entry>
 </feed>
