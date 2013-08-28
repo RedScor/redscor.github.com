@@ -4,13 +4,287 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-08-07T09:35:26.413Z</updated>
+  <updated>2013-08-28T09:55:48.430Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Audio Record &amp; Convert Wav to m4a]]></title>
+    <link href="http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/"/>
+    <id>http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/</id>
+    <published>2013-08-28T09:49:27.000Z</published>
+    <updated>2013-08-28T09:55:34.000Z</updated>
+    <content type="html"><![CDATA[<img src="http://i.imgur.com/VSuK1OR.jpg" title="水銀燈" alt="犯人就是你!!!">
+
+
+
+
+<a name="more"></a>
+
+<p>最近都有點懶～寫的都很簡略 囧～</p>
+<p>最近因為專業需要用到錄音的東西 所以直接想到了AVFoundation.framework </p>
+<p>找了找似乎有AVAudioRecorder 這個 </p>
+<p>網上找了找一下sample code 都有點複雜 我打算自己改寫一下</p>
+<p>首先可以再h檔中<code>@property (retain, nonatomic)   AVAudioRecorder     *recorder;</code></p>
+<p>然後可以寫個Method 以便於別的Class 調用，</p>
+<ul>
+<li>(void) startRecordVoice :(NSString *)filename 之類的</li>
+</ul>
+<p>之後 首先要給個輸出路徑 paht (假定已經設好在Document資料夾裡，這裡要注意如果要存到子資料夾需先建立 不然錄完不會存進去)</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre>
+<span class="keyword">self</span>.recordFileName = @<span class="string">"隨你叫什麼或是用時間給名(不帶副檔名)"</span>
+
+<span class="keyword">self</span>.recordFilePath = [[path <span class="symbol">stringByAppendingPathComponent:</span><span class="keyword">self</span>.recordFileName]<span class="symbol">stringByAppendingPathExtension:</span>@<span class="string">"wav"</span>];
+
+record.delegate = <span class="keyword">self</span>
+
+record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp">//</span>如果你想取峰值的話
+
+[record prepareToRecord];
+
+ <span class="regexp">//</span>開始錄音
+    [[<span class="constant">AVAudioSession</span> sharedInstance] <span class="symbol">setCategory:</span> <span class="constant">AVAudioSessionCategoryPlayAndRecord</span> <span class="symbol">error:</span><span class="keyword">nil</span>];
+    [[<span class="constant">AVAudioSession</span> sharedInstance] <span class="symbol">setActive:</span><span class="constant">YES</span> <span class="symbol">error:</span><span class="keyword">nil</span>];
+    [recorder record];
+    
+有三個<span class="constant">Delegate</span> 可以參考使用
+
+- (void)<span class="symbol">audioRecorderDidFinishRecording:</span>(<span class="constant">AVAudioRecorder</span> *)recorder <span class="symbol">successfully:</span>(<span class="constant">BOOL</span>)flag;
+&lt;<span class="constant">P</span>&gt;
+- (void)<span class="symbol">audioRecorderBeginInterruption:</span>(<span class="constant">AVAudioRecorder</span> *)recorder;
+&lt;p&gt;
+
+- (void)<span class="symbol">audioRecorderEndInterruption:</span>(<span class="constant">AVAudioRecorder</span> *)recorder <span class="symbol">withOptions:</span>(<span class="constant">NSUInteger</span>)flags;
+&lt;p&gt;
+
+</pre></td></tr></table></figure>
+
+
+<hr>
+<p>開始轉檔</p>
+<p>轉檔則是用到CoreMedia 得參數</p>
+<p>使用的是 AVAssetRead 和AVAssetWirter 兩個方法</p>
+<p>比較長 就直接上代碼了</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+</pre></td><td class="code"><pre>
++ (void)<span class="symbol">convertWavToM4a:</span>(<span class="constant">NSString</span> *)_filePath <span class="symbol">fileName:</span>(<span class="constant">NSString</span> *)_fileName{
+        
+    
+    <span class="regexp">//</span>這裡是我
+        <span class="constant">NSString</span> *exportPath = @<span class="string">"輸出路徑副檔名要給m4a"</span>
+        
+        
+        <span class="constant">AVAsset</span> *asset = [<span class="constant">AVAsset</span> <span class="symbol">assetWithURL:</span>[<span class="constant">NSURL</span> <span class="symbol">fileURLWithPath:</span>_filePath]];
+        
+        <span class="constant">NSURL</span> *exportURL = [<span class="constant">NSURL</span> <span class="symbol">fileURLWithPath:</span>exportPath];
+        
+        <span class="regexp">//</span> reader
+        <span class="constant">NSError</span> *readerError = <span class="keyword">nil</span>;
+        <span class="constant">AVAssetReader</span> *reader = [[<span class="constant">AVAssetReader</span> alloc] <span class="symbol">initWithAsset:</span>asset
+                                                               <span class="symbol">error:</span>&amp;readerError];
+        
+        <span class="constant">AVAssetTrack</span> *track = [[asset <span class="symbol">tracksWithMediaType:</span><span class="constant">AVMediaTypeAudio</span>] <span class="symbol">objectAtIndex:</span><span class="number">0</span>];
+        <span class="constant">AVAssetReaderTrackOutput</span> *readerOutput = [[<span class="constant">AVAssetReaderTrackOutput</span> alloc] <span class="symbol">initWithTrack:</span>track
+                                                                                  <span class="symbol">outputSettings:</span><span class="keyword">nil</span>];
+        [reader <span class="symbol">addOutput:</span>readerOutput];
+        
+        <span class="regexp">//</span> writer
+        <span class="constant">NSError</span> *writerError = <span class="keyword">nil</span>;
+        <span class="constant">AVAssetWriter</span> *writer = [[<span class="constant">AVAssetWriter</span> alloc] <span class="symbol">initWithURL:</span>exportURL
+                                                          <span class="symbol">fileType:</span><span class="constant">AVFileTypeAppleM4A</span>
+                                                             <span class="symbol">error:</span>&amp;writerError];
+        
+        <span class="constant">AudioChannelLayout</span> channelLayout;
+        memset(&amp;channelLayout, <span class="number">0</span>, sizeof(<span class="constant">AudioChannelLayout</span>));
+        channelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;
+        
+        <span class="regexp">//</span> use different values to affect the downsampling/compression
+        <span class="constant">NSDictionary</span> *outputSettings = [<span class="constant">NSDictionary</span> <span class="symbol">dictionaryWithObjectsAndKeys:</span>
+                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithInt:</span> kAudioFormatMPEG4AAC], <span class="constant">AVFormatIDKey</span>,
+                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithFloat:</span><span class="number">44100.0</span>], <span class="constant">AVSampleRateKey</span>,
+                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithInt:</span><span class="number">2</span>], <span class="constant">AVNumberOfChannelsKey</span>,
+                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithInt:</span><span class="number">128000</span>], <span class="constant">AVEncoderBitRateKey</span>,
+                                        [<span class="constant">NSData</span> <span class="symbol">dataWithBytes:</span>&amp;channelLayout <span class="symbol">length:</span>sizeof(<span class="constant">AudioChannelLayout</span>)], <span class="constant">AVChannelLayoutKey</span>,
+                                        <span class="keyword">nil</span>];
+        
+        <span class="constant">AVAssetWriterInput</span> *writerInput = [[<span class="constant">AVAssetWriterInput</span> alloc] <span class="symbol">initWithMediaType:</span><span class="constant">AVMediaTypeAudio</span>
+                                                                         <span class="symbol">outputSettings:</span>outputSettings];
+        [writerInput <span class="symbol">setExpectsMediaDataInRealTime:</span><span class="constant">NO</span>];
+        [writer <span class="symbol">addInput:</span>writerInput];
+        
+        <span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span>
+        [writer startWriting];
+        [writer <span class="symbol">startSessionAtSourceTime:</span>kCMTimeZero];
+        
+        [reader startReading];
+        dispatch_queue_t mediaInputQueue = dispatch_queue_create(<span class="string">"mediaInputQueue"</span>, <span class="constant">NULL</span>);
+        [writerInput <span class="symbol">requestMediaDataWhenReadyOnQueue:</span>mediaInputQueue <span class="symbol">usingBlock:</span>^{
+            
+            <span class="constant">NSLog</span>(@<span class="string">"Asset Writer ready : %d"</span>, writerInput.readyForMoreMediaData);
+            <span class="keyword">while</span> (writerInput.readyForMoreMediaData) {
+                <span class="constant">CMSampleBufferRef</span> nextBuffer;
+                <span class="keyword">if</span> ([reader status] == <span class="constant">AVAssetReaderStatusReading</span> &amp;&amp; (nextBuffer = [readerOutput copyNextSampleBuffer])) {
+                    <span class="keyword">if</span> (nextBuffer) {
+                        <span class="constant">NSLog</span>(@<span class="string">"Adding buffer"</span>);
+                        [writerInput <span class="symbol">appendSampleBuffer:</span>nextBuffer];
+                    }
+                } <span class="keyword">else</span> {
+                    [writerInput markAsFinished];
+                    
+                    switch ([reader status]) {
+                        <span class="keyword">case</span> <span class="constant">AVAssetReaderStatusReading</span><span class="symbol">:</span>
+                            <span class="keyword">break</span>;
+                        <span class="keyword">case</span> <span class="constant">AVAssetReaderStatusFailed</span><span class="symbol">:</span>
+                            [writer cancelWriting];
+                            <span class="keyword">break</span>;
+                        <span class="keyword">case</span> <span class="constant">AVAssetReaderStatusCompleted</span><span class="symbol">:</span>
+                            <span class="constant">NSLog</span>(@<span class="string">"Writer completed"</span>);
+                            [writer <span class="symbol">endSessionAtSourceTime:</span>asset.duration];
+                            [writer finishWriting];
+                            
+<span class="regexp">//</span>                     <span class="constant">NSData</span> *data = [<span class="constant">NSData</span> <span class="symbol">dataWithContentsOfFile:</span>exportPath];
+<span class="regexp">//</span>                     <span class="constant">NSLog</span>(@<span class="string">"Data: %@"</span>, data);
+                            
+                            <span class="keyword">break</span>;
+                    }
+                    <span class="keyword">break</span>;
+                }
+            }
+
+        }];
+    [reader release];
+    [readerOutput release];
+    [writer release];
+    [writerInput release];
+}
+
+</pre></td></tr></table></figure>
+
+
+<p>壓完的檔案大小大概會比wav小8~10倍左右
+中間的outputSettings 的參數會影響壓的質量 可以自己試試</p>
+]]></content>
+  </entry>
   <entry>
     <title type="html"><![CDATA[久違?]]></title>
     <link href="http://redscor.github.io/2013/08/07/久違/"/>
@@ -2274,40 +2548,5 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <br><del>絕對不是我忘了git指令</del></p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/hexo/" term="hexo"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[iPhone App]]></title>
-    <link href="http://redscor.github.io/2013/03/05/iphone-app/"/>
-    <id>http://redscor.github.io/2013/03/05/iphone-app/</id>
-    <published>2013-03-05T04:48:25.000Z</published>
-    <updated>2013-03-11T01:44:55.000Z</updated>
-    <content type="html"><![CDATA[<h2>Listen-Travel(英譯)</h2>
-<img src="http://2.bp.blogspot.com/-fbO93EAlZR4/URN4cirx2GI/AAAAAAAB4s0/IOF22JvMERg/s200/hearhere.png" title="聽旅行" alt="聽旅行Logo">
-
-
-<p>來這公司也一年多了，之前都是開發公司自有產品電子書方面的東西
-<br>像是幫一些有名的美食Blog把他們blog內的Content放到我們app中</p>
-<p>中間也接了幾個案子來做，現在又要開發屬於我們公司的產品</p>
-<p>主要功能是為了做到導覽的功能
-比如說我去那個景點 使用了我們app可以聽到這地方的語音介紹
-和一些故事。
-<a name="more"></a>
-目前這案子95%是我自己開發，剩下5%是屬於iap（in app purchase）部份
-是我主管寫好一個Library給我用</p>
-<p>這案子也因為原本計劃是二月初就要上市，被Apple Reject了三次
-都是因為IAP的問題</p>
-<ul>
-<li>第一次:我們是用一次三天可以無限制聽 -&gt; Reject</li>
-<li>第二次:改成一次買七天可以無限制聽 -&gt; Reject</li>
-<li>第三次:改成買一次有30次使用次數，只要沒用完就可以聽到完，像是遊戲幣一樣 -&gt; Reject 
-被退理由很好笑<br>apple覺得我們應該用付一次終生可使用而不是買次數(怪了，我們要用那種收費方式還要經過apple同意?)</li>
-</ul>
-<p>剛好我們合作夥伴有個從美國回來的人，比較熟悉Native language<br>請他幫我們寫了一個iap model去給apple附在Review中 再次送審。</p>
-<p>光這三次就耗掉一個月了～現在發文時間已經在In Review了 <br>
-<a href="https://itunes.apple.com/app/id600387059?mt=8">link</a> &lt;-點擊可打開iTunes 或是到App Store 搜尋聽旅行或是VoiceTour 即可</p>
-<h2><em>apple Sucks</em></h2>
-]]></content>
-    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
-    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
 </feed>
