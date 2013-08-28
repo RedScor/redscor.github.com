@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-08-28T09:55:48.430Z</updated>
+  <updated>2013-08-28T09:58:11.880Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/"/>
     <id>http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/</id>
     <published>2013-08-28T09:49:27.000Z</published>
-    <updated>2013-08-28T09:55:34.000Z</updated>
+    <updated>2013-08-28T09:57:53.000Z</updated>
     <content type="html"><![CDATA[<img src="http://i.imgur.com/VSuK1OR.jpg" title="水銀燈" alt="犯人就是你!!!">
 
 
@@ -284,6 +284,8 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 <p>壓完的檔案大小大概會比wav小8~10倍左右
 中間的outputSettings 的參數會影響壓的質量 可以自己試試</p>
 ]]></content>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[久違?]]></title>
