@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-11-06T03:52:26.331Z</updated>
+  <updated>2013-11-06T04:00:56.468Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,12 +16,13 @@
     <link href="http://redscor.github.io/2013/11/06/yahoo-hack-2013-taiwan/"/>
     <id>http://redscor.github.io/2013/11/06/yahoo-hack-2013-taiwan/</id>
     <published>2013-11-06T03:20:12.000Z</published>
-    <updated>2013-11-06T03:48:26.000Z</updated>
+    <updated>2013-11-06T04:00:50.000Z</updated>
     <content type="html"><![CDATA[<img src="http://i.imgur.com/5Et6DSt.png" title="阿劍" alt="遜砲劍">
 
 
 <a id="more"></a>
 
+<p><a href="http://hacks.developer.yahoo.com/hack/yahoo-hack-taiwan/iwaiter/event_17/hack_994" target="_blank">比賽作品網址</a></p>
 <p>上個月以前的一同學iOS的朋友邀我一起參加這次Yahoo hack 2013 的比賽</p>
 <p>從一開始的構想到遇到LinkWish創辦人 大寶，真的覺得他是個很有想法的人，相對於我，只能在旁邊聽聽發表不了啥意見，感覺我好像是付出最少的XD</p>
 <p>經過了報名，到了比賽當天，第一次到南港的Yahoo 辦公室，果然是外商公司，感覺就是不一樣～跟進去101的Google 感覺截然不同。</p>
@@ -35,7 +36,11 @@
 <p>我覺得這種大場合，可以看到很多的學生，工作人士，大家一同的為了目標埋頭努力，事後一起分享過程， 這才是最重要的。</p>
 <p>這也是我第一次參加Hackathon比賽，雖然只是個弱弱的iOS程式設計，但還好還是如期完成了app並Demo完成。 </p>
 <p>最後感想就是: 真他媽的累爆了，回家洗完澡躺在床上馬上一覺到天亮 囧。</p>
-<p>Fight!! </p>
+<p>作品Youtube  <p></p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/IndH63JR6vU" frameborder="0" allowfullscreen></iframe></div>
+
+
+<p><p><be><br>Fight!! </p>
 <img src="http://i.imgur.com/46Y8WgH.jpg" title="加油" alt="加油">
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
