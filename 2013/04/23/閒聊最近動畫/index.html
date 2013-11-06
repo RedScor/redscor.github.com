@@ -24,6 +24,18 @@
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39025083-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </head>
 
 
@@ -38,6 +50,12 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="https://github.com/RedScor">GitHub</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="http://zh-tw.justin.tv/redscor02">實況網站</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -150,19 +168,9 @@
   <h1 class="title">Comments</h1>
 
   
-      <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div class="fb-comments" data-href="http://redscor.github.io/2013/04/23/閒聊最近動畫/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-      
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
   
 </section>
 </div></div>
@@ -215,6 +223,8 @@
   </ul>
 </div>
 
+
+  
 </aside>
     <div class="clearfix"></div>
   </div>
