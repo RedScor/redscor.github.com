@@ -7,8 +7,7 @@
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="本來在OctoPress上架了一個Blog
-看到有台灣同胞寫了一個以Node.js為底的以OctoPress為架構的Blog
-大大的改進了OctoPress會因文件過多而處理時間太長的問題
+看到有台灣同胞寫了一個以Node.js為底的以OctoPress為架構的Blog大大的改進了OctoPress會因文件過多而處理時間太長的問題
 因為靜態Blog每次處理都全部文件都建一次
 所以當文件過多時 處理效率就會過低
 這方面Ruby明顯遜於Node.js
@@ -24,26 +23,11 @@
     <meta property="og:image" content="undefined"/>
   
 
-  <link href="/favicon.ico" rel="shortcut icon">
+  <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39025083-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<script type="text/javascript" src="/fancybox/shBrushObjectiveC.js"></script>
-<link type="text/css" rel="stylesheet" href="/fancybox/shCoreMidnight.css">
-
 </head>
 
 
@@ -53,25 +37,16 @@
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
-<a href="http://info.flagcounter.com/vGjq"><img src="http://s04.flagcounter.com/mini/vGjq/bg_F0FEFF/txt_D91818/border_B627CC/flags_0/" alt="Flag Counter" border="0"></a>
   <ul>
     
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
     
-      <li><a href="https://github.com/RedScor">GitHub</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
-    
-      <li><a href="http://zh-tw.justin.tv/redscor02">實況網站</a></li>
-    
   </ul>
   <div class="clearfix"></div>
 </nav>
-<div class="clearfix"></div>
-
-</header>
+<div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
@@ -90,14 +65,12 @@
     <div class="entry">
       
         <p>本來在OctoPress上架了一個Blog</p>
-<p>看到有台灣同胞寫了一個以Node.js為底的以OctoPress為架構的Blog
-大大的改進了OctoPress會因文件過多而處理時間太長的問題</p>
+<p>看到有台灣同胞寫了一個以Node.js為底的以OctoPress為架構的Blog<br>大大的改進了OctoPress會因文件過多而處理時間太長的問題</p>
 <p>因為靜態Blog每次處理都全部文件都建一次</p>
 <p>所以當文件過多時 處理效率就會過低</p>
 <p>這方面Ruby明顯遜於Node.js</p>
 <p>所以就來試用一下這個新的寵兒</p>
-<p><a name="more"></a>
-在官方文件上一步步可以很容易的安裝完Node.js和Blog</p>
+<p><a id="more"></a><br>在官方文件上一步步可以很容易的安裝完Node.js和Blog</p>
 <p>但是當我試到指令</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="title">hexo</span> deploy
@@ -109,12 +82,9 @@
 
 
 <p>看了作者的github 總是要設定 _config.yml這個檔裡github</p>
-<p>可是試了一天都沒辦法deploy到github上<br>
-後來想到反正我產生靜態網頁檔後，都會存到Public這個資料夾</p>
-<p>想說道理應該一樣，就用我平常開發的方式上傳到github好了
-<br>在Mac 中，我習慣用SourceTree這個圖形化界面去處理git的問題</p>
-<p>打開你的SourceTree 然後打開你的Finder 找到你剛剛init的資料夾
-裡面應該會找的跟我一樣</p>
+<p>可是試了一天都沒辦法deploy到github上<br><br>後來想到反正我產生靜態網頁檔後，都會存到Public這個資料夾</p>
+<p>想說道理應該一樣，就用我平常開發的方式上傳到github好了<br><br>在Mac 中，我習慣用SourceTree這個圖形化界面去處理git的問題</p>
+<p>打開你的SourceTree 然後打開你的Finder 找到你剛剛init的資料夾<br>裡面應該會找的跟我一樣</p>
 <img src="http://i.imgur.com/NPVGd4Y.png" title="Finder">
 
 
@@ -122,13 +92,11 @@
 <img src="http://i.imgur.com/g94E4qz.png" title="SoureTree">
 
 
-<p>然後點進去設定 點選右上方的setting -&gt;Add 
-填入如下圖的樣子</p>
+<p>然後點進去設定 點選右上方的setting -&gt;Add<br>填入如下圖的樣子</p>
 <img src="http://i.imgur.com/kqnVrbo.png" title="填入基本資料">
 
 
-<p>上面的URL /path 可以到你的github中看到
-選擇SSH的方式你需要先建立一個SSH Key import到github中</p>
+<p>上面的URL /path 可以到你的github中看到<br>選擇SSH的方式你需要先建立一個SSH Key import到github中</p>
 <p>選擇Http的話～你需要每次上傳都要填入帳號密碼</p>
 <p>這樣當你每次下</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
@@ -141,10 +109,8 @@
 </pre></td></tr></table></figure>
 
 
-<p>就可以打開SourceTree中 點選Add /Remove鈕
-然後把你的文件commit &amp; push 到github中囉</p>
-<p>如果你熟悉Command line中git指令 同樣的步驟也可以
-<br><del>絕對不是我忘了git指令</del></p>
+<p>就可以打開SourceTree中 點選Add /Remove鈕<br>然後把你的文件commit &amp; push 到github中囉</p>
+<p>如果你熟悉Command line中git指令 同樣的步驟也可以<br><br><del>絕對不是我忘了git指令</del></p>
 
       
     </div>
@@ -173,7 +139,7 @@
     
     <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -184,14 +150,27 @@
 
 <section id="comment">
   <h1 class="title">Comments</h1>
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://redscor.github.io/2013/03/06/安裝設定hexo/" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
 </section>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
-  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
@@ -204,7 +183,7 @@
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>10</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>11</small></li>
   
   </ul>
 </div>
@@ -215,19 +194,19 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justintv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>10</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>11</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
     <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
   
-    <li><a href="/tags/動畫-1/">動畫</a><small>1</small></li>
+    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
   
@@ -238,20 +217,6 @@
   </ul>
 </div>
 
-
-  
-<div class="widget twitter">
-  <h3 class="title">Tweets</h3>
-  <ul id="tweets"></ul>
-</div>
-
-<script type="text/javascript">
-var twitter_stream = ['RedscorYuan', 7, false];
-var moment_js_path = '/js/moment.min.js';
-</script>
-<script src="/js/twitter.js"></script>
-
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -261,7 +226,8 @@ var moment_js_path = '/js/moment.min.js';
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -272,7 +238,7 @@ var disqus_shortname = 'redscor';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
@@ -287,16 +253,5 @@ var disqus_shortname = 'redscor';
 })(jQuery);
 </script>
 
-<script type="text/javascript">
-function addBlankTargetForLinks () {
-  $('a[href^="http"]').each(function(){
-		$(this).attr('target', '_blank');
-	});
-}
- 
-$(document).bind('DOMNodeInserted', function(event) {
-	addBlankTargetForLinks();
-});
-</script>
 </body>
 </html>

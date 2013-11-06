@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/</loc>
+    <loc>http://redscor.github.io/2013/11/06/yahoo-hack-2013-taiwan/</loc>
+    <lastmod>2013-11-06T03:48:26.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://redscor.github.io/2013/08/28/audio-record-&-convert-wav-to-m4a/</loc>
     <lastmod>2013-08-28T09:57:53.000Z</lastmod>
   </url>
   <url>
@@ -9,7 +13,7 @@
     <lastmod>2013-08-07T09:35:17.000Z</lastmod>
   </url>
   <url>
-    <loc>http://redscor.github.io/2013/06/17/property--synthesize/</loc>
+    <loc>http://redscor.github.io/2013/06/17/@property-&-@synthesize/</loc>
     <lastmod>2013-06-17T09:50:02.000Z</lastmod>
   </url>
   <url>
@@ -17,7 +21,7 @@
     <lastmod>2013-06-17T09:01:40.000Z</lastmod>
   </url>
   <url>
-    <loc>http://redscor.github.io/2013/06/14/shallow--deep-copy/</loc>
+    <loc>http://redscor.github.io/2013/06/14/shallow-&-deep-copy/</loc>
     <lastmod>2013-06-17T09:01:23.000Z</lastmod>
   </url>
   <url>

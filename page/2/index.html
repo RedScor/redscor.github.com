@@ -16,26 +16,11 @@
     <meta property="og:image" content="undefined"/>
   
 
-  <link href="/favicon.ico" rel="shortcut icon">
+  <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39025083-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<script type="text/javascript" src="/fancybox/shBrushObjectiveC.js"></script>
-<link type="text/css" rel="stylesheet" href="/fancybox/shCoreMidnight.css">
-
 </head>
 
 
@@ -45,27 +30,66 @@
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
-<a href="http://info.flagcounter.com/vGjq"><img src="http://s04.flagcounter.com/mini/vGjq/bg_F0FEFF/txt_D91818/border_B627CC/flags_0/" alt="Flag Counter" border="0"></a>
   <ul>
     
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
     
-      <li><a href="https://github.com/RedScor">GitHub</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
-    
-      <li><a href="http://zh-tw.justin.tv/redscor02">實況網站</a></li>
-    
   </ul>
   <div class="clearfix"></div>
 </nav>
-<div class="clearfix"></div>
-
-</header>
+<div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-15T13:37:55.000Z"><a href="/2013/04/15/ios評分功能/">Apr 15 2013  (21:37:55)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/15/ios評分功能/">iOS評分功能</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>[[<span class="constant">UIApplication</span> sharedApplication] <span class="symbol">openURL:</span>
+ [<span class="constant">NSURL</span> <span class="constant">URLWithString</span><span class="symbol">:</span>[<span class="constant">NSString</span> <span class="symbol">stringWithFormat:</span>
+ @<span class="string">"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/
+ viewContentsUserReviews?type=Purple+Software&amp;id=%@"</span>,<span class="constant">APP_STORE_ID</span>]]];
+</pre></td></tr></table></figure>
+
+
+<p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br><br>在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/15/ios評分功能/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -169,16 +193,7 @@
       
         <p>這次是要介紹春番的介紹，雖然有很多很多強大的片，可是都沒啥聽過。</p>
 <p>昨天到是看了RGD，目前第一集還看不出什麼所以然來，只知道女主角是個 <del>電腦破壞者</del></p>
-<p>劇情簡介：~~
-<br>
-　　我想要改變，想要被改變。不管是我還是未來―――。<br>
-　　被認定為世界遺產的熊野古道有座玉倉神社，那裡住了一位被擔任神社宮司的祖父給扶養長大，<br>
-　　不知外面世界的女孩「鈴原泉水子」，綁起來的辮子、眼鏡、有點害羞的模樣，外她給觸碰到的電腦或手機都會壞掉。<br>
-　　「好想變的跟普通女孩一樣」獨自一人煩腦的她，有天從小一起長的兒時玩伴「相楽深行」<br>
-　　出現在玉倉神社並轉學至泉水子的學校。<br>
-　　此時連泉水子自身也不知道的命運正悄悄的轉動！
-　　<br>
-　　
+<p>劇情簡介：~~<br><br><br>　　我想要改變，想要被改變。不管是我還是未來―――。<br><br>　　被認定為世界遺產的熊野古道有座玉倉神社，那裡住了一位被擔任神社宮司的祖父給扶養長大，<br><br>　　不知外面世界的女孩「鈴原泉水子」，綁起來的辮子、眼鏡、有點害羞的模樣，外她給觸碰到的電腦或手機都會壞掉。<br><br>　　「好想變的跟普通女孩一樣」獨自一人煩腦的她，有天從小一起長的兒時玩伴「相楽深行」<br><br>　　出現在玉倉神社並轉學至泉水子的學校。<br><br>　　此時連泉水子自身也不知道的命運正悄悄的轉動！<br>　　<br><br>　　
       
     </div>
     <footer>
@@ -292,13 +307,11 @@
     </header>
     <div class="entry">
       
-        <p>這次是上季Smile Precure (微笑 光之美少女) 的劇場版。
-話說微笑光美TV版是我看最不爽的一代。</p>
+        <p>這次是上季Smile Precure (微笑 光之美少女) 的劇場版。<br>話說微笑光美TV版是我看最不爽的一代。</p>
 <p>雖然人物比前幾代都討喜，可是劇情就是讓人愛不起來，明明主旨是Happy，可是內容卻提的少少，</p>
-<p>最後幾集還一直在哭....。</p>
+<p>最後幾集還一直在哭….。</p>
 <p>討厭歸討厭，出了劇場版還是要看一下。</p>
-<p>依照慣例，光美電影開頭都會提醒小朋友大朋友要小心的過程，自從引進了手電筒這功能後，
-<br>連帶說明也會擺進來。</p>
+<p>依照慣例，光美電影開頭都會提醒小朋友大朋友要小心的過程，自從引進了手電筒這功能後，<br><br>連帶說明也會擺進來。</p>
 <img src="http://i.imgur.com/AlFfFfJ.jpg" title="開頭五位主角" alt="首先是開頭的五人">
 
 
@@ -310,48 +323,6 @@
         
           <div class="alignleft">
             <a href="/2013/03/13/smile-precure---movie/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-03-11T05:58:10.000Z"><a href="/2013/03/11/像facebook一樣左滑效果/">Mar 11 2013  (13:58:10)</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/03/11/像facebook一樣左滑效果/">像Facebook一樣左滑效果</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>其實這個效果是一個國外的APP叫Path首先推出，然後Facebook引進來用。</p>
-<p>當這個效果出來後，很多人都在問這怎麼做的，當然我這篇不是講要怎麼做。</p>
-<p>而是我之前某個app用到了ZUUIRevealController這個Library寫的一個差不多效果的東西。</p>
-<p>把他兩個檔引進進來，很容易的可以做到點一下像FaceBook一樣拉出左邊的選單列，
-<br>然後再點一下按鈕可以自動彈回來或是手動拉回來。</p>
-<p>之前遇到個問題是，他Pan手勢是做在NavigationController上，所以只有拉上面才會出拖動，</p>
-<p>想要在中間(FrontView)主頁面也要加上手勢功能的話，就要做一點處理。
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/03/11/像facebook一樣左滑效果/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -375,7 +346,7 @@
 </nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
-  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
@@ -388,7 +359,7 @@
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>10</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>11</small></li>
   
   </ul>
 </div>
@@ -399,19 +370,19 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justintv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>10</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>11</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
     <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
   
-    <li><a href="/tags/動畫-1/">動畫</a><small>1</small></li>
+    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
   
@@ -422,20 +393,6 @@
   </ul>
 </div>
 
-
-  
-<div class="widget twitter">
-  <h3 class="title">Tweets</h3>
-  <ul id="tweets"></ul>
-</div>
-
-<script type="text/javascript">
-var twitter_stream = ['RedscorYuan', 7, false];
-var moment_js_path = '/js/moment.min.js';
-</script>
-<script src="/js/twitter.js"></script>
-
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -445,7 +402,8 @@ var moment_js_path = '/js/moment.min.js';
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -456,7 +414,7 @@ var disqus_shortname = 'redscor';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
@@ -471,16 +429,5 @@ var disqus_shortname = 'redscor';
 })(jQuery);
 </script>
 
-<script type="text/javascript">
-function addBlankTargetForLinks () {
-  $('a[href^="http"]').each(function(){
-		$(this).attr('target', '_blank');
-	});
-}
- 
-$(document).bind('DOMNodeInserted', function(event) {
-	addBlankTargetForLinks();
-});
-</script>
 </body>
 </html>

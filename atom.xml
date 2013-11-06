@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2013-08-28T09:58:11.880Z</updated>
+  <updated>2013-11-06T03:51:11.792Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -12,9 +12,39 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
+    <title type="html"><![CDATA[Yahoo Hack 2013 Taiwan]]></title>
+    <link href="http://redscor.github.io/2013/11/06/yahoo-hack-2013-taiwan/"/>
+    <id>http://redscor.github.io/2013/11/06/yahoo-hack-2013-taiwan/</id>
+    <published>2013-11-06T03:20:12.000Z</published>
+    <updated>2013-11-06T03:48:26.000Z</updated>
+    <content type="html"><![CDATA[<img src="http://i.imgur.com/5Et6DSt.png" title="阿劍" alt="遜砲劍">
+
+
+<a id="more"></a>
+
+<p>上個月以前的一同學iOS的朋友邀我一起參加這次Yahoo hack 2013 的比賽</p>
+<p>從一開始的構想到遇到LinkWish創辦人 大寶，真的覺得他是個很有想法的人，相對於我，只能在旁邊聽聽發表不了啥意見，感覺我好像是付出最少的XD</p>
+<p>經過了報名，到了比賽當天，第一次到南港的Yahoo 辦公室，果然是外商公司，感覺就是不一樣～跟進去101的Google 感覺截然不同。</p>
+<p>在早上一連串的講解和介紹後，活動正式展開，為期24小時內的Hackathon比賽，雖然先前有先寫了一點流程架構，沒想到到了當天才發現又有變幻了，只好改改改～其中自訂地圖的Callout View真是難倒我了，很少碰到地圖的東西，只好偷偷丟給另一個組員去做(…)。</p>
+<p>自己則是忙著串接後台資料和界面的設計，我們的作品是利用Apple 今年主推的藍牙4.0 iBeacon技術～理念是做了一個服務生為主的APP。</p>
+<p>在各家強調美食，風景的前提下，我們主推人，也就是服務生，我們相信一家店服務生是會為店家帶來收益的，不管是服務或是外觀等等。</p>
+<p>在最後只有兩分鐘的Demo時間，我們顫顫競競的配合者我們主講人<code>大寶</code>拿著藍芽裝置一起配合我們的APP做Demo。最後如期完成。</p>
+<p>發表成果後，我們獲得了<code>台北市政府資料開放創新應用獎</code>。</p>
+<p>雖然沒有名次，不過我們還是很高興有獲獎，熬夜24小時是值得的。</p>
+<p>這次感覺比的還是創意和使用者經驗為主，程式內容到還是其次，表達出完整的理念是最重要的。</p>
+<p>我覺得這種大場合，可以看到很多的學生，工作人士，大家一同的為了目標埋頭努力，事後一起分享過程， 這才是最重要的。</p>
+<p>這也是我第一次參加Hackathon比賽，雖然只是個弱弱的iOS程式設計，但還好還是如期完成了app並Demo完成。 </p>
+<p>最後感想就是: 真他媽的累爆了，回家洗完澡躺在床上馬上一覺到天亮 囧。</p>
+<p>Fight!! </p>
+<img src="http://i.imgur.com/46Y8WgH.jpg" title="加油" alt="加油">
+]]></content>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[Audio Record &amp; Convert Wav to m4a]]></title>
-    <link href="http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/"/>
-    <id>http://redscor.github.io/2013/08/28/audio-record--convert-wav-to-m4a/</id>
+    <link href="http://redscor.github.io/2013/08/28/audio-record-&-convert-wav-to-m4a/"/>
+    <id>http://redscor.github.io/2013/08/28/audio-record-&-convert-wav-to-m4a/</id>
     <published>2013-08-28T09:49:27.000Z</published>
     <updated>2013-08-28T09:57:53.000Z</updated>
     <content type="html"><![CDATA[<img src="http://i.imgur.com/VSuK1OR.jpg" title="水銀燈" alt="犯人就是你!!!">
@@ -22,7 +52,7 @@
 
 
 
-<a name="more"></a>
+<a id="more"></a>
 
 <p>最近都有點懶～寫的都很簡略 囧～</p>
 <p>最近因為專業需要用到錄音的東西 所以直接想到了AVFoundation.framework </p>
@@ -281,8 +311,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 </pre></td></tr></table></figure>
 
 
-<p>壓完的檔案大小大概會比wav小8~10倍左右
-中間的outputSettings 的參數會影響壓的質量 可以自己試試</p>
+<p>壓完的檔案大小大概會比wav小8~10倍左右<br>中間的outputSettings 的參數會影響壓的質量 可以自己試試</p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
@@ -300,12 +329,10 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 <img src="http://i.imgur.com/wIkAg2R.jpg" title="嗯" alt="學姐 & 彌生">
 
 
-<p><a name="more"></a></p>
-<p><p>
-我想在一個ViewController裡控制兩個tableview，其實實作方法有兩種</p>
+<p><a id="more"></a></p>
+<p><p><br>我想在一個ViewController裡控制兩個tableview，其實實作方法有兩種</p>
 <ul>
-<li>一種在一個ViewController中 利用SegmentedControl去控制或是客制Button <br>
-根據切換的index值 去reloadData 在每個tablevieDataSource中的method裡都必須去自行判斷。</li>
+<li>一種在一個ViewController中 利用SegmentedControl去控制或是客制Button <br><br>根據切換的index值 去reloadData 在每個tablevieDataSource中的method裡都必須去自行判斷。</li>
 <li>另一種是在一個ViewController中addsubView 兩個tableview，然後在ViewController中init兩個另外的Class的TableViewController，把delegate和dataSource都指向tableviewController。</li>
 </ul>
 <p>第二點另外要注意設定ViewController的tableview.view = tableview.tableview; </p>
@@ -319,8 +346,8 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
   </entry>
   <entry>
     <title type="html"><![CDATA[@property &amp; @synthesize]]></title>
-    <link href="http://redscor.github.io/2013/06/17/property--synthesize/"/>
-    <id>http://redscor.github.io/2013/06/17/property--synthesize/</id>
+    <link href="http://redscor.github.io/2013/06/17/@property-&-@synthesize/"/>
+    <id>http://redscor.github.io/2013/06/17/@property-&-@synthesize/</id>
     <published>2013-06-17T08:02:23.000Z</published>
     <updated>2013-06-17T09:50:02.000Z</updated>
     <content type="html"><![CDATA[<p>今天來聊聊一下自己對於@synthesize和 @property的見解。</p>
@@ -329,7 +356,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 <img src="http://i.imgur.com/BHsFkmL.png" title="可愛的食蜂" alt="食蜂女王">
 
 
-<a name="more"></a>
+<a id="more"></a>
 
 <p>
 
@@ -346,8 +373,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
 
 <p>在@interface 中可以設定<code>@private</code> <code>@protected</code> <code>@public</code> 不過這不是重點今天先不聊</p>
-<p>當你在@interface中定義變數時， 在m檔中賦值都是直接賦值的. 我們稱為iVar (instance variable)
-<br>ex <code>carName = @&quot;BMW&quot;</code> <code>myName = carName (myName = BMW)</code></p>
+<p>當你在@interface中定義變數時， 在m檔中賦值都是直接賦值的. 我們稱為iVar (instance variable)<br><br>ex <code>carName = @&quot;BMW&quot;</code> <code>myName = carName (myName = BMW)</code></p>
 <p>當你寫成<code>@property (nonatomic,retain)NSString *carName;</code></p>
 <p>不僅僅是對外公開了這個屬性， 還為它之後賦值作變化</p>
 <p>在m檔中～我們在以前會看到這兩種寫法<br>@synthesize carName = _carName; or @synthesize carName;</p>
@@ -358,9 +384,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 <p>但是很多人會稿混，self.var 和 _var 的不同</p>
 <p>當我們使用self.carName時，我們會調用Setter </p>
 <p>所以在objc 2.0版本前 需手動補上setter 和getter</p>
-<p>上面的@interface 就會多了兩個method
-<code>- (void) setcarName(NSString *)carName</code> <br>
-<code>- (NSString *) carName</code></p>
+<p>上面的@interface 就會多了兩個method<br><code>- (void) setcarName(NSString *)carName</code> <br><br><code>- (NSString *) carName</code></p>
 <p>一般簡單的Setter 我們會這樣寫<br></p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
@@ -390,8 +414,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
 
 <p>到此有注意到什麼嗎??</p>
-<p>經由self 給值的他會通過setter  等於我們調用 [self setcarName:@&quot;&quot;]; <br>
-他會經由Property 中你設定的值 會先retain(or copy ,assign) 一次再賦值給全域變數</p>
+<p>經由self 給值的他會通過setter  等於我們調用 [self setcarName:@“”]; <br><br>他會經由Property 中你設定的值 會先retain(or copy ,assign) 一次再賦值給全域變數</p>
 <p>你取值時，也是得到retain過後的值, 為什麼要先retain呢</p>
 <p>這就牽扯到物件的所有權 其實setter的完整寫法應該如下</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
@@ -417,8 +440,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
 <p>getter 則是完全不變，所以我們建議賦值時都給用self. (dot noation) 去賦值。</p>
 <p>除非你這個值是不會變動或是不在被autorelease 的物件用到，不然需手動加retain</p>
-<p>這也就是很多書上寫的， 你alloc retain copy一個Object 需手動釋放，<br>
-誰用他誰就負責釋放.</p>
+<p>這也就是很多書上寫的， 你alloc retain copy一個Object 需手動釋放，<br><br>誰用他誰就負責釋放.</p>
 <p>在dealloc 下面，我個人是建議釋放掉iVar 也就是</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
@@ -441,23 +463,21 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
   </entry>
   <entry>
     <title type="html"><![CDATA[shallow &amp; Deep Copy]]></title>
-    <link href="http://redscor.github.io/2013/06/14/shallow--deep-copy/"/>
-    <id>http://redscor.github.io/2013/06/14/shallow--deep-copy/</id>
+    <link href="http://redscor.github.io/2013/06/14/shallow-&-deep-copy/"/>
+    <id>http://redscor.github.io/2013/06/14/shallow-&-deep-copy/</id>
     <published>2013-06-14T07:53:16.000Z</published>
     <updated>2013-06-17T09:01:23.000Z</updated>
     <content type="html"><![CDATA[<p>今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。</p>
 <p>就是深層copy 和 淺copy</p>
 <p>在Objective - C 中 像是NSDictionaryt, NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。</p>
 <p>你按住Command 點進去會發現他們都實現了NSCopying 這個Protocol 。</p>
-<p>也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉<br>
-例如 <code>[[UIColor redColor]copy];</code></p>
+<p>也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉<br><br>例如 <code>[[UIColor redColor]copy];</code></p>
 <p>
 
 <hr>
-<a name="more"></a>
+<a id="more"></a>
 
-<p>在Xcode中，對於基本數據類型 int , Bool Float 等等是直接賦值 。<br>
-但是對於指標類的型態 就有深淺層拷貝的差別，跟在C++中基本差不多，指向同一對像，生成新對像。</p>
+<p>在Xcode中，對於基本數據類型 int , Bool Float 等等是直接賦值 。<br><br>但是對於指標類的型態 就有深淺層拷貝的差別，跟在C++中基本差不多，指向同一對像，生成新對像。</p>
 <p>Xcode 為了優化 對於不可變(immutable)的Object 進行COPY 預設的都是淺層拷貝。</p>
 <p>例如</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
@@ -469,12 +489,9 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 </pre></td></tr></table></figure>
 
 
-<p>輸出結果會是<br>
-<code>first Dict:0x100115570,retain Count: 2</code> <br>
-<code>second Dict:0x100115570, retain Count: 2</code></p>
+<p>輸出結果會是<br><br><code>first Dict:0x100115570,retain Count: 2</code> <br><br><code>second Dict:0x100115570, retain Count: 2</code></p>
 <p>兩個指針指向同一個地方，RetainCount +1 證明他是指向同一個對象</p>
-<p>這也很好理解 調用copy 他會返回一個不可變的對象，原本的firstDic也是一個不可變，因為都是不可變，
-所以就乾脆指向同一位址就可以了。 所以這邊的COPY和Retain是並無差別</p>
+<p>這也很好理解 調用copy 他會返回一個不可變的對象，原本的firstDic也是一個不可變，因為都是不可變，<br>所以就乾脆指向同一位址就可以了。 所以這邊的COPY和Retain是並無差別</p>
 <p>如果把NSDictionary 改成NSMutableDictionary 的話，</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
@@ -486,13 +503,11 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
 
 <p>輸出結果會發現RetainCount 兩個都變成 1 指向的位址也變成不同。</p>
-<p>但是需注意的是這裡SecondDic雖然你宣告的一個NSMutableDictionary 可是copy返回的是一個不可變的，
-<br> 所以如果你要對SecondDic做操作時，可能馬上就會Crash。</p>
+<p>但是需注意的是這裡SecondDic雖然你宣告的一個NSMutableDictionary 可是copy返回的是一個不可變的，<br><br> 所以如果你要對SecondDic做操作時，可能馬上就會Crash。</p>
 <p>所以這邊NSMutableDictionary SecondDic 需改成NSDictionary secondDic 才行</p>
 <p>或是調用<code>Mutablecopy</code>  這是會返回一個可變的Object 。</p>
 <p>如果你的Class 是一個自定義的話，當你執行 copy 或 MutableCopy時一定馬上當，</p>
-<p>你需先在@interface 加入protocol <code>&lt;NSCopying&gt;</code>
-然後再m檔中</p>
+<p>你需先在@interface 加入protocol <code>&lt;NSCopying&gt;</code><br>然後再m檔中</p>
 <p>一一對你的屬性對深或淺的實現 例如下列方法</p>
 <p><code>m檔中</code></p>
 <p>實現 <code>- (id)copyWithZone:(NSZone *)zone;</code></p>
@@ -557,7 +572,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
     <content type="html"><![CDATA[<p>關於NSDate用法，常配合NSDateFormatter使用，一般我們想到要計算現在到幾天後過期，一般直覺就是取現在時間，然後把他用TimeInterval1970時間，再去加上多少杪來算時間，再去比較時間大小。</p>
 <p>這在一般單純需要計算時，是蠻有用的，但是如果你是要處理一些檔案，設定幾天後到期，</p>
 <p>例如你把下載的資料或是圖片存到某一資料夾，你設第三天後過期，又不想一次把整個資料夾全砍掉，現在提供一種方法給大家參考。</p>
-<a name="more"></a>
+<a id="more"></a>
 
 <p>在檔案管理的API中，<code>attributesOfItemAtPath</code> 這個方法可以取得檔案的資訊，</p>
 <p>你可以這樣寫</p>
@@ -595,8 +610,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 </pre></td></tr></table></figure>
 
 
-<p>這作法跟轉成TimeInterval 去比大小是一樣的意思，不過既然內建有好用的api 那就用吧。
-<br> 程式碼也縮短不少呢</p>
+<p>這作法跟轉成TimeInterval 去比大小是一樣的意思，不過既然內建有好用的api 那就用吧。<br><br> 程式碼也縮短不少呢</p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
@@ -611,13 +625,12 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
 
 <p>因為最近比較忙，都懶的截圖講講動畫的東西。</p>
-<p>在上個月冬番結束後，2013年春番於這個月初陸續開始，幾乎全部都看過，有腐肉，有賣肉，稿笑。
-<br>只是都幾乎都五六日播出。這樣有點忙ww.</p>
-<a name="more"></a>
+<p>在上個月冬番結束後，2013年春番於這個月初陸續開始，幾乎全部都看過，有腐肉，有賣肉，稿笑。<br><br>只是都幾乎都五六日播出。這樣有點忙ww.</p>
+<a id="more"></a>
 
 
 <p>話說昨天看到這東西，</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/L-sRhZrSmVI" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/L-sRhZrSmVI" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p>然後請轉到2分42秒處，就會看到</p>
@@ -645,15 +658,14 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 <p>來聊聊奈亞子，這部就算看不懂捏他也是能笑的很開心的一部，我在PTT看到有人問這部主旨是啥，</p>
 <p>這部的特色不就是看阿澄吵死人的念念念嗎www。</p>
 <p>不過克子的聲音我還蠻喜歡的，第二集講了一句電王的名言。</p>
-<p><code>少年、人生を面白くするのは千の真実より一つの嘘</code>
-<br> <code>少年，成千的真相也不如一個謊言更能讓人生變得有趣。</code></p>
+<p><code>少年、人生を面白くするのは千の真実より一つの嘘</code><br><br> <code>少年，成千的真相也不如一個謊言更能讓人生變得有趣。</code></p>
 <p>似乎想想也挺有道理的。</p>
 <p>阿澄的聲音雖然有特色一聽就知，不過就跟釘宮一樣，會有變化而又不失特色，相較於香菜，配來配去都同一種聲線真是有點膩了。</p>
 <img src="http://i.imgur.com/E6p9V7g.gif" alt="奈亞子">
 
 
 <p>砲姐就沒啥劇情進展，不過下一集應該就會帶到妹妹篇，一方快出來打砲姐的臉阿(誤)。</p>
-<p><a href="http://imgur.com/a/1Qdtk">砲姐與妹妹們</a></p>
+<p><a href="http://imgur.com/a/1Qdtk" target="_blank">砲姐與妹妹們</a></p>
 <p>來看看食蜂吧，我想C84會被食蜂淹沒..</p>
 <img src="http://i.imgur.com/6ZH9BEN.jpg" title="長盤台女王" alt="食蜂女王">
 
@@ -683,9 +695,8 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 </pre></td></tr></table></figure>
 
 
-<p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br>
-在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。</p>
-<a name="more"></a>
+<p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br><br>在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。</p>
+<a id="more"></a>
 
 <p>方法是在一個國外網站看到的，在此實現一下。</p>
 <p>首先我們建一個繼承UIViewController 的Class</p>
@@ -809,7 +820,7 @@ completionBlock:^(BOOL result, NSError *error) {
 
 
 <p>經過半天的修改，已成功修改成匯入Class 代入APPID就可以呼叫和Dismiss了</p>
-<p>程式連結如右 <a href="https://github.com/RedScor/AppRater">GitHub</a></p>
+<p>程式連結如右 <a href="https://github.com/RedScor/AppRater" target="_blank">GitHub</a></p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
@@ -828,7 +839,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://i.imgur.com/nPbAw2g.png" title="更新" alt="更新">
 
 
-<a name="more"></a>
+<a id="more"></a>
 
 <p>要實現這個方法，我們需要改進一點EGOTableViewPullRefresh原本的Code</p>
 <p>在ViewDidload中，官方例子有下列Code </p>
@@ -892,8 +903,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <p>因為我下載的EGO沒有把 State這個屬性設成property 所以我們需自行在</p>
 <p><code>EGORefreshTableHeaderView.h</code> 中 加入 <code>@property(nonatomic,assign) EGOPullRefreshState state;</code></p>
 <p>然後再m檔中補上<code>@synthesize state=_state;</code></p>
-<p>上面的程式碼主要就是把 把tableview往下方移動到x軸40的地方 <br>
-然後去setState 把狀態設成Loading。</p>
+<p>上面的程式碼主要就是把 把tableview往下方移動到x軸40的地方 <br><br>然後去setState 把狀態設成Loading。</p>
 <p>我們需自行再加入一個Method </p>
 <figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
 2
@@ -928,8 +938,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://i.imgur.com/KtzujtG.jpg" alt="相視中">
 
 
-<p><a name="more"></a>
-<br></p>
+<p><a id="more"></a><br><br></p>
 <img src="http://i.imgur.com/4voJ1zj.jpg" alt="可愛的奈葉">
 
 <img src="http://i.imgur.com/hFGfAsn.jpg" alt="微笑中">
@@ -1073,7 +1082,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <p>三人共同丟到天空喊著  </p>
 <h2>S E T  - U P</h2>
 ]]></content>
-    <category scheme="http://redscor.github.io/tags/動畫-1/" term="動畫"/>
+    <category scheme="http://redscor.github.io/tags/動畫/" term="動畫"/>
     <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
   <entry>
@@ -1084,19 +1093,7 @@ completionBlock:^(BOOL result, NSError *error) {
     <updated>2013-03-18T13:55:25.000Z</updated>
     <content type="html"><![CDATA[<p>這次是要介紹春番的介紹，雖然有很多很多強大的片，可是都沒啥聽過。</p>
 <p>昨天到是看了RGD，目前第一集還看不出什麼所以然來，只知道女主角是個 <del>電腦破壞者</del></p>
-<p>劇情簡介：~~
-<br>
-　　我想要改變，想要被改變。不管是我還是未來―――。<br>
-　　被認定為世界遺產的熊野古道有座玉倉神社，那裡住了一位被擔任神社宮司的祖父給扶養長大，<br>
-　　不知外面世界的女孩「鈴原泉水子」，綁起來的辮子、眼鏡、有點害羞的模樣，外她給觸碰到的電腦或手機都會壞掉。<br>
-　　「好想變的跟普通女孩一樣」獨自一人煩腦的她，有天從小一起長的兒時玩伴「相楽深行」<br>
-　　出現在玉倉神社並轉學至泉水子的學校。<br>
-　　此時連泉水子自身也不知道的命運正悄悄的轉動！
-　　<br>
-　　<a name="more"></a>
-　　
-　　
-看了看介紹，目前二期的有</p>
+<p>劇情簡介：~~<br><br><br>　　我想要改變，想要被改變。不管是我還是未來―――。<br><br>　　被認定為世界遺產的熊野古道有座玉倉神社，那裡住了一位被擔任神社宮司的祖父給扶養長大，<br><br>　　不知外面世界的女孩「鈴原泉水子」，綁起來的辮子、眼鏡、有點害羞的模樣，外她給觸碰到的電腦或手機都會壞掉。<br><br>　　「好想變的跟普通女孩一樣」獨自一人煩腦的她，有天從小一起長的兒時玩伴「相楽深行」<br><br>　　出現在玉倉神社並轉學至泉水子的學校。<br><br>　　此時連泉水子自身也不知道的命運正悄悄的轉動！<br>　　<br><br>　　<a id="more"></a><br>　　<br>　　<br>看了看介紹，目前二期的有</p>
 <ul>
 <li>《我的妹妹那有那麼可愛》（這一定必追的，二期就是黑貓回）</li>
 <li>《百花繚亂》(雖然有收BD，可是有墨汁才是王道)</li>
@@ -1111,11 +1108,11 @@ completionBlock:^(BOOL result, NSError *error) {
 <li>《王者天下 第二期》(這個沒追說)</li>
 </ul>
 <p>講那麼多也沒用，先來看看影片介紹吧。</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/wMd8WQ61lCU" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/wMd8WQ61lCU" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p>轉貼至ニコニコ動画</p>
-<p><a href="http://www.nicovideo.jp/watch/sm20339948">ニコニコ動画_sm20339948</a></p>
+<p><a href="http://www.nicovideo.jp/watch/sm20339948" target="_blank">ニコニコ動画_sm20339948</a></p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/ニコニコ動画/" term="ニコニコ動画"/>
     <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
@@ -1130,7 +1127,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://livedoor.blogimg.jp/saboten_da/imgs/6/5/65a66ca3.jpg" alt="標題">
 
 
-<a name="more"></a>
+<a id="more"></a>
 
 <p>會長鎮樓</p>
 <img src="http://i.imgur.com/fLUAFYQ.jpg" alt="我是相田愛">
@@ -1191,8 +1188,7 @@ completionBlock:^(BOOL result, NSError *error) {
 
 <p><br></p>
 <p>來到正篇</p>
-<p>見到兩人的愛忍不住衝過來抱住
-<br></p>
+<p>見到兩人的愛忍不住衝過來抱住<br><br></p>
 <img src="http://i.imgur.com/xSlqWzj.jpg" alt="愛麗絲:我終於被臨幸了嗎">
 
 <img src="http://i.imgur.com/uAaHCrW.jpg" alt="三人無助的看著前面這巨大的物體">
@@ -1235,8 +1231,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://i.imgur.com/7dZr2K8.jpg" alt="兒子">
 
 
-<p>以上大誤
-<br></p>
+<p>以上大誤<br><br></p>
 <img src="http://i.imgur.com/wXpwVP5.jpg" alt="自我中的兩大前鋒 章魚和大猩猩">
 
 
@@ -1345,12 +1340,7 @@ completionBlock:^(BOOL result, NSError *error) {
 
 
 <p>大家在奇怪，愛在笑什麼時，愛開始要說教了。</p>
-<p>愛:如果你覺得這樣就能讓我們屈服，你就大錯特錯了。
-<br>
-我們被你困在撲克王國裡，那是你可以自由進出這裡的證明，既使沒有鏡子，只要讓你把我們送回原來的世界就好了&gt;
-<br>
-大叔:你不會認為我會按你說的做，才做這些事說這些話的吧。
-<br></p>
+<p>愛:如果你覺得這樣就能讓我們屈服，你就大錯特錯了。<br><br><br>我們被你困在撲克王國裡，那是你可以自由進出這裡的證明，既使沒有鏡子，只要讓你把我們送回原來的世界就好了&gt;<br><br><br>大叔:你不會認為我會按你說的做，才做這些事說這些話的吧。<br><br></p>
 <img src="http://i.imgur.com/1eXqU0R.jpg" alt="當然了!!!">
 
 <img src="http://i.imgur.com/eiH5lAB.jpg" alt="六花:從那來的阿，你這自信">
@@ -1405,9 +1395,7 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://livedoor.blogimg.jp/saboten_da/imgs/9/e/9ed3042b.jpg">
 
 
-<p>大叔:我做這麼多到底是為什麼阿～～
-<br>觀眾:我們也不知道阿～
-<br></p>
+<p>大叔:我做這麼多到底是為什麼阿～～<br><br>觀眾:我們也不知道阿～<br><br></p>
 <img src="http://i.imgur.com/KsWMxd9.jpg" alt="大叔還在適應中沒法起身">
 
 <img src="http://i.imgur.com/9alSjAm.jpg" alt="這次要暫時放過你，我們要回人間界了">
@@ -1418,9 +1406,7 @@ completionBlock:^(BOOL result, NSError *error) {
 
 
 <p><br></p>
-<font color='red'>
-##『いっしょにがんばろう！』
-</font>
+<font color='red'><br>##『いっしょにがんばろう！』<br></font>
 
 <p><br></p>
 <img src="http://i.imgur.com/A1p58fv.jpg">
@@ -1452,13 +1438,11 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://i.imgur.com/zBahoPo.jpg" alt="總算了解了">
 
 
-<p><a name="more"></a></p>
+<p><a id="more"></a></p>
 <img src="http://i.imgur.com/IIfo91p.jpg" alt="居然是由最笨的美幸提出，這不合理阿">
 
 
-<p><br>
-為了對抗已經性情大變得繪本人物，美幸等人也變身為Precure
-<br></p>
+<p><br><br>為了對抗已經性情大變得繪本人物，美幸等人也變身為Precure<br><br></p>
 <img src="http://i.imgur.com/jEBh2rB.jpg" title="星空美幸" alt="Cure Happy">
 
 <p><br></p>
@@ -1478,8 +1462,7 @@ completionBlock:^(BOOL result, NSError *error) {
 
 
 
-<p>就在打的難分難解時，Nico出現了
-<br></p>
+<p>就在打的難分難解時，Nico出現了<br><br></p>
 <img src="http://i.imgur.com/G1i02KP.jpg" alt="仰望">
 
 
@@ -1580,88 +1563,64 @@ completionBlock:^(BOOL result, NSError *error) {
     <id>http://redscor.github.io/2013/03/13/smile-precure---movie/</id>
     <published>2013-03-13T02:48:58.000Z</published>
     <updated>2013-03-13T03:55:14.000Z</updated>
-    <content type="html"><![CDATA[<p>這次是上季Smile Precure (微笑 光之美少女) 的劇場版。
-話說微笑光美TV版是我看最不爽的一代。</p>
+    <content type="html"><![CDATA[<p>這次是上季Smile Precure (微笑 光之美少女) 的劇場版。<br>話說微笑光美TV版是我看最不爽的一代。</p>
 <p>雖然人物比前幾代都討喜，可是劇情就是讓人愛不起來，明明主旨是Happy，可是內容卻提的少少，</p>
-<p>最後幾集還一直在哭....。</p>
+<p>最後幾集還一直在哭….。</p>
 <p>討厭歸討厭，出了劇場版還是要看一下。</p>
-<p>依照慣例，光美電影開頭都會提醒小朋友大朋友要小心的過程，自從引進了手電筒這功能後，
-<br>連帶說明也會擺進來。</p>
+<p>依照慣例，光美電影開頭都會提醒小朋友大朋友要小心的過程，自從引進了手電筒這功能後，<br><br>連帶說明也會擺進來。</p>
 <img src="http://i.imgur.com/AlFfFfJ.jpg" title="開頭五位主角" alt="首先是開頭的五人">
 
 
-<a name="more"></a>
+<a id="more"></a>
 
 
 <img src="http://i.imgur.com/gUhTkof.jpg" alt="提醒大家光美輸了要拿出Miracle light幫助她們">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/em88kbU.jpg" title="小美幸" alt="小美幸從小就自己一人..">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/MzBU0Lc.jpg" title="找到書" alt="在書堆中找到一本書">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/J2nnsuZ.jpg" title="拉自己臉皮" alt="看著書中說要微笑，拉著自己臉皮笑">
 
-<p><p>
-<br></p>
-<p>旁邊的兩個小朋友看到智障行為的小美幸，問她在看什麼，可不可以一起看阿
-<br></p>
+<p><p><br><br></p>
+<p>旁邊的兩個小朋友看到智障行為的小美幸，問她在看什麼，可不可以一起看阿<br><br></p>
 <img src="http://i.imgur.com/IRt0tjs.jpg" alt="好可愛阿">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/pQiyaP2.jpg" alt="回到家了也是一直在看，深深入迷">
 
-<p><p>
-<br>
-因為書後面的部份被撕掉了，美幸和書中的女孩約定後面的故事由她來完成。
-<br></p>
+<p><p><br><br><br>因為書後面的部份被撕掉了，美幸和書中的女孩約定後面的故事由她來完成。<br><br></p>
 <img src="http://i.imgur.com/EIo85e3.jpg" title="沒了" alt="書後被撕了">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/NG0lM7Q.jpg" alt="畫面轉到長大後的美幸">
 
-<p><p>
-<br>
-原來來到了繪本的展覽，怪不得美幸那麼高興，因為她最喜歡繪本了
-<br></p>
+<p><p><br><br><br>原來來到了繪本的展覽，怪不得美幸那麼高興，因為她最喜歡繪本了<br><br></p>
 <img src="http://i.imgur.com/mS83Ey1.jpg" title="^_^" alt="Happy中的美幸">
 
-<p><p>
-<br></p>
-<p>就在茜想去看3D展時，美幸拉著大家進入了劇場的棚裡
-<br></p>
+<p><p><br><br></p>
+<p>就在茜想去看3D展時，美幸拉著大家進入了劇場的棚裡<br><br></p>
 <img src="http://i.imgur.com/Bh88qRT.jpg" title="劇場篷" alt="劇場篷">
 
-<p><p>
-<br></p>
-<p>外面的樹叢中似乎出現了...
-<br></p>
+<p><p><br><br></p>
+<p>外面的樹叢中似乎出現了…<br><br></p>
 <img src="http://i.imgur.com/zIX92kb.jpg" title="小怪物" alt="小怪物">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/NBRiqYc.jpg" title="電影開始中" alt="電影開始中">
 
 
-<p>電影中的劇情是兩個怪物，金角，銀角追著一個叫妮可(NICO)的女孩。
-<br>就在被發現要被追殺時，剛剛樹叢的怪物大叫，螢幕中亮出了閃光。</p>
+<p>電影中的劇情是兩個怪物，金角，銀角追著一個叫妮可(NICO)的女孩。<br><br>就在被發現要被追殺時，剛剛樹叢的怪物大叫，螢幕中亮出了閃光。</p>
 <img src="http://i.imgur.com/Ew8dBhC.jpg" alt="忽然跑出來了">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/hHNMsb4.jpg">
 
-<p><p>
-<br></p>
-<p>下面是連續動作..
-<br></p>
+<p><p><br><br></p>
+<p>下面是連續動作..<br><br></p>
 <img src="http://i.imgur.com/kekIsCO.jpg">
 
 <img src="http://i.imgur.com/xTPUikk.jpg">
@@ -1671,235 +1630,167 @@ completionBlock:^(BOOL result, NSError *error) {
 <img src="http://i.imgur.com/nktwyoH.jpg">
 
 
-<p>怎麼每個人的視角都不一樣..反應速度的差別嗎...。</p>
-<p><p>
-<br></p>
+<p>怎麼每個人的視角都不一樣..反應速度的差別嗎…。</p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/0tpRTX8.jpg" alt="金角銀角也從螢幕中跑出來">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/loZSub3.jpg" title="喂喂" alt="麗華妳這天然呆..">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/aCRF74W.jpg" alt="茜馬上吐槽">
 
-<p><p>
-<br></p>
-<p>金角銀角似乎在找尋Nico中
-<br></p>
+<p><p><br><br></p>
+<p>金角銀角似乎在找尋Nico中<br><br></p>
 <img src="http://i.imgur.com/BmIj660.jpg">
 
-<p><p>
-<br></p>
-<p>於是光美們也變了身為了救Nico，而跟金角銀角打起來。
-<br></p>
+<p><p><br><br></p>
+<p>於是光美們也變了身為了救Nico，而跟金角銀角打起來。<br><br></p>
 <img src="http://i.imgur.com/6mE7qyy.jpg" alt="Peace率先發難">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/liKncXx.jpg" title=".." alt="Peace那時變那麼強了">
 
 
-<p>視角換到金角，忽然一個瞬影，手中的Nico不見了
-<br></p>
+<p>視角換到金角，忽然一個瞬影，手中的Nico不見了<br><br></p>
 <img src="http://i.imgur.com/HpZv0y7.jpg">
 
 <img src="http://i.imgur.com/Tze5mcM.jpg" alt="誒。我的人勒">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/6wo3A0v.jpg" alt="美幸救了Nico">
 
-<p><p>
-<br></p>
-<p>金角打開了葫蘆打算把兩人都吸進來
-<br></p>
+<p><p><br><br></p>
+<p>金角打開了葫蘆打算把兩人都吸進來<br><br></p>
 <img src="http://i.imgur.com/wq9DjRd.jpg" alt="吸阿吸">
 
-<p><p>
-<br></p>
-<p>Nico被吸進去了，眾人為了救她把葫蘆搶回來，
-<br></p>
+<p><p><br><br></p>
+<p>Nico被吸進去了，眾人為了救她把葫蘆搶回來，<br><br></p>
 <img src="http://i.imgur.com/turF49E.jpg" alt="Peace:嘿嘿，我搶到了">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/WJfe4M3.jpg">
 
-<p><p>
-<br></p>
-<p>將金角銀角打敗後，Nico還在葫蘆中，美幸為了要(拔 X) (救 O)出她，也進去裡面
-<br>
-看到這我還奇怪美幸那時被吸進去了...
-<br></p>
+<p><p><br><br></p>
+<p>將金角銀角打敗後，Nico還在葫蘆中，美幸為了要(拔 X) (救 O)出她，也進去裡面<br><br><br>看到這我還奇怪美幸那時被吸進去了…<br><br></p>
 <img src="http://i.imgur.com/O9UinQr.jpg">
 
-<p><p>
-<br></p>
-<p>在Nico感謝之餘，美幸提到了好像在那見過Nico，
-<br></p>
+<p><p><br><br></p>
+<p>在Nico感謝之餘，美幸提到了好像在那見過Nico，<br><br></p>
 <img src="http://i.imgur.com/o3HsAZa.jpg">
 
-<p><p>
-<br></p>
-<p>Nico邀請美幸一行人去繪本的世界玩，美幸一行人也答應前往。
-<br></p>
+<p><p><br><br></p>
+<p>Nico邀請美幸一行人去繪本的世界玩，美幸一行人也答應前往。<br><br></p>
 <img src="http://i.imgur.com/xBFtiKc.jpg">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/tbdlWUw.jpg" alt="看著我的手指">
 
 <img src="http://i.imgur.com/z6MSyLK.jpg" alt="變變變">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/uyXxSyK.jpg" alt="一個彩虹鯨魚">
 
 
-<p>繪本世界裡不但全部的人物都在裡面，Nico還提到了可以創造自己的故事和體驗。
-<br></p>
+<p>繪本世界裡不但全部的人物都在裡面，Nico還提到了可以創造自己的故事和體驗。<br><br></p>
 <img src="http://i.imgur.com/kImU12H.jpg" alt="可以體驗唷">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/ipyfUtg.jpg" alt="順風耳美幸">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <p>Nico問眾人喜歡什麼故事</p>
 <ul>
 <li>美幸 - 灰姑娘</li>
 <li>彌生 - 西遊記</li>
 <li>茜 - 一寸法師</li>
 <li>麗華 - 桃太郎</li>
-<li>直 - 浦島太郎 (因為可以一直吃...)
-<br></li>
+<li>直 - 浦島太郎 (因為可以一直吃…)<br><br></li>
 </ul>
 <img src="http://i.imgur.com/xDH4KaH.jpg" alt="美幸真的非常喜歡灰姑娘..">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/GAR0A2o.jpg" alt="有壞人的感覺">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/RD9p9fD.jpg" alt="果然有黑化的前兆">
 
-<p><p>
-<br></p>
-<p>灰姑娘就是要一直做家事..
-<br></p>
+<p><p><br><br></p>
+<p>灰姑娘就是要一直做家事..<br><br></p>
 <img src="http://i.imgur.com/2ln69pO.jpg">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/Tj4SCSn.jpg" alt="成堆的碗盤">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/gWDINhk.jpg" alt="後母怎麼變正許多">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/0w2OU5Y.jpg" alt="孫悟空登場">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/CmEogNH.jpg" alt="桃太郎是也">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/ZJZK8CI.jpg" alt="一登場就救烏龜..">
 
-<p><p>
-<br></p>
-<p>看到眾人玩的那麼開心，Nico又黑了。
-<br></p>
+<p><p><br><br></p>
+<p>看到眾人玩的那麼開心，Nico又黑了。<br><br></p>
 <img src="http://i.imgur.com/1mcdJx3.jpg" alt="笑容什麼的最討厭了">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/OuhyplA.jpg" alt="背後的影子再度出現，到底是什麼呢">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/a26qvV5.jpg" alt="桃太郎找同伴中">
 
-<p><p>
-<br></p>
-<p>結果三個動物已經在吃了，原來拿了浦島太郎送的糰子
-<br></p>
+<p><p><br><br></p>
+<p>結果三個動物已經在吃了，原來拿了浦島太郎送的糰子<br><br></p>
 <img src="http://i.imgur.com/YLJ6V0j.jpg" title="龍宮的糰子" alt="龍宮的糰子比較高級啦～">
 
 <p>怎麼故事怪怪的..</p>
-<p><p>
-<br></p>
-<p>救了烏龜的直，騎著烏龜來到了龍宮前
-<br></p>
+<p><p><br><br></p>
+<p>救了烏龜的直，騎著烏龜來到了龍宮前<br><br></p>
 <img src="http://i.imgur.com/TmjHo8j.jpg" alt="富麗的龍宮">
 
-<p><p>
-<br></p>
-<p>一進去就想找吃的，妳到底是多餓
-<br>
-結果看到的是；
-<br></p>
+<p><p><br><br></p>
+<p>一進去就想找吃的，妳到底是多餓<br><br><br>結果看到的是；<br><br></p>
 <img src="http://i.imgur.com/7sihcIt.jpg" alt="不是公主而是一頭豬">
 
-<p><p>
-<br>
-原來是西遊記三人跑來這了，故事又亂了。
-<br></p>
+<p><p><br><br><br>原來是西遊記三人跑來這了，故事又亂了。<br><br></p>
 <img src="http://i.imgur.com/Ox6oZNs.jpg" alt="孫悟空來到了鬼之島 嗯?">
 
-<p><p>
-<br></p>
-<p>真的鬼之島主角到了
-<br></p>
+<p><p><br><br></p>
+<p>真的鬼之島主角到了<br><br></p>
 <img src="http://i.imgur.com/j3p6Yqf.jpg" alt="原來是Peace來亂入的..">
 
-<p><p>
-<br></p>
-<p>來到茜的一寸法師，怎麼看到一隻玻璃鞋
-<br></p>
+<p><p><br><br></p>
+<p>來到茜的一寸法師，怎麼看到一隻玻璃鞋<br><br></p>
 <img src="http://i.imgur.com/7KIIX0n.jpg" alt="好大的腳阿">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/80X9w53.jpg" alt="灰姑娘亂入一寸法師，還變大了">
 
-<p><p>
-<br></p>
-<p>而美幸的灰姑娘故事，則是亂入了桃太郎的人物，
-<br></p>
+<p><p><br><br></p>
+<p>而美幸的灰姑娘故事，則是亂入了桃太郎的人物，<br><br></p>
 <img src="http://i.imgur.com/olA52i0.jpg" alt="吃人嘴軟,你們兩個..">
 
-<p><p>
-<br></p>
-<p>就在桃太郎提議要去打鬼時，一個黑色的東西把他包住
-<br></p>
+<p><p><br><br></p>
+<p>就在桃太郎提議要去打鬼時，一個黑色的東西把他包住<br><br></p>
 <img src="http://i.imgur.com/Vh92e80.jpg" alt="阿阿要被吃掉啦">
 
-<p><p>
-<br></p>
-<p>其他故事的主人公也被同樣吃掉後，人物都變的邪惡了起來。
-<br></p>
+<p><p><br><br></p>
+<p>其他故事的主人公也被同樣吃掉後，人物都變的邪惡了起來。<br><br></p>
 <img src="http://i.imgur.com/llK8R7r.jpg" alt="黑化後的灰姑娘">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/Xj5TJSl.jpg">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/b7Mcwjq.jpg" alt="眾人不知該如何是好">
 
-<p><p>
-<br></p>
-<p>這時原故事的壞人役登場幫助了美幸一行人，並說明是想讓故事維持正常才來幫忙
-三人分別是</p>
+<p><p><br><br></p>
+<p>這時原故事的壞人役登場幫助了美幸一行人，並說明是想讓故事維持正常才來幫忙<br>三人分別是</p>
 <ul>
 <li>桃太郎的鬼</li>
 <li>西遊記的牛魔王</li>
@@ -1907,16 +1798,13 @@ completionBlock:^(BOOL result, NSError *error) {
 </ul>
 <img src="http://i.imgur.com/JJJkQy2.jpg" alt="壞人登場">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/uWdkUV9.jpg" alt="黑化後的孫悟空">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <img src="http://i.imgur.com/IAVcBfr.jpg" alt="Nico在遠處觀看著">
 
-<p><p>
-<br></p>
+<p><p><br><br></p>
 <h2>待續</h2>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
@@ -1931,12 +1819,9 @@ completionBlock:^(BOOL result, NSError *error) {
     <content type="html"><![CDATA[<p>其實這個效果是一個國外的APP叫Path首先推出，然後Facebook引進來用。</p>
 <p>當這個效果出來後，很多人都在問這怎麼做的，當然我這篇不是講要怎麼做。</p>
 <p>而是我之前某個app用到了ZUUIRevealController這個Library寫的一個差不多效果的東西。</p>
-<p>把他兩個檔引進進來，很容易的可以做到點一下像FaceBook一樣拉出左邊的選單列，
-<br>然後再點一下按鈕可以自動彈回來或是手動拉回來。</p>
+<p>把他兩個檔引進進來，很容易的可以做到點一下像FaceBook一樣拉出左邊的選單列，<br><br>然後再點一下按鈕可以自動彈回來或是手動拉回來。</p>
 <p>之前遇到個問題是，他Pan手勢是做在NavigationController上，所以只有拉上面才會出拖動，</p>
-<p>想要在中間(FrontView)主頁面也要加上手勢功能的話，就要做一點處理。
-<a name="more"></a>
-首先在  <code>ViewDidLoad</code> 中找到</p>
+<p>想要在中間(FrontView)主頁面也要加上手勢功能的話，就要做一點處理。<br><a id="more"></a><br>首先在  <code>ViewDidLoad</code> 中找到</p>
 <figure class="highlight lang-objc"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.navigationController</span><span class="variable">.parentViewController</span> respondsToSelector:@<span class="keyword">selector</span>(revealGesture:)] &amp;&amp; [<span class="keyword">self</span><span class="variable">.navigationController</span><span class="variable">.parentViewController</span> respondsToSelector:@<span class="keyword">selector</span>(revealToggle:)])
 </pre></td></tr></table></figure>
@@ -1968,9 +1853,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 </pre></td></tr></table></figure>
 
 
-<p>這樣就可以完成了左右手識添加，可是還有一步，就是它連上下手勢都加進去了
-<br>以至於我們無法滾動TableView了
-所以必須要借助 <em>UIPanGestureRecognizer</em> 這裡面的<strong>Delegate</strong> 方法</p>
+<p>這樣就可以完成了左右手識添加，可是還有一步，就是它連上下手勢都加進去了<br><br>以至於我們無法滾動TableView了<br>所以必須要借助 <em>UIPanGestureRecognizer</em> 這裡面的<strong>Delegate</strong> 方法</p>
 <p>首先在<code>.h</code>檔中加入 <strong>UIGestureRecognizerDelegate</strong> 這個 <em>Protocol</em></p>
 <p>然後再<code>.m</code>檔中，- (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)gestureRecognizer 這個delegate中寫入偵測方法</p>
 <p>所以在上面的method中 要加入delegate指向自己</p>
@@ -2002,8 +1885,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 
 <p>到目前為止，我們完成了在主頁面讓上下兩個Controller都加入了手勢的功能，</p>
-<p>但是用這個Library一定覺得奇怪，為什麼我移到右邊了，我裡面的Cell還是能點，
-因為作者這方面沒有做處理，所以又到我們自己下功夫的地方了。</p>
+<p>但是用這個Library一定覺得奇怪，為什麼我移到右邊了，我裡面的Cell還是能點，<br>因為作者這方面沒有做處理，所以又到我們自己下功夫的地方了。</p>
 <p>首先找到<code>RevealController.m</code> 這個檔案</p>
 <p>找到裡面的 </p>
 <p><code>- (void)revealController:(ZUUIRevealController *)revealController willRevealRearViewController:(UIViewController *)rearViewController</code><br>這個Method</p>
@@ -2082,11 +1964,10 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
     <updated>2013-03-10T07:46:17.000Z</updated>
     <content type="html"><![CDATA[<p>這次要來介紹每週都會看的光之美少女，雖然東映在出是屬於子供向的動畫。</p>
 <p>但是確有很多廣大的大哥哥大姐姐喜歡看，內容從初代無印的黑白就顛覆了會變身的魔法少女只會用魔法的既定印象。</p>
-<p>完全是拳拳到肉的近身派，和劇情總是正向的，也因此吸收到了廣大的觀眾群。
-<br>光之美少女已邁入第十個年頭，也出到了第八代的光之美少女。</p>
+<p>完全是拳拳到肉的近身派，和劇情總是正向的，也因此吸收到了廣大的觀眾群。<br><br>光之美少女已邁入第十個年頭，也出到了第八代的光之美少女。</p>
 <p>這代叫做 <strong><em>DokiDoki Precure (心跳!光之美少女)</em></strong></p>
-<p>今天要介紹的是正在播映的第六集，以下圖多 &lt;------&gt;</p>
-<a name="more"></a>
+<p>今天要介紹的是正在播映的第六集，以下圖多 &lt;———&gt;</p>
+<a id="more"></a>
 
 
 <p>第06話「ビックリ！私のお家にまこぴーがくる！？」</p>
@@ -2181,7 +2062,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 
 <p>完整變身就自己看吧^^</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/n61pNm0cwCY" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/n61pNm0cwCY" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p><p></p>
@@ -2238,7 +2119,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 
 
 <p>New Stage的OP也挺好聽的</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/ND5yi6hnRNk" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/ND5yi6hnRNk" frameborder="0" allowfullscreen></iframe></div>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/心跳！光之美少女/" term="心跳！光之美少女"/>
     <category scheme="http://redscor.github.io/tags/光之美少女/" term="光之美少女"/>
@@ -2252,16 +2133,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
     <updated>2013-03-08T03:38:41.000Z</updated>
     <content type="html"><![CDATA[<p>話說某社FATE剛出完 <strong> <em>Fate/Zero</em> </strong>，可是內容都在嘴砲…就顯得很無聊</p>
 <p>我最愛的伊莉雅居然只出場不到10分鐘，整整25集(?)阿。</p>
-<p>還有人專門的伊莉雅漫畫 叫 <strong>魔法少女伊莉雅</strong> 。 目前已經出到第三部了，挺不錯看。
-<br>喜歡伊莉雅的一定不能錯過。</p>
+<p>還有人專門的伊莉雅漫畫 叫 <strong>魔法少女伊莉雅</strong> 。 目前已經出到第三部了，挺不錯看。<br><br>喜歡伊莉雅的一定不能錯過。</p>
 <p>話說第三部講著伊莉雅來到的異世界，遇到了縮小的金閃閃和一個穿著體育服打不死的女生，</p>
 <p>自己的好碰友(美遊)又被抓走，想去救人時，被打個半死落跑…</p>
 <p>來到第八回，先來看個圖A_A</p>
 <img src="http://i.imgur.com/3a53Fad.jpg" title="小黑對伊莉雅" alt="小黑的胖子 >///<">
 
-<p><a name="more"></a>
-<br>
-姐姐教訓完妹妹後 當然要拿回饋(舌技and寢技)</p>
+<p><a id="more"></a><br><br><br>姐姐教訓完妹妹後 當然要拿回饋(舌技and寢技)</p>
 <img src="http://i.imgur.com/ChIeqri.jpg" title="伊莉雅O_O" alt="啾">
 
 <p><br></p>
@@ -2276,7 +2154,7 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <img src="http://blog-imgs-43.fc2.com/d/a/y/daybreakforce/20100718233537b45.jpg" title="妄想學生會" alt="生徒會役員共 - 三人">
 
 
-<p><a href="http://www.starchild.co.jp/special/seitokai/ova/">妄想同學會OVA網址</a> 請點右鍵開新網頁</p>
+<p><a href="http://www.starchild.co.jp/special/seitokai/ova/" target="_blank">妄想同學會OVA網址</a> 請點右鍵開新網頁</p>
 <p>話說這部動漫還真是不錯看，原作是四格漫畫，可是變成動畫後反而更不俗，尤其是色色的話題。</p>
 <p>話說津田怎麼連當後宮王的自覺都沒有呢，唉唉。</p>
 ]]></content>
@@ -2290,12 +2168,10 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
     <published>2013-03-07T07:12:51.000Z</published>
     <updated>2013-03-08T03:21:05.000Z</updated>
     <content type="html"><![CDATA[<p>第一首要來介紹的歌手是「ZAQ」</p>
-<p>在日本NicoNico 上幫過很多人做詞做曲的一個全能型幕後藝人
-<br>上一季開始，走向幕前自己唱起歌來，歌曲曲風都很不錯也很多元。話不多說先來聽看看</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/3C2HUIAAPdM" frameborder="0" allowfullscreen></iframe></div>
+<p>在日本NicoNico 上幫過很多人做詞做曲的一個全能型幕後藝人<br><br>上一季開始，走向幕前自己唱起歌來，歌曲曲風都很不錯也很多元。話不多說先來聽看看</p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/3C2HUIAAPdM" frameborder="0" allowfullscreen></iframe></div>
 
-<p><a name="more"></a>
-這一首是這季新番 <strong>鎖鎖美同學，提不起勁</strong> 的OP</p>
+<p><a id="more"></a><br>這一首是這季新番 <strong>鎖鎖美同學，提不起勁</strong> 的OP</p>
 <p>內容是個<del>廢材女</del> 美麗的妹妹遇到了各式各樣的事情，包括超展開的巫女，神佛?</p>
 <img src="http://i1219.photobucket.com/albums/dd430/moxian96698/66B498CE622A56FE201322221494566_zpsf30e7664.jpg" title="鎖鎖美" alt="小時候">
 
@@ -2306,14 +2182,13 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <p>歌唱比賽出身的佐咲，實力當然是不容小觀，美麗的外表更是大大的加分</p>
 <p>歌迷人數成倍數成長中。</p>
 <p>要介紹的歌曲是上一季，<strong>美少女死神 還我H之魂！</strong> 的OP。</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/H0gDlwaPlMU" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/H0gDlwaPlMU" frameborder="0" allowfullscreen></iframe></div>
 
 
-<p>做詞做曲的剛好就是上面的ZAQ，佐咲的實力在這首歌無所遁形，果然是實力堅強，
-<br>就看她現場唱這首表現的如何了。</p>
+<p>做詞做曲的剛好就是上面的ZAQ，佐咲的實力在這首歌無所遁形，果然是實力堅強，<br><br>就看她現場唱這首表現的如何了。</p>
 <p>剩下是要聽一下上一季BD賣的不錯的 <strong>中二病也想談戀愛</strong> 的OP</p>
 <p>曲風也是很好玩，屁股扭扭扭的www</p>
-<div class="video-container"><iframe width="560" height="315" src="http://www.youtube.com/embed/NeiIS4AVa-k" frameborder="0" allowfullscreen></iframe></div>
+<div class="video-container"><iframe src="//www.youtube.com/embed/NeiIS4AVa-k" frameborder="0" allowfullscreen></iframe></div>
 
 
 <p>這邊先簡短介紹一下，<del>上班中偷寫不能寫太多XD</del></p>
@@ -2328,11 +2203,10 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
     <published>2013-03-07T01:49:48.000Z</published>
     <updated>2013-03-08T03:21:24.000Z</updated>
     <content type="html"><![CDATA[<p>今天在Pixiv上看到有個畫家畫了幾張主角和人氣高的光美半頭的圖像</p>
-<p>似乎有些有點邪惡，有些有點嬌了點lol
-<br>就來看看貼圖吧，先看看這季新番 <strong>ドキドキ！プリキュア</strong>(心跳！光之美少女)</p>
+<p>似乎有些有點邪惡，有些有點嬌了點lol<br><br>就來看看貼圖吧，先看看這季新番 <strong>ドキドキ！プリキュア</strong>(心跳！光之美少女)</p>
 <img src="http://i.imgur.com/lDH39IK.jpg" title="四個大頭" alt="四個主角">
 
-<p><a name="more"></a></p>
+<p><a id="more"></a></p>
 <img src="http://i.imgur.com/k26eSaV.jpg" title="相田愛" alt="相田マナ - Cure Heart">
 
 <img src="http://i.imgur.com/e0Es7FM.jpg" title="菱川六花" alt="菱川六花 - Cure Diamond">
@@ -2374,19 +2248,17 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
     <content type="html"><![CDATA[<p>發文章先幹一下，媽的蘋果又退我們件，又是該死的iap問題</p>
 <p><strong> Audio story is set to consumable. </strong></p>
 <p>這什麼鳥理由，怕我們跟apple 線上音樂衝突到嗎，查了一下StackOverFlow也是有一堆人因為這問題被退。</p>
-<p>好吧，先不管iap的事情，這次還有一個退件原因是因為我把暫存圖存到了Document資料夾下<br>
-因為在iOS SandBox下 只有tmp和library/cache下不會被iTunes和iCloud備份。</p>
+<p>好吧，先不管iap的事情，這次還有一個退件原因是因為我把暫存圖存到了Document資料夾下<br><br>因為在iOS SandBox下 只有tmp和library/cache下不會被iTunes和iCloud備份。</p>
 <p>你硬要存到Document的話，要寫一段Code去特別聲明這個資料夾是不備份的。</p>
-<p>但你要存一些東西又要暫存資料呢，只好另尋方法。
-<br>網路最常用的就是存到library/cache中，這樣你存得資料就不會被備份到。</p>
+<p>但你要存一些東西又要暫存資料呢，只好另尋方法。<br><br>網路最常用的就是存到library/cache中，這樣你存得資料就不會被備份到。</p>
 <p>你要查看你存的東西會不會被備份可以用此方法</p>
 <ul>
 <li>Install and launch your app</li>
 <li>Go to Settings &gt; iCloud &gt; Storage &amp; Backup &gt; Manage Storage </li>
-<li>If necessary, tap &quot;Show all apps&quot;</li>
+<li>If necessary, tap “Show all apps”</li>
 <li>Check your app&#39;s storage</li>
 </ul>
-<a name="more"></a>
+<a id="more"></a>
 
 <hr>
 <p>因為我用的圖片暫存是我自己寫的，不是用網路上找的，例如SDWebImage這個有名的第三方Library。</p>
@@ -2485,70 +2357,5 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[安裝設定Hexo]]></title>
-    <link href="http://redscor.github.io/2013/03/06/安裝設定hexo/"/>
-    <id>http://redscor.github.io/2013/03/06/安裝設定hexo/</id>
-    <published>2013-03-06T02:37:27.000Z</published>
-    <updated>2013-03-07T01:44:46.000Z</updated>
-    <content type="html"><![CDATA[<p>本來在OctoPress上架了一個Blog</p>
-<p>看到有台灣同胞寫了一個以Node.js為底的以OctoPress為架構的Blog
-大大的改進了OctoPress會因文件過多而處理時間太長的問題</p>
-<p>因為靜態Blog每次處理都全部文件都建一次</p>
-<p>所以當文件過多時 處理效率就會過低</p>
-<p>這方面Ruby明顯遜於Node.js</p>
-<p>所以就來試用一下這個新的寵兒</p>
-<p><a name="more"></a>
-在官方文件上一步步可以很容易的安裝完Node.js和Blog</p>
-<p>但是當我試到指令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> deploy
-</pre></td></tr></table></figure>
-
-
-<p>老是出現</p>
-<img src="http://i.imgur.com/rl0O8Ba.png" title="錯誤訊息">
-
-
-<p>看了作者的github 總是要設定 _config.yml這個檔裡github</p>
-<p>可是試了一天都沒辦法deploy到github上<br>
-後來想到反正我產生靜態網頁檔後，都會存到Public這個資料夾</p>
-<p>想說道理應該一樣，就用我平常開發的方式上傳到github好了
-<br>在Mac 中，我習慣用SourceTree這個圖形化界面去處理git的問題</p>
-<p>打開你的SourceTree 然後打開你的Finder 找到你剛剛init的資料夾
-裡面應該會找的跟我一樣</p>
-<img src="http://i.imgur.com/NPVGd4Y.png" title="Finder">
-
-
-<p>然後把Public資料夾拖到SourceTree中 類似下圖</p>
-<img src="http://i.imgur.com/g94E4qz.png" title="SoureTree">
-
-
-<p>然後點進去設定 點選右上方的setting -&gt;Add 
-填入如下圖的樣子</p>
-<img src="http://i.imgur.com/kqnVrbo.png" title="填入基本資料">
-
-
-<p>上面的URL /path 可以到你的github中看到
-選擇SSH的方式你需要先建立一個SSH Key import到github中</p>
-<p>選擇Http的話～你需要每次上傳都要填入帳號密碼</p>
-<p>這樣當你每次下</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> init <span class="string">"新文章"</span>
-</pre></td></tr></table></figure>
-
-<p>寫完文章後，產生靜態網頁</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> generate
-</pre></td></tr></table></figure>
-
-
-<p>就可以打開SourceTree中 點選Add /Remove鈕
-然後把你的文件commit &amp; push 到github中囉</p>
-<p>如果你熟悉Command line中git指令 同樣的步驟也可以
-<br><del>絕對不是我忘了git指令</del></p>
-]]></content>
-    <category scheme="http://redscor.github.io/tags/hexo/" term="hexo"/>
   </entry>
 </feed>

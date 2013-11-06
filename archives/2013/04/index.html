@@ -16,26 +16,11 @@
     <meta property="og:image" content="undefined"/>
   
 
-  <link href="/favicon.ico" rel="shortcut icon">
+  <link href="/favicon.png" rel="icon">
   <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39025083-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<script type="text/javascript" src="/fancybox/shBrushObjectiveC.js"></script>
-<link type="text/css" rel="stylesheet" href="/fancybox/shCoreMidnight.css">
-
 </head>
 
 
@@ -45,25 +30,16 @@
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
-<a href="http://info.flagcounter.com/vGjq"><img src="http://s04.flagcounter.com/mini/vGjq/bg_F0FEFF/txt_D91818/border_B627CC/flags_0/" alt="Flag Counter" border="0"></a>
   <ul>
     
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
     
-      <li><a href="https://github.com/RedScor">GitHub</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
-    
-      <li><a href="http://zh-tw.justin.tv/redscor02">實況網站</a></li>
-    
   </ul>
   <div class="clearfix"></div>
 </nav>
-<div class="clearfix"></div>
-
-</header>
+<div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
 <h2 class="archive-title">2013/4</h2>
@@ -111,7 +87,7 @@
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
-  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="Search">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
@@ -124,7 +100,7 @@
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>10</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>11</small></li>
   
   </ul>
 </div>
@@ -135,19 +111,19 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justintv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>10</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>11</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
     <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
   
-    <li><a href="/tags/動畫-1/">動畫</a><small>1</small></li>
+    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
   
     <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
   
@@ -158,20 +134,6 @@
   </ul>
 </div>
 
-
-  
-<div class="widget twitter">
-  <h3 class="title">Tweets</h3>
-  <ul id="tweets"></ul>
-</div>
-
-<script type="text/javascript">
-var twitter_stream = ['RedscorYuan', 7, false];
-var moment_js_path = '/js/moment.min.js';
-</script>
-<script src="/js/twitter.js"></script>
-
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -181,7 +143,8 @@ var moment_js_path = '/js/moment.min.js';
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
@@ -192,7 +155,7 @@ var disqus_shortname = 'redscor';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
@@ -207,16 +170,5 @@ var disqus_shortname = 'redscor';
 })(jQuery);
 </script>
 
-<script type="text/javascript">
-function addBlankTargetForLinks () {
-  $('a[href^="http"]').each(function(){
-		$(this).attr('target', '_blank');
-	});
-}
- 
-$(document).bind('DOMNodeInserted', function(event) {
-	addBlankTargetForLinks();
-});
-</script>
 </body>
 </html>
