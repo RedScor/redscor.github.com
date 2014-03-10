@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2014-03-10T09:07:48.767Z</updated>
+  <updated>2014-03-10T09:12:43.438Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2014/03/09/ios-讀書筆記/"/>
     <id>http://redscor.github.io/2014/03/09/ios-讀書筆記/</id>
     <published>2014-03-09T14:50:54.000Z</published>
-    <updated>2014-03-10T09:07:33.000Z</updated>
+    <updated>2014-03-10T09:12:30.000Z</updated>
     <content type="html"><![CDATA[<h3>Pro Multithreading And Memory Management for iOS and OS X</h3>
 <p>這本書是看網路Blog時有人介紹的，主要內容就三章<code>ARC</code> <code>BLOCK</code> <code>GCD</code></p>
 <p>作者是兩個日本人寫的，衝著自己對Block需要再加強，所以興衝衝去買了簡體中文版，我是覺得需要看熟的東西還是不要考驗自己英文比較好 w 而且外國人也說翻的很爛ww。</p>
@@ -250,7 +250,8 @@ id __autoreleasing obj2; 		== id __autoreleasing obj2 = <span class="keyword">ni
 
 <p>另一種情況是使用<code>__weak</code>也會自動幫你註冊到自動釋放池，為什麼呢?<br>因為<code>__weak</code> 只持有對象的弱引用，而在訪問對象的過程中，該對象有可能被廢棄，如果把訪問對象加到autoreleasepool中，䢷麼在@autorelease 結束前都能確表該對象存在。</p>
 <p>所以使用附有__weak修飾符的變數就必定要註冊到aotoreleasepool中的對象。</p>
-<p>最後一個非顯示使用<code>__autoreleasing</code>的情況就是，我們都是id 預設是<code>__strong</code>，但是如果是id類型的指標呢 (id <em>obj)<br><br>會變成這樣 `id __autoreleasing </em>obj<code>,同樣的，對象指標</code>NSObject <em>* obj<code>則變成了</code>NSObject </em>__autoreleasing *obj`。</p>
+<p>最後一個非顯示使用<code>__autoreleasing</code>的情況就是，我們都是id 預設是<code>__strong</code>，但是如果是id類型的指標呢 <code>(id *obj)</code></p>
+<p>會變成這樣 <code>id __autoreleasing *obj</code> 同樣的，對象指標  <code>NSObject ** obj</code> 則變成了<br><code>NSObject *__autoreleasing *obj</code>。</p>
 <p>看到了兩個<em>符號有想到Objc中那邊用的最多呢？沒錯～就是`NSError *</em>error`</p>
 <p>所以<code>NSError **error</code> 等價於 <code>NSError *__autoreleasing *error</code><br>因為聲明為NSError <em>__autoreleasing </em>類型的error 作為 *error被賦值，所以能夠返回註冊到autoreleasepool中的對象。</p>
 <p>但下面會產生編譯錯誤</p>
