@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2014-03-10T05:06:34.010Z</updated>
+  <updated>2014-03-10T05:11:55.065Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2014/03/09/ios-讀書筆記/"/>
     <id>http://redscor.github.io/2014/03/09/ios-讀書筆記/</id>
     <published>2014-03-09T14:50:54.000Z</published>
-    <updated>2014-03-10T05:06:28.000Z</updated>
+    <updated>2014-03-10T05:11:28.000Z</updated>
     <content type="html"><![CDATA[<h3>Pro Multithreading And Memory Management for iOS and OS X</h3>
 <p>這本書是看網路Blog時有人介紹的，主要內容就三章<code>ARC</code> <code>BLOCK</code> <code>GCD</code></p>
 <p>作者是兩個日本人寫的，衝著自己對Block需要再加強，所以興衝衝去買了簡體中文版，我是覺得需要看熟的東西還是不要考驗自己英文比較好 w 而且外國人也說翻的很爛ww。</p>
@@ -321,7 +321,7 @@ error = tmp;
 </pre></td></tr></table></figure>
 
 
-<p>第八點轉換id 和void* 其實就是<code>__bridge``__bridge_retained``__bridge_transfer</code><br>不過這些轉換通常都用於Foundation和Core Foundation中的對象，所以不是今天想講的內容。有興趣可以自行查詢。</p>
+<p>第八點轉換id 和void* 其實就是<code>__bridge</code> <code>__bridge_retained</code> <code>__bridge_transfer</code><br>不過這些轉換通常都用於Foundation和Core Foundation中的對象，所以不是今天想講的內容。有興趣可以自行查詢。</p>
 <p>在ARC下，類型的屬性也會發生變化。(Property)</p>
 <table>
 <thead>
@@ -359,7 +359,7 @@ error = tmp;
 </table>
 <p>所以我朋友說他使用block用strong也可以，因為我記得block是要用copy的，在ARC下會自動幫你管理的。</p>
 <hr>
-<p>那我們再來討論一下賦值給<code>__strong``__weak``__autoreleasing</code>的情況下，程式到底是怎麼運行的呢?</p>
+<p>那我們再來討論一下賦值給<code>__strong</code> <code>__weak</code> <code>__autoreleasing</code>的情況下，程式到底是怎麼運行的呢?</p>
 <h3><font color="red">__strong</font></h3>
 
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
@@ -429,7 +429,7 @@ error = tmp;
 <h3><font color="red">__weak</font></h3>
 
 <ul>
-<li>若附有<code>__weak</code>修飾符的變數所引用的對象不存在時，則機nil賦值給該變數。</li>
+<li>若附有<code>__weak</code>修飾符的變數所引用的對象不存在時，則nil賦值給該變數。</li>
 <li>使用附有<code>__weak</code>修飾符的變數，即是使用註冊到autoreleasepool中的對象。</li>
 </ul>
 <p>唯一需要注意的是，如果大量使用附有<code>__weak</code>修飾符的變數時，則會消耗相應的CPU資，比較好的方法是只在需要避免循環引用時使用<code>__weak</code>修飾符。</p>
