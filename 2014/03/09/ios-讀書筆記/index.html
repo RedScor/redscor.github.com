@@ -300,7 +300,7 @@ id __autoreleasing obj2; 		== id __autoreleasing obj2 = <span class="keyword">ni
 <h2><font color="red">__autoreleasing</font></h2>
 
 <p>在ARC中，通過將對象附加了__autoreleasing修飾符的變數等價於在ARC無效時，調用對象的autorelease方法，即被註冊到autoreleasePool中。</p>
-<p>也可以理解為，在ARC有效時，用@autoreleasepool塊替代NSAutorelease類，用附有__autoreleasing 修飾符的變數體代autorelease方法。</p>
+<p>也可以理解為，在ARC有效時，用@autoreleasepool塊替代NSAutorelease類，用附有__autoreleasing 修飾符的變數替代autorelease方法。</p>
 <p>不過直接使用<code>__autoreleasing</code> 的情況跟<code>__strong</code>一樣很少，為什麼呢?</p>
 <p>因為我們都知道調用class method的對象返回值都是帶有autorelease的,同理，在一個Method中做為返回值時，也是會幫你註冊到autoreleasepool中的。如:</p>
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
@@ -318,7 +318,7 @@ id __autoreleasing obj2; 		== id __autoreleasing obj2 = <span class="keyword">ni
 
 <p>另一種情況是使用<code>__weak</code>也會自動幫你註冊到自動釋放池，為什麼呢?<br>因為<code>__weak</code> 只持有對象的弱引用，而在訪問對象的過程中，該對象有可能被廢棄，如果把訪問對象加到autoreleasepool中，䢷麼在@autorelease 結束前都能確表該對象存在。</p>
 <p>所以使用附有__weak修飾符的變數就必定要註冊到aotoreleasepool中的對象。</p>
-<p>最後一個非顯示使用<code>__autoreleasing</code>的情況就是，我們都是id 預設是<code>__strong</code>，但是如果是id類型的指標呢 (id <em>obj)<br><br>會變成這樣 id __autoreleasing </em>obj,同樣的，對象指標<code>NSObject ** obj</code> 則變成了<code>NSObject *__autoreleasing *obj</code>。</p>
+<p>最後一個非顯示使用<code>__autoreleasing</code>的情況就是，我們都是id 預設是<code>__strong</code>，但是如果是id類型的指標呢 (id <em>obj)<br><br>會變成這樣 `id __autoreleasing </em>obj<code>,同樣的，對象指標</code>NSObject <em>* obj<code>則變成了</code>NSObject </em>__autoreleasing *obj`。</p>
 <p>看到了兩個<em>符號有想到Objc中那邊用的最多呢？沒錯～就是`NSError *</em>error`</p>
 <p>所以<code>NSError **error</code> 等價於 <code>NSError *__autoreleasing *error</code><br>因為聲明為NSError <em>__autoreleasing </em>類型的error 作為 *error被賦值，所以能夠返回註冊到autoreleasepool中的對象。</p>
 <p>但下面會產生編譯錯誤</p>
