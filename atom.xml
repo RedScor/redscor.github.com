@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2014-04-06T17:47:05.757Z</updated>
+  <updated>2014-04-06T17:56:45.109Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2014/04/06/ios-讀書筆記(2)---block/"/>
     <id>http://redscor.github.io/2014/04/06/ios-讀書筆記(2)---block/</id>
     <published>2014-04-06T09:45:11.000Z</published>
-    <updated>2014-04-06T17:46:40.000Z</updated>
+    <updated>2014-04-06T17:56:38.000Z</updated>
     <content type="html"><![CDATA[<h3>Pro Multithreading And Memory Management for iOS and OS X</h3>
 <p>這次想寫的是這本書的第二章節 - Block 的介紹，<br><br>想先申明的是，在這篇裡你不會看到什麼高深的用法，這本書純粹就是介紹原理罷了。</p>
 <img src="http://i.imgur.com/zawfaaN.jpg" title="雪菜" alt="噬血狂襲 - 雪菜">
@@ -90,7 +90,7 @@
 <p>可以寫出如下的Block語法</p>
 <pre><code>^<span class="keyword">int</span> (<span class="keyword">int</span> <span class="keyword">count</span>) {<span class="keyword">return</span> <span class="keyword">count</span> + <span class="number">1</span>;}</code></pre>
 <p>但Block語法是可以省略好幾個項目的，首先是返回值類型<br>省略返回值類型時，如果表達式中有return時就使用該返回值的類息，沒有就使用void類型，表達式中有多個return 語句時，所有return的返回值類型必須相同。       </p>
-<h3>Block 類型變數</h3>
+<h2>Block 類型變數</h2>
 <p>block類型變數與一般C語言變數完全相同，可作為以下用途使用。</p>
 <ul>
 <li>自動變數(區域變數)</li>
@@ -122,15 +122,15 @@
 }</code></pre>
 <p>執行結果會是 <code>val = 10</code></p>
 <p>執行結果並不是改寫後的值，而是執行Block語法時的自動變數的瞬間值。該Block語法在執行時，字符串指標&quot;cal = %D \n&quot;被賦值到自動變數fmt中，int 值被賦值到val 中，因此這煙值被保存(即被截獲)，而在執行時被使用。<br><br>這就是自動變數值的截獲。</p>
-<h3>__block 說明符</h3>
+<h2>__block 說明符</h2>
 <p>時際上，截獲變數只能保存Block語法的瞬間值，保存後就不能改寫該值。<br><br>這時，若想在Block語法的表達式中將值賦給Block語法外聲明的自動變數，需要在該自動變數上附加__block。</p>
-<p>使用附有<strong>block說明符的自動數變可在Block中賦值，該變數稱為</strong>block變數。</p>
-<h2>Blocks的實現</h2>
-<h3>Block的實質</h3>
+<p>使用附有<code>__block</code>說明符的自動數變可在Block中賦值，該變數稱為<code>__block變數</code>。</p>
+<h1>Blocks的實現</h1>
+<h2>Block的實質</h2>
 <p>Block 始帶有自動變數得匿名函數，但Block究竟是什麼呢？ 下面將通過Block的實現進一步來了解。<br><br><code>書中使用了把Objective -C的程式碼編譯成了C語言程式碼，我盡量以我了解的情況說明</code></p>
 <p>當你在.m檔中輸入如下語法<br>    int main()<br>    {<br>        void (^blk)(void) = ^{printf(&quot;Block\n&quot;);};<br>        blk();<br>        return 0;<br>    }</p>
 <p>在command Line中執行<code>clang -rewrite-objc 文件名</code><br>發現會編譯成.cpp檔 打開後最下面main開始就是你的源始碼。</p>
-<p>我們來看看棧上的<strong>main_block_impl_0結構體實例(即Block)是如何根據這些參數進行初始化的。 如果展開</strong>main_block_impl_0結構體的__block_impl結構體，可記成以下形式:</p>
+<p>我們來看看棧上的<code>__main_block_impl_0</code>結構體實例(即Block)是如何根據這些參數進行初始化的。 如果展開<code>__main_block_impl_0</code>結構體的<code>__block_impl</code>結構體，可記成以下形式:</p>
 <pre><code><span class="title">struct</span> __main_block_impl_0 {
     <span class="title">void</span> *isa;
     <span class="title">int</span> Flags;
@@ -177,18 +177,17 @@
 <pre><code>isa = &amp;_NSConcreteStackB<span class="operator"><span class="keyword">lock</span>;</span></code></pre>
 <p><br><br>此_NSConcreteStackBlock相當於class_t的結構體實例。在將BLock作為Objective-C類對象處理時，關於該類的信息放置於_NSConcreteStackBlock中。</p>
 <p>現在終於能理解Block的實質，知道Block即為Objective-C的對象了。</p>
-<h3>__block 說明符</h3>
+<h2>__block 說明符</h2>
 <p>前述我們知截取的自動變數在Block中改變其值時，會產生編譯錯誤。</p>
 <p>解決這個問題的方法有兩種。<br>第一種:C語言中有一個變數，允許Block改寫值，具體如下:</p>
 <ul>
 <li>靜態變數</li>
 <li>靜態全域變數</li>
 <li><p>全域變數<br>雖然Block語法的匿名函數部份簡單地變換了C語言函數，但從這個變換的函數中訪問靜態全域變數/全域變數 並沒有任何改變，可直接使用。</p>
-<p>但是靜態變數的情況下，轉換後的函數原本就設置在含有Block語法的函數外，所以無法從變數作用域訪問。，<br><br>解決Block中不能保存值這逼問題的第二種方法是使用&quot;<strong>block說明符&quot;<br><br>
-</strong>block說明符類似於static,auto和register，它們用於將變數值設置到哪個存儲域中。 </p>
+<p>但是靜態變數的情況下，轉換後的函數原本就設置在含有Block語法的函數外，所以無法從變數作用域訪問。，<br><br>解決Block中不能保存值這逼問題的第二種方法是使用 &quot;<code>__block</code>說明符&quot;<br><br><br>__block說明符類似於static,auto和register，它們用於將變數值設置到哪個存儲域中。 </p>
 </li>
 </ul>
-<h3>Block存儲域</h3>
+<h2>Block存儲域</h2>
 <p><code>Block 與 __block 變數的實質</code></p>
 <table>
 <thead>
@@ -246,7 +245,7 @@
 <p>那_NSConcreteMallocBlock呢?</p>
 <p>設置在stack中的Block在作用域完後就會被廢棄，因為__block也配置在stack上所以同時也會被廢棄。</p>
 <p>Block提供了將Block和__block變數從棧上複製到推上的方法來解決這個問題。既使stack上的作用域已結束，heap上的Block依舊存在。</p>
-<p>這時isa = &amp;_NSConcreteGlobalBlock;<br><br><br>而<strong>block變數結構體成員中有個</strong>forwarding 可以實現無論<strong>block在stack或是heap上都能正卻地訪問</strong>block變數。<br><br>在大多數情形下，編譯器會恰當地進行判斷是否該複製Block，自動生成將Block殂棧上複製到推上的代碼。我們來看個例子</p>
+<p>這時isa = &amp;_NSConcreteGlobalBlock;<br><br><br>而<code>__block</code>變數結構體成員中有個<strong>forwarding 可以實現無論`</strong>block<code>在stack或是heap上都能正卻地訪問</code>__block變數`。<br><br>在大多數情形下，編譯器會恰當地進行判斷是否該複製Block，自動生成將Block殂棧上複製到推上的代碼。我們來看個例子</p>
 <pre><code>typedef <span class="keyword">int</span> (^blk_t)(<span class="keyword">int</span>);
 blk_t func(<span class="keyword">int</span> rate)
 {
@@ -337,7 +336,7 @@ autoreleasePool中， <span class="keyword">array</span>裡的<span class="keywo
 </tbody>
 </table>
 <p>那麼如果多次調用copy對同一個Block時有沒有問題呢?答案是沒有問題的。<br>請各位自行想想__strong 賦值後的情況即可得知一二。</p>
-<h3>截穫對象</h3>
+<h2>截穫對象</h2>
 <p>以下程式碼生成並持有NSMutableArray對象，由于附有__strong的賦值目標變數的作用域立即結束，因此對象被立即釋放並廢棄。</p>
 <pre><code>{
     id array = <span class="string">[[NSMUtableArray alloc]init];
@@ -378,14 +377,14 @@ blk([[NSObject alloc]init]);</code></pre>
 <li>將Block賦值給附有__strong修飾符id類型或Block類型成員變數時</li>
 <li>在方法明中含有usingBlock的cocoa方法或GCD的API傳遞Block時</li>
 </ul>
-<h3>__block變量和對象</h3>
-<p>前面說過當stack -&gt; heap時除了Block外還有<strong>block變數也會被複製到heap上，即使對象賦值複製到推上的附有</strong>strong得為象類型<strong>block變數中，只要</strong>block在推上繼續存在，那麼該對象就會繼續處於被持有狀態。</p>
+<h2>__block變量和對象</h2>
+<p>前面說過當stack -&gt; heap時除了Block外還有<code>__block</code>變數也會被複製到heap上，即使對象賦值複製到推上的附有<code>__strong</code>的對象類型<code>__block</code>變數中，只要__block在推上繼續存在，那麼該對象就會繼續處於被持有狀態。</p>
 <p>這與Block中使用賦值給附有__strong的對象類型自動變數的對象相同。</p>
 <p>前例，若用__weak修飾符時會發生什麼事呢? </p>
-<p>程式碼一樣可正常運行但是結果確都是 0 。<br><br>這是由於附有<strong>strong的變數array在該變數作用域結束時同時被釋放，廢棄 nil被賦值在附有</strong>weak的變數中。</p>
+<p>程式碼一樣可正常運行但是結果確都是 0 。<br><br>這是由於附有<code>__strong</code>的變數array在該變數作用域結束時同時被釋放，廢棄 nil被賦值在附有__weak的變數中。</p>
 <p>若同時指定<strong>block , </strong>weak時會怎樣呢?</p>
-<p>理由同<strong>weak，即使加</strong>block說明符，附有<strong>strong的變量array也會再該作用域結束被釋放，nil同時會指給</strong>weak指向的變數。</p>
-<h3>Block循環引用</h3>
+<p>理由同<code>__weak</code>，即使加<code>__block</code>說明符，附有<code>__strong</code>的變量array也會再該作用域結束被釋放，nil同時會指給__weak指向的變數。</p>
+<h2>Block循環引用</h2>
 <p>如果在Block中使用附有__strong的對象類型自動變量，那麼當Block從棧複製到推時，該對象為Block所持有。這樣容易引起循環引用。 我們來看個例子</p>
 <pre><code><span class="keyword">typedef</span> <span class="keyword">void</span> (^blk_t)(<span class="keyword">void</span>);
 @<span class="class"><span class="keyword">interface</span> <span class="id">MyObject</span> : <span class="id">NSObject</span></span>
@@ -540,17 +539,17 @@ blk([[NSObject alloc]init]);</code></pre>
 
 
 <p>這段代碼沒有引起循環引用，但是如果不調用execBlock實例方法時，即不執行賦值給成員變數blk的Block，便會循環引用並引起內存洩漏。</p>
-<p>下面我們對使用<strong>block變數避免循環引用的方法和使用</strong>weak及__unsafe_unretained修飾符避免循環引用做個比較。</p>
+<p>下面我們對使用<code>__block</code>變數避免循環引用的方法和使用<code>__weak</code>及__unsafe_unretained修飾符避免循環引用做個比較。</p>
 <p><code>使用__block變數的優點如下</code></p>
 <ul>
 <li>通過__block變數可控制對象的持有期間。</li>
-<li>在不能使用<strong>weak的環境中事</strong>unsafe_unretained修飾符即可。在直行Block時可動態地決定是否將nil或其它對象賦值在__block變數中。</li>
+<li>在不能使用<code>__weak</code>的環境中事<strong>unsafe_unretained修飾符即可。在直行Block時可動態地決定是否將nil或其它對象賦值在</strong>block變數中。</li>
 </ul>
-<p><code>使用__block缺點不下</code></p>
+<p><code>使用__block缺點如下</code></p>
 <ul>
 <li>為了避免循環引用必須執行Block</li>
 </ul>
-<p>存在值行Block語法，卻不執行Block的路徑時，無法避免循環引用。若由於Block引發了循環引用時，跟據Block的用途選擇使用<strong>block , </strong>weak , _unsafe_unretained修飾符來避免循環引用。</p>
+<p>存在值行Block語法，卻不執行Block的路徑時，無法避免循環引用。若由於Block引發了循環引用時，跟據Block的用途選擇使用 <code>__block</code> , <code>__weak</code> , <code>_unsafe_unretained</code> 修飾符來避免循環引用。</p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
     <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
