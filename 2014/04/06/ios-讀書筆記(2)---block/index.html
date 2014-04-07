@@ -175,7 +175,7 @@
 <p>但當函數參數或返回值中使用Block變數時，既難寫又難記，這時，我們可以使用typedef 來解決問題。<br><code>typedef int (^blk_t)int;</code> <br><br>這時我們就可使用blk_t 來代替整個block變數。通過使用typedef，函數定義變的更容易理解了。</p>
 <p>另外Block 也可以像C語言用指標的方式去使用，這邊就不細講了。</p>
 <h3>截獲自動變數值</h3>
-<p>一開始我有說明Block是帶有“自動變數的匿名函數”，那什麼是帶有自動數數值呢？舉個例子</p>
+<p>一開始我有說明Block是帶有“自動變數的匿名函數”，那什麼是帶有自動變數值呢？舉個例子</p>
 <pre><code><span class="keyword">int</span> main()
 {
     <span class="keyword">int</span>  dmy = <span class="number">256</span>;
@@ -188,10 +188,10 @@
     <span class="keyword">return</span> <span class="number">0</span>;
 }</code></pre>
 <p>執行結果會是 <code>val = 10</code></p>
-<p>執行結果並不是改寫後的值，而是執行Block語法時的自動變數的瞬間值。該Block語法在執行時，字符串指標&quot;cal = %D \n&quot;被賦值到自動變數fmt中，int 值被賦值到val 中，因此這煙值被保存(即被截獲)，而在執行時被使用。<br><br>這就是自動變數值的截獲。</p>
+<p>執行結果並不是改寫後的值，而是執行Block語法時的自動變數的瞬間值。該Block語法在執行時，字符串指標&quot;cal = %d \n&quot;被賦值到自動變數fmt中，int 值被賦值到val 中，因此這邊值被保存(即被截獲)，而在執行時被使用。<br><br>這就是自動變數值的截獲。</p>
 <h2>__block 說明符</h2>
-<p>時際上，截獲變數只能保存Block語法的瞬間值，保存後就不能改寫該值。<br><br>這時，若想在Block語法的表達式中將值賦給Block語法外聲明的自動變數，需要在該自動變數上附加__block。</p>
-<p>使用附有<code>__block</code>說明符的自動數變可在Block中賦值，該變數稱為<code>__block變數</code>。</p>
+<p>實際上，截獲變數只能保存Block語法的瞬間值，保存後就不能改寫該值。<br><br>這時，若想在Block語法的表達式中將值賦給Block語法外聲明的自動變數，需要在該自動變數上附加__block。</p>
+<p>使用附有<code>__block</code>說明符的自動變數可在Block中賦值，該變數稱為<code>__block變數</code>。</p>
 <h1>Blocks的實現</h1>
 <h2>Block的實質</h2>
 <p>Block 始帶有自動變數得匿名函數，但Block究竟是什麼呢？ 下面將通過Block的實現進一步來了解。<br><br><code>書中使用了把Objective -C的程式碼編譯成了C語言程式碼，我盡量以我了解的情況說明</code></p>
@@ -205,14 +205,14 @@
     <span class="title">void</span> *FuncPtr;
     <span class="title">struct</span> __main_block_desc_0* Desc;
 }</code></pre>
-<p>該結構體跟據構造函數會像下面這樣進行初始化。</p>
+<p>該結構體根據構造函數會像下面這樣進行初始化。</p>
 <pre><code><span class="setting">isa = <span class="value">&amp;_NSConcreteStackBlock;</span></span>
 <span class="setting">Flags = <span class="value"><span class="number">0</span>;</span></span>
 <span class="setting">Reserved = <span class="value"><span class="number">0</span>;</span></span>
 <span class="setting">FuncPtr = <span class="value">__main_block_func_0;</span></span>
 <span class="setting">Desc = <span class="value">&amp;__main_block_desc_0_DATA;</span></span></code></pre>
-<p>什麼是<code>isa = &amp;_NSConcreteStackBlock</code> 呢?<br><br>將Block 指標賦給Block結構體成員isa。為了理解它，首先要理姐Objective-C類和對象的實質。其實，Block就是Objective-C的對象。</p>
-<p>“id”這一變數類型用於存儲Objective-C對象，在Objective-C原代碼中，雖然可以像使用void*類型那樣隨意使用id，但此id類型也能夠在C語言中聲名，在/usr/unclude/objc/runtime.h中是如下聲明的：</p>
+<p>什麼是<code>isa = &amp;_NSConcreteStackBlock</code> 呢?<br><br>將Block 指標賦給Block結構體成員isa。為了理解它，首先要理解Objective-C類和對象的實質。其實，Block就是Objective-C的對象。</p>
+<p>“id”這一變數類型用於存儲Objective-C對象，在Objective-C源代碼中，雖然可以像使用void*類型那樣隨意使用id，但此id類型也能夠在C語言中聲名，在/usr/unclude/objc/runtime.h中是如下聲明的：</p>
 <pre><code>typedef struct objc_object {
     <span class="class"><span class="keyword">Class</span> <span class="title">isa</span>;
 } *<span class="title">id</span>;</code></pre>
@@ -222,7 +222,7 @@
 <pre><code>struct objc_class {
     <span class="class"><span class="keyword">Class</span> <span class="title">isa</span>;
 };</code></pre>
-<p>這與objc_object結構體相同。然而，objc_object和objc_class歸跟究體是在各個對象和類的實現中使用的最基本的結構體。</p>
+<p>這與objc_object結構體相同。然而，objc_object和objc_class歸根究底是在各個對象和類的實現中使用的最基本的結構體。</p>
 <pre><code>@<span class="class"><span class="keyword">interface</span> <span class="id">MyObject</span> : <span class="id">NSObject</span></span>
 {
     <span class="keyword">int</span> cal0;
@@ -235,14 +235,14 @@
     <span class="title">int</span> <span class="title">val0</span>;
     <span class="title">int</span> <span class="title">val1</span>;
 };    </code></pre>
-<p>意味著，生成的各個對象即由該類生成的對象的各個結構體實例，通握成員變量isa保持該類的結構體實例指標。 如圖所示</p>
+<p>意味著，生成的各個對象即由該類生成的對象的各個結構體實例，通過成員變量isa保持該類的結構體實例指標。 如圖所示</p>
 <img src="http://i.imgur.com/M084w1a.png">
 
 
-<p>在Objcetive-C中，比如NSObject 的class_t結構體實例或是NSmutableArray的class_t結構體實例等，均生成並保持各個類的，屬性以及父類的指標，並被Objcetive-C運行十庫所使用。<br><br>到這裡，就可以理姐Objective-C的類與對象的實質了。</p>
+<p>在Objcetive-C中，比如NSObject 的class_t結構體實例或是NSmutableArray的class_t結構體實例等，均生成並保持各個類的屬性以及父類的指標，並被Objcetive-C運行時庫所使用。<br><br>到這裡，就可以理解Objective-C的類與對象的實質了。</p>
 <p>回到剛才的Block結構體。<br></p>
 <pre><code>isa = &amp;_NSConcreteStackB<span class="operator"><span class="keyword">lock</span>;</span></code></pre>
-<p><br><br>此_NSConcreteStackBlock相當於class_t的結構體實例。在將BLock作為Objective-C類對象處理時，關於該類的信息放置於_NSConcreteStackBlock中。</p>
+<p>此_NSConcreteStackBlock相當於class_t的結構體實例。在將Block作為Objective-C類對象處理時，關於該類的信息放置於_NSConcreteStackBlock中。</p>
 <p>現在終於能理解Block的實質，知道Block即為Objective-C的對象了。</p>
 <h2>__block 說明符</h2>
 <p>前述我們知截取的自動變數在Block中改變其值時，會產生編譯錯誤。</p>
@@ -250,8 +250,9 @@
 <ul>
 <li>靜態變數</li>
 <li>靜態全域變數</li>
-<li><p>全域變數<br>雖然Block語法的匿名函數部份簡單地變換了C語言函數，但從這個變換的函數中訪問靜態全域變數/全域變數 並沒有任何改變，可直接使用。</p>
-<p>但是靜態變數的情況下，轉換後的函數原本就設置在含有Block語法的函數外，所以無法從變數作用域訪問。，<br><br>解決Block中不能保存值這逼問題的第二種方法是使用 &quot;<code>__block</code>說明符&quot;<br><br><br>__block說明符類似於static,auto和register，它們用於將變數值設置到哪個存儲域中。 </p>
+<li><p>全域變數</p>
+<p>雖然Block語法的匿名函數部份簡單地變換了C語言函數，但從這個變換的函數中訪問靜態全域變數/全域變數 並沒有任何改變，可直接使用。</p>
+<p>但是靜態變數的情況下，轉換後的函數原本就設置在含有Block語法的函數外，所以無法從變數作用域訪問。，<br><br>解決Block中不能保存值這種問題的第二種方法是使用 &quot;<code>__block</code>說明符&quot;<br><br><br>__block說明符類似於static,auto和register，它們用於將變數值設置到哪個存儲域中。 </p>
 </li>
 </ul>
 <h2>Block存儲域</h2>
@@ -296,7 +297,7 @@
 </tr>
 <tr>
 <td>_NSConcreteGlobalBlock</td>
-<td>程序讀數據區域(Data區)</td>
+<td>程序的數據區域(Data區)</td>
 </tr>
 <tr>
 <td>_NSConcreteMallocBlock</td>
@@ -312,7 +313,7 @@
 <p>那_NSConcreteMallocBlock呢?</p>
 <p>設置在stack中的Block在作用域完後就會被廢棄，因為__block也配置在stack上所以同時也會被廢棄。</p>
 <p>Block提供了將Block和__block變數從棧上複製到推上的方法來解決這個問題。既使stack上的作用域已結束，heap上的Block依舊存在。</p>
-<p>這時isa = &amp;_NSConcreteGlobalBlock;<br><br><br>而<code>__block</code>變數結構體成員中有個<strong>forwarding 可以實現無論`</strong>block<code>在stack或是heap上都能正卻地訪問</code>__block變數`。<br><br>在大多數情形下，編譯器會恰當地進行判斷是否該複製Block，自動生成將Block殂棧上複製到推上的代碼。我們來看個例子</p>
+<p>這時isa = &amp;_NSConcreteMallocBlock;<br><br><br>而<code>__block</code>變數結構體成員中有個<strong>forwarding 可以實現無論`</strong>block<code>在stack或是heap上都能正卻地訪問</code>__block變數`。<br><br>在大多數情形下，編譯器會恰當地進行判斷是否該複製Block，自動生成將Block殂棧上複製到推上的代碼。我們來看個例子</p>
 <pre><code>typedef <span class="keyword">int</span> (^blk_t)(<span class="keyword">int</span>);
 blk_t func(<span class="keyword">int</span> rate)
 {
@@ -332,23 +333,30 @@ blk_t func(<span class="keyword">int</span> rate)
 <ul>
 <li>向方法或函數的參數中傳遞Block時</li>
 </ul>
-<p>但是如果在方法或函數中適當地複製了傳遞過來的參數，那麼就不必在掉用該方法或函數前手動複製了。 以下方法不用手動複製；</p>
+<p>但是如果在方法或函數中適當地複製了傳遞過來的參數，那麼就不必在調用該方法或函數前手動複製了。 以下方法不用手動複製；</p>
 <ul>
 <li>Cocoa框架的方法且方法名中含有usingBlock等時。</li>
-<li><p>Grant Central Dispatch 的API。</p>
-<pre><code>  kdjslkdjs
-  - (id)getBlockArray
-  {
-      int val = <span class="number">10</span>;
-          NSArray *aa = <span class="string">[[NSArray
-        alloc]initWithObjects:
-        ^{NSLog(@"blk0:%d",val);},
-      ^{NSLog(@"blk1:%d",val);}, nil];
-
-          return aa;
-  }</code></pre>
-</li>
+<li>Grant Central Dispatch 的API。</li>
 </ul>
+<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>- (id)getBlockArray
+{
+	int val = <span class="number">10</span>;
+	<span class="constant">NSArray</span> *aa = [[<span class="constant">NSArray</span> alloc]<span class="symbol">initWithObjects:</span>
+			^{<span class="constant">NSLog</span>(@<span class="string">"blk0:%d"</span>,val);},
+          ^{<span class="constant">NSLog</span>(@<span class="string">"blk1:%d"</span>,val);}, <span class="keyword">nil</span>];
+     <span class="keyword">return</span> aa;
+}
+</pre></td></tr></table></figure>
+
+
 <figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -367,7 +375,7 @@ blk();
 
 
 <p>此代碼在執行blk()時就會當掉，因為getBlockArray結束時，棧上的Block被廢棄的緣故，可惜此時編譯器不能判斷是否需要複製，當然你也可以用讓編譯器進行判斷自行手動COPY，但是從stack到heap是會耗CPU資源的，過多的copy只是在消耗cpu資源，因此只在此情形下手動進行複製。</p>
-<pre><code>經由自己測試，不執行時，並不會當在blk(),網路查了許多資料，
+<pre><code>經由自己測試，執行時，並不會當在blk(),網路查了許多資料，
 以我個人觀點，因為當成<span class="keyword">return</span>值返回時，<span class="keyword">array</span>被帶有
 autoreleasePool中， <span class="keyword">array</span>裡的<span class="keyword">block</span>前面有說過，
 當<span class="keyword">block</span>被當作參數傳遞時不能被判斷，但是當作返回值時，
