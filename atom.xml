@@ -4,7 +4,7 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2014-04-07T02:23:00.799Z</updated>
+  <updated>2014-05-14T05:48:49.705Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
@@ -16,7 +16,7 @@
     <link href="http://redscor.github.io/2014/04/06/ios-讀書筆記(2)---block/"/>
     <id>http://redscor.github.io/2014/04/06/ios-讀書筆記(2)---block/</id>
     <published>2014-04-06T09:45:11.000Z</published>
-    <updated>2014-04-07T02:21:45.000Z</updated>
+    <updated>2014-04-07T02:23:43.000Z</updated>
     <content type="html"><![CDATA[<h3>Pro Multithreading And Memory Management for iOS and OS X</h3>
 <p>這次想寫的是這本書的第二章節 - Block 的介紹，<br><br>想先申明的是，在這篇裡你不會看到什麼高深的用法，這本書純粹就是介紹原理罷了。</p>
 <img src="http://i.imgur.com/zawfaaN.jpg" title="雪菜" alt="噬血狂襲 - 雪菜">
@@ -1478,7 +1478,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
     <link href="http://redscor.github.io/2013/06/14/shallow-&-deep-copy/"/>
     <id>http://redscor.github.io/2013/06/14/shallow-&-deep-copy/</id>
     <published>2013-06-14T07:53:16.000Z</published>
-    <updated>2013-06-17T09:01:23.000Z</updated>
+    <updated>2014-05-14T05:48:14.000Z</updated>
     <content type="html"><![CDATA[<p>今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。</p>
 <p>就是深層copy 和 淺copy</p>
 <p>在Objective - C 中 像是NSDictionaryt, NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。</p>
@@ -1562,6 +1562,9 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 <p>可以NSLog一下 兩個family 和 family.name 的指針</p>
 <p>會發現淺拷貝的變量指針是指向同一對象，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
 <p>再看看深層拷貝， 就會發現family的name 兩個指針是不同的，也代表這是真正的實現了COPY這個定義</p>
+<h2>但是</h2>
+<p>這樣是只針對常量而言，如果Array中包的是object呢?<br>當用了mutableCopy後，兩個array的指標是不一樣，但是數組內的內容指標還是指向同一個位址。 要如何解決呢？</p>
+<p>有三種方法<br>1. 用 [[]NSArray alloc]initWithArray:copyitems] 這個函數，他會copy數組內的每個元素調用copy函數，並把返回的id加入到新的數組中。<br>2. 用archiver方式，NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyArchiver archivedDataWithRootObject:oldArr]];<br>3. 用category 實現自定義的copy</p>
 <h2>結論</h2>
 <ul>
 <li><p>在Foundation中，當我們COPY是一個immutable(不可變)對象時，它的作用相當於retain (Xcode 優化)</p>

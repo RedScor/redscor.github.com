@@ -166,6 +166,9 @@
 <p>可以NSLog一下 兩個family 和 family.name 的指針</p>
 <p>會發現淺拷貝的變量指針是指向同一對象，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
 <p>再看看深層拷貝， 就會發現family的name 兩個指針是不同的，也代表這是真正的實現了COPY這個定義</p>
+<h2>但是</h2>
+<p>這樣是只針對常量而言，如果Array中包的是object呢?<br>當用了mutableCopy後，兩個array的指標是不一樣，但是數組內的內容指標還是指向同一個位址。 要如何解決呢？</p>
+<p>有三種方法<br>1. 用 [[]NSArray alloc]initWithArray:copyitems] 這個函數，他會copy數組內的每個元素調用copy函數，並把返回的id加入到新的數組中。<br>2. 用archiver方式，NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyArchiver archivedDataWithRootObject:oldArr]];<br>3. 用category 實現自定義的copy</p>
 <h2>結論</h2>
 <ul>
 <li><p>在Foundation中，當我們COPY是一個immutable(不可變)對象時，它的作用相當於retain (Xcode 優化)</p>
