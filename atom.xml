@@ -4,13 +4,31 @@
   <subtitle><![CDATA[分享iPhone開發 & ACG 的一個地方]]></subtitle>
   <link href="http://redscor.github.io/atom.xml" rel="self"/>
   <link href="http://redscor.github.io"/>
-  <updated>2014-05-14T05:48:49.705Z</updated>
+  <updated>2014-06-09T18:10:35.385Z</updated>
   <id>http://redscor.github.io/</id>
   <author>
     <name><![CDATA[Red Scor]]></name>
     <email><![CDATA[redscor01@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Xocde 6 in Swift auto-completion(自動補完)]]></title>
+    <link href="http://redscor.github.io/2014/06/10/xocde-6-in-swift-auto-completion(自動補完)/"/>
+    <id>http://redscor.github.io/2014/06/10/xocde-6-in-swift-auto-completion(自動補完)/</id>
+    <published>2014-06-09T18:05:54.000Z</published>
+    <updated>2014-06-09T18:10:21.000Z</updated>
+    <content type="html"><![CDATA[<p>新的語言一出，相信比較閒的人都躍躍預試。</p>
+<p>但是Xcode 6呢 bug多多，不市Crash就是不會自動補完。</p>
+<p>然後我找到了坑爹的方法..解決了這問題</p>
+<p>我們開新文件時，一般上頭註解是這樣</p>
+<p>&lt;%img <a href="http://i.imgur.com/X1Ssj88.png" target="_blank">http://i.imgur.com/X1Ssj88.png</a> ‘坑爹阿’ ‘坑爹阿’ %&gt;</p>
+<p>當我這麼做，代碼提示出現了， 這還不坑爹? beta版所以不讓我版權宣告嗎..</p>
+<p>&lt;% <a href="http://i.imgur.com/WSPuwqF.png" target="_blank">http://i.imgur.com/WSPuwqF.png</a> ‘出現了’ ‘出現了’ %&gt;</p>
+<p>簡短的文章結束   …</p>
+]]></content>
+    <category scheme="http://redscor.github.io/tags/iPhone/" term="iPhone"/>
+    <category scheme="http://redscor.github.io/categories/iOS/" term="iOS"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[iOS 讀書筆記(2) - Block]]></title>
     <link href="http://redscor.github.io/2014/04/06/ios-讀書筆記(2)---block/"/>
@@ -3174,41 +3192,6 @@ tableviewPanGestureRecognizer.delegate = <span class="keyword">self</span>;
 <p>話說津田怎麼連當後宮王的自覺都沒有呢，唉唉。</p>
 ]]></content>
     <category scheme="http://redscor.github.io/tags/漫畫/" term="漫畫"/>
-    <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[幾首動畫OP]]></title>
-    <link href="http://redscor.github.io/2013/03/07/幾首動畫op/"/>
-    <id>http://redscor.github.io/2013/03/07/幾首動畫op/</id>
-    <published>2013-03-07T07:12:51.000Z</published>
-    <updated>2013-03-08T03:21:05.000Z</updated>
-    <content type="html"><![CDATA[<p>第一首要來介紹的歌手是「ZAQ」</p>
-<p>在日本NicoNico 上幫過很多人做詞做曲的一個全能型幕後藝人<br><br>上一季開始，走向幕前自己唱起歌來，歌曲曲風都很不錯也很多元。話不多說先來聽看看</p>
-<div class="video-container"><iframe src="//www.youtube.com/embed/3C2HUIAAPdM" frameborder="0" allowfullscreen></iframe></div>
-
-<p><a id="more"></a><br>這一首是這季新番 <strong>鎖鎖美同學，提不起勁</strong> 的OP</p>
-<p>內容是個<del>廢材女</del> 美麗的妹妹遇到了各式各樣的事情，包括超展開的巫女，神佛?</p>
-<img src="http://i1219.photobucket.com/albums/dd430/moxian96698/66B498CE622A56FE201322221494566_zpsf30e7664.jpg" title="鎖鎖美" alt="小時候">
-
-<img src="http://z.abang.com/f/dongman/1/3/Q/V/-/-/suosuomei.jpg" title="鎖鎖美" alt="長大版">
-
-
-<p>接下來要介紹的是「佐咲紗花」</p>
-<p>歌唱比賽出身的佐咲，實力當然是不容小觀，美麗的外表更是大大的加分</p>
-<p>歌迷人數成倍數成長中。</p>
-<p>要介紹的歌曲是上一季，<strong>美少女死神 還我H之魂！</strong> 的OP。</p>
-<div class="video-container"><iframe src="//www.youtube.com/embed/H0gDlwaPlMU" frameborder="0" allowfullscreen></iframe></div>
-
-
-<p>做詞做曲的剛好就是上面的ZAQ，佐咲的實力在這首歌無所遁形，果然是實力堅強，<br><br>就看她現場唱這首表現的如何了。</p>
-<p>剩下是要聽一下上一季BD賣的不錯的 <strong>中二病也想談戀愛</strong> 的OP</p>
-<p>曲風也是很好玩，屁股扭扭扭的www</p>
-<div class="video-container"><iframe src="//www.youtube.com/embed/NeiIS4AVa-k" frameborder="0" allowfullscreen></iframe></div>
-
-
-<p>這邊先簡短介紹一下，<del>上班中偷寫不能寫太多XD</del></p>
-]]></content>
-    <category scheme="http://redscor.github.io/tags/動畫歌曲/" term="動畫歌曲"/>
     <category scheme="http://redscor.github.io/categories/ACG/" term="ACG"/>
   </entry>
 </feed>

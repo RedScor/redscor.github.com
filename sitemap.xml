@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://redscor.github.io/2014/06/10/xocde-6-in-swift-auto-completion(自動補完)/</loc>
+    <lastmod>2014-06-09T18:10:21.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://redscor.github.io/2013/06/14/shallow-&-deep-copy/</loc>
     <lastmod>2014-05-14T05:48:14.000Z</lastmod>
   </url>
