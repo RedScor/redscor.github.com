@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Audio Record &amp; Convert Wav to m4a | RedScor's Blog</title>
+  <title>Audio Record &amp;amp; Convert Wav to m4a | RedScor&#39;s Blog</title>
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="">
@@ -11,15 +11,15 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Audio Record &amp; Convert Wav to m4a"/>
-  <meta property="og:site_name" content="RedScor's Blog"/>
+  <meta property="og:title" content="Audio Record &amp;amp; Convert Wav to m4a"/>
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -40,7 +40,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">RedScor's Blog</a></h1>
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -65,6 +65,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -73,19 +85,14 @@
       
       
   
-    <h1 class="title">Audio Record &amp; Convert Wav to m4a</h1>
+    <h1 class="title">Audio Record &amp;amp; Convert Wav to m4a</h1>
   
 
     </header>
     <div class="entry">
       
-        <img src="http://i.imgur.com/VSuK1OR.jpg" title="水銀燈" alt="犯人就是你!!!">
-
-
-
-
+        <img src="http://i.imgur.com/VSuK1OR.jpg" title="水銀燈 犯人就是你!!!">
 <a id="more"></a>
-
 <p>最近都有點懶～寫的都很簡略 囧～</p>
 <p>最近因為專業需要用到錄音的東西 所以直接想到了AVFoundation.framework </p>
 <p>找了找似乎有AVAudioRecorder 這個 </p>
@@ -96,253 +103,13 @@
 <li>(void) startRecordVoice :(NSString *)filename 之類的</li>
 </ul>
 <p>之後 首先要給個輸出路徑 paht (假定已經設好在Document資料夾裡，這裡要注意如果要存到子資料夾需先建立 不然錄完不會存進去)</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="code"><pre>
-<span class="keyword">self</span>.recordFileName = @<span class="string">"隨你叫什麼或是用時間給名(不帶副檔名)"</span>
-
-<span class="keyword">self</span>.recordFilePath = [[path <span class="symbol">stringByAppendingPathComponent:</span><span class="keyword">self</span>.recordFileName]<span class="symbol">stringByAppendingPathExtension:</span>@<span class="string">"wav"</span>];
-
-record.delegate = <span class="keyword">self</span>
-
-record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp">//</span>如果你想取峰值的話
-
-[record prepareToRecord];
-
- <span class="regexp">//</span>開始錄音
-    [[<span class="constant">AVAudioSession</span> sharedInstance] <span class="symbol">setCategory:</span> <span class="constant">AVAudioSessionCategoryPlayAndRecord</span> <span class="symbol">error:</span><span class="keyword">nil</span>];
-    [[<span class="constant">AVAudioSession</span> sharedInstance] <span class="symbol">setActive:</span><span class="constant">YES</span> <span class="symbol">error:</span><span class="keyword">nil</span>];
-    [recorder record];
-    
-有三個<span class="constant">Delegate</span> 可以參考使用
-
-- (void)<span class="symbol">audioRecorderDidFinishRecording:</span>(<span class="constant">AVAudioRecorder</span> *)recorder <span class="symbol">successfully:</span>(<span class="constant">BOOL</span>)flag;
-&lt;<span class="constant">P</span>&gt;
-- (void)<span class="symbol">audioRecorderBeginInterruption:</span>(<span class="constant">AVAudioRecorder</span> *)recorder;
-&lt;p&gt;
-
-- (void)<span class="symbol">audioRecorderEndInterruption:</span>(<span class="constant">AVAudioRecorder</span> *)recorder <span class="symbol">withOptions:</span>(<span class="constant">NSUInteger</span>)flags;
-&lt;p&gt;
-
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">self</span>.recordFileName = @<span class="string">"隨你叫什麼或是用時間給名(不帶副檔名)"</span></div><div class="line"></div><div class="line"><span class="keyword">self</span>.recordFilePath = [[path <span class="symbol">stringByAppendingPathComponent:</span><span class="keyword">self</span>.recordFileName]<span class="symbol">stringByAppendingPathExtension:</span>@<span class="string">"wav"</span>];</div><div class="line"></div><div class="line">record.delegate = <span class="keyword">self</span></div><div class="line"></div><div class="line">record.meteringEnabled = YES; <span class="regexp">//</span>如果你想取峰值的話</div><div class="line"></div><div class="line">[record prepareToRecord];</div><div class="line"></div><div class="line"> <span class="regexp">//</span>開始錄音</div><div class="line">    [[AVAudioSession sharedInstance] <span class="symbol">setCategory:</span> AVAudioSessionCategoryPlayAndRecord <span class="symbol">error:</span><span class="literal">nil</span>];</div><div class="line">    [[AVAudioSession sharedInstance] <span class="symbol">setActive:</span>YES <span class="symbol">error:</span><span class="literal">nil</span>];</div><div class="line">    [recorder record];</div><div class="line">    </div><div class="line">有三個Delegate 可以參考使用</div><div class="line"></div><div class="line">- (void)<span class="symbol">audioRecorderDidFinishRecording:</span>(AVAudioRecorder *)recorder <span class="symbol">successfully:</span>(BOOL)flag;</div><div class="line">&lt;P&gt;</div><div class="line">- (void)<span class="symbol">audioRecorderBeginInterruption:</span>(AVAudioRecorder *)recorder;</div><div class="line">&lt;p&gt;</div><div class="line"></div><div class="line">- (void)<span class="symbol">audioRecorderEndInterruption:</span>(AVAudioRecorder *)recorder <span class="symbol">withOptions:</span>(NSUInteger)flags;</div><div class="line">&lt;p&gt;</div><div class="line"></div></pre></td></tr></table></figure>
 <hr>
 <p>開始轉檔</p>
 <p>轉檔則是用到CoreMedia 得參數</p>
 <p>使用的是 AVAssetRead 和AVAssetWirter 兩個方法</p>
 <p>比較長 就直接上代碼了</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-</pre></td><td class="code"><pre>
-+ (void)<span class="symbol">convertWavToM4a:</span>(<span class="constant">NSString</span> *)_filePath <span class="symbol">fileName:</span>(<span class="constant">NSString</span> *)_fileName{
-        
-    
-    <span class="regexp">//</span>這裡是我
-        <span class="constant">NSString</span> *exportPath = @<span class="string">"輸出路徑副檔名要給m4a"</span>
-        
-        
-        <span class="constant">AVAsset</span> *asset = [<span class="constant">AVAsset</span> <span class="symbol">assetWithURL:</span>[<span class="constant">NSURL</span> <span class="symbol">fileURLWithPath:</span>_filePath]];
-        
-        <span class="constant">NSURL</span> *exportURL = [<span class="constant">NSURL</span> <span class="symbol">fileURLWithPath:</span>exportPath];
-        
-        <span class="regexp">//</span> reader
-        <span class="constant">NSError</span> *readerError = <span class="keyword">nil</span>;
-        <span class="constant">AVAssetReader</span> *reader = [[<span class="constant">AVAssetReader</span> alloc] <span class="symbol">initWithAsset:</span>asset
-                                                               <span class="symbol">error:</span>&amp;readerError];
-        
-        <span class="constant">AVAssetTrack</span> *track = [[asset <span class="symbol">tracksWithMediaType:</span><span class="constant">AVMediaTypeAudio</span>] <span class="symbol">objectAtIndex:</span><span class="number">0</span>];
-        <span class="constant">AVAssetReaderTrackOutput</span> *readerOutput = [[<span class="constant">AVAssetReaderTrackOutput</span> alloc] <span class="symbol">initWithTrack:</span>track
-                                                                                  <span class="symbol">outputSettings:</span><span class="keyword">nil</span>];
-        [reader <span class="symbol">addOutput:</span>readerOutput];
-        
-        <span class="regexp">//</span> writer
-        <span class="constant">NSError</span> *writerError = <span class="keyword">nil</span>;
-        <span class="constant">AVAssetWriter</span> *writer = [[<span class="constant">AVAssetWriter</span> alloc] <span class="symbol">initWithURL:</span>exportURL
-                                                          <span class="symbol">fileType:</span><span class="constant">AVFileTypeAppleM4A</span>
-                                                             <span class="symbol">error:</span>&amp;writerError];
-        
-        <span class="constant">AudioChannelLayout</span> channelLayout;
-        memset(&amp;channelLayout, <span class="number">0</span>, sizeof(<span class="constant">AudioChannelLayout</span>));
-        channelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;
-        
-        <span class="regexp">//</span> use different values to affect the downsampling/compression
-        <span class="constant">NSDictionary</span> *outputSettings = [<span class="constant">NSDictionary</span> <span class="symbol">dictionaryWithObjectsAndKeys:</span>
-                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithInt:</span> kAudioFormatMPEG4AAC], <span class="constant">AVFormatIDKey</span>,
-                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithFloat:</span><span class="number">44100.0</span>], <span class="constant">AVSampleRateKey</span>,
-                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithInt:</span><span class="number">2</span>], <span class="constant">AVNumberOfChannelsKey</span>,
-                                        [<span class="constant">NSNumber</span> <span class="symbol">numberWithInt:</span><span class="number">128000</span>], <span class="constant">AVEncoderBitRateKey</span>,
-                                        [<span class="constant">NSData</span> <span class="symbol">dataWithBytes:</span>&amp;channelLayout <span class="symbol">length:</span>sizeof(<span class="constant">AudioChannelLayout</span>)], <span class="constant">AVChannelLayoutKey</span>,
-                                        <span class="keyword">nil</span>];
-        
-        <span class="constant">AVAssetWriterInput</span> *writerInput = [[<span class="constant">AVAssetWriterInput</span> alloc] <span class="symbol">initWithMediaType:</span><span class="constant">AVMediaTypeAudio</span>
-                                                                         <span class="symbol">outputSettings:</span>outputSettings];
-        [writerInput <span class="symbol">setExpectsMediaDataInRealTime:</span><span class="constant">NO</span>];
-        [writer <span class="symbol">addInput:</span>writerInput];
-        
-        <span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span>
-        [writer startWriting];
-        [writer <span class="symbol">startSessionAtSourceTime:</span>kCMTimeZero];
-        
-        [reader startReading];
-        dispatch_queue_t mediaInputQueue = dispatch_queue_create(<span class="string">"mediaInputQueue"</span>, <span class="constant">NULL</span>);
-        [writerInput <span class="symbol">requestMediaDataWhenReadyOnQueue:</span>mediaInputQueue <span class="symbol">usingBlock:</span>^{
-            
-            <span class="constant">NSLog</span>(@<span class="string">"Asset Writer ready : %d"</span>, writerInput.readyForMoreMediaData);
-            <span class="keyword">while</span> (writerInput.readyForMoreMediaData) {
-                <span class="constant">CMSampleBufferRef</span> nextBuffer;
-                <span class="keyword">if</span> ([reader status] == <span class="constant">AVAssetReaderStatusReading</span> &amp;&amp; (nextBuffer = [readerOutput copyNextSampleBuffer])) {
-                    <span class="keyword">if</span> (nextBuffer) {
-                        <span class="constant">NSLog</span>(@<span class="string">"Adding buffer"</span>);
-                        [writerInput <span class="symbol">appendSampleBuffer:</span>nextBuffer];
-                    }
-                } <span class="keyword">else</span> {
-                    [writerInput markAsFinished];
-                    
-                    switch ([reader status]) {
-                        <span class="keyword">case</span> <span class="constant">AVAssetReaderStatusReading</span><span class="symbol">:</span>
-                            <span class="keyword">break</span>;
-                        <span class="keyword">case</span> <span class="constant">AVAssetReaderStatusFailed</span><span class="symbol">:</span>
-                            [writer cancelWriting];
-                            <span class="keyword">break</span>;
-                        <span class="keyword">case</span> <span class="constant">AVAssetReaderStatusCompleted</span><span class="symbol">:</span>
-                            <span class="constant">NSLog</span>(@<span class="string">"Writer completed"</span>);
-                            [writer <span class="symbol">endSessionAtSourceTime:</span>asset.duration];
-                            [writer finishWriting];
-                            
-<span class="regexp">//</span>                     <span class="constant">NSData</span> *data = [<span class="constant">NSData</span> <span class="symbol">dataWithContentsOfFile:</span>exportPath];
-<span class="regexp">//</span>                     <span class="constant">NSLog</span>(@<span class="string">"Data: %@"</span>, data);
-                            
-                            <span class="keyword">break</span>;
-                    }
-                    <span class="keyword">break</span>;
-                }
-            }
-
-        }];
-    [reader release];
-    [readerOutput release];
-    [writer release];
-    [writerInput release];
-}
-
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">+ (void)<span class="symbol">convertWavToM4a:</span>(NSString *)_filePath <span class="symbol">fileName:</span>(NSString *)_fileName&#123;</div><div class="line">        </div><div class="line">    </div><div class="line">    <span class="regexp">//</span>這裡是我</div><div class="line">        NSString *exportPath = @<span class="string">"輸出路徑副檔名要給m4a"</span></div><div class="line">        </div><div class="line">        </div><div class="line">        AVAsset *asset = [AVAsset <span class="symbol">assetWithURL:</span>[NSURL <span class="symbol">fileURLWithPath:</span>_filePath]];</div><div class="line">        </div><div class="line">        NSURL *exportURL = [NSURL <span class="symbol">fileURLWithPath:</span>exportPath];</div><div class="line">        </div><div class="line">        <span class="regexp">//</span> reader</div><div class="line">        NSError *readerError = <span class="literal">nil</span>;</div><div class="line">        AVAssetReader *reader = [[AVAssetReader alloc] <span class="symbol">initWithAsset:</span>asset</div><div class="line">                                                               <span class="symbol">error:</span>&amp;readerError];</div><div class="line">        </div><div class="line">        AVAssetTrack *track = [[asset <span class="symbol">tracksWithMediaType:</span>AVMediaTypeAudio] <span class="symbol">objectAtIndex:</span><span class="number">0</span>];</div><div class="line">        AVAssetReaderTrackOutput *readerOutput = [[AVAssetReaderTrackOutput alloc] <span class="symbol">initWithTrack:</span>track</div><div class="line">                                                                                  <span class="symbol">outputSettings:</span><span class="literal">nil</span>];</div><div class="line">        [reader <span class="symbol">addOutput:</span>readerOutput];</div><div class="line">        </div><div class="line">        <span class="regexp">//</span> writer</div><div class="line">        NSError *writerError = <span class="literal">nil</span>;</div><div class="line">        AVAssetWriter *writer = [[AVAssetWriter alloc] <span class="symbol">initWithURL:</span>exportURL</div><div class="line">                                                          <span class="symbol">fileType:</span>AVFileTypeAppleM4A</div><div class="line">                                                             <span class="symbol">error:</span>&amp;writerError];</div><div class="line">        </div><div class="line">        AudioChannelLayout channelLayout;</div><div class="line">        memset(&amp;channelLayout, <span class="number">0</span>, sizeof(AudioChannelLayout));</div><div class="line">        channelLayout.mChannelLayoutTag = kAudioChannelLayoutTag_Stereo;</div><div class="line">        </div><div class="line">        <span class="regexp">//</span> use different values to affect the downsampling/compression</div><div class="line">        NSDictionary *outputSettings = [NSDictionary <span class="symbol">dictionaryWithObjectsAndKeys:</span></div><div class="line">                                        [NSNumber <span class="symbol">numberWithInt:</span> kAudioFormatMPEG4AAC], AVFormatIDKey,</div><div class="line">                                        [NSNumber <span class="symbol">numberWithFloat:</span><span class="number">44100.0</span>], AVSampleRateKey,</div><div class="line">                                        [NSNumber <span class="symbol">numberWithInt:</span><span class="number">2</span>], AVNumberOfChannelsKey,</div><div class="line">                                        [NSNumber <span class="symbol">numberWithInt:</span><span class="number">128000</span>], AVEncoderBitRateKey,</div><div class="line">                                        [NSData <span class="symbol">dataWithBytes:</span>&amp;channelLayout <span class="symbol">length:</span>sizeof(AudioChannelLayout)], AVChannelLayoutKey,</div><div class="line">                                        <span class="literal">nil</span>];</div><div class="line">        </div><div class="line">        AVAssetWriterInput *writerInput = [[AVAssetWriterInput alloc] <span class="symbol">initWithMediaType:</span>AVMediaTypeAudio</div><div class="line">                                                                         <span class="symbol">outputSettings:</span>outputSettings];</div><div class="line">        [writerInput <span class="symbol">setExpectsMediaDataInRealTime:</span>NO];</div><div class="line">        [writer <span class="symbol">addInput:</span>writerInput];</div><div class="line">        </div><div class="line">        <span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span><span class="regexp">//</span></div><div class="line">        [writer startWriting];</div><div class="line">        [writer <span class="symbol">startSessionAtSourceTime:</span>kCMTimeZero];</div><div class="line">        </div><div class="line">        [reader startReading];</div><div class="line">        dispatch_queue_t mediaInputQueue = dispatch_queue_create(<span class="string">"mediaInputQueue"</span>, NULL);</div><div class="line">        [writerInput <span class="symbol">requestMediaDataWhenReadyOnQueue:</span>mediaInputQueue <span class="symbol">usingBlock:</span>^&#123;</div><div class="line">            </div><div class="line">            NSLog(@<span class="string">"Asset Writer ready : %d"</span>, writerInput.readyForMoreMediaData);</div><div class="line">            <span class="keyword">while</span> (writerInput.readyForMoreMediaData) &#123;</div><div class="line">                CMSampleBufferRef nextBuffer;</div><div class="line">                <span class="keyword">if</span> ([reader status] == AVAssetReaderStatusReading &amp;&amp; (nextBuffer = [readerOutput copyNextSampleBuffer])) &#123;</div><div class="line">                    <span class="keyword">if</span> (nextBuffer) &#123;</div><div class="line">                        NSLog(@<span class="string">"Adding buffer"</span>);</div><div class="line">                        [writerInput <span class="symbol">appendSampleBuffer:</span>nextBuffer];</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    [writerInput markAsFinished];</div><div class="line">                    </div><div class="line">                    switch ([reader status]) &#123;</div><div class="line">                        <span class="keyword">case</span> <span class="symbol">AVAssetReaderStatusReading:</span></div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                        <span class="keyword">case</span> <span class="symbol">AVAssetReaderStatusFailed:</span></div><div class="line">                            [writer cancelWriting];</div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                        <span class="keyword">case</span> <span class="symbol">AVAssetReaderStatusCompleted:</span></div><div class="line">                            NSLog(@<span class="string">"Writer completed"</span>);</div><div class="line">                            [writer <span class="symbol">endSessionAtSourceTime:</span>asset.duration];</div><div class="line">                            [writer finishWriting];</div><div class="line">                            </div><div class="line"><span class="regexp">//</span>                     NSData *data = [NSData <span class="symbol">dataWithContentsOfFile:</span>exportPath];</div><div class="line"><span class="regexp">//</span>                     NSLog(@<span class="string">"Data: %@"</span>, data);</div><div class="line">                            </div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;];</div><div class="line">    [reader release];</div><div class="line">    [readerOutput release];</div><div class="line">    [writer release];</div><div class="line">    [writerInput release];</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
 <p>壓完的檔案大小大概會比wav小8~10倍左右<br>中間的outputSettings 的參數會影響壓的質量 可以自己試試</p>
 
       
@@ -387,7 +154,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -399,19 +166,19 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜尋">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分類</h3>
   <ul class="entry">
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>15</small></li>
   
   </ul>
 </div>
@@ -419,16 +186,16 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>15</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
@@ -452,7 +219,7 @@ record.meteringEnabled = <span class="constant">YES</span>; <span class="regexp"
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 Red Scor
+  &copy; 2017 Red Scor
   
 </div>
 <div class="clearfix"></div></footer>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>shallow &amp; Deep Copy | RedScor's Blog</title>
+  <title>shallow &amp;amp; Deep Copy | RedScor&#39;s Blog</title>
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。
@@ -15,15 +15,15 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="shallow &amp; Deep Copy"/>
-  <meta property="og:site_name" content="RedScor's Blog"/>
+  <meta property="og:title" content="shallow &amp;amp; Deep Copy"/>
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -44,7 +44,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">RedScor's Blog</a></h1>
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -69,6 +69,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -77,7 +89,7 @@
       
       
   
-    <h1 class="title">shallow &amp; Deep Copy</h1>
+    <h1 class="title">shallow &amp;amp; Deep Copy</h1>
   
 
     </header>
@@ -92,32 +104,14 @@
 
 <hr>
 <a id="more"></a>
-
-<p>在Xcode中，對於基本數據類型 int , Bool Float 等等是直接賦值 。<br><br>但是對於指標類的型態 就有深淺層拷貝的差別，跟在C++中基本差不多，指向同一對像，生成新對像。</p>
+</p><p>在Xcode中，對於基本數據類型 int , Bool Float 等等是直接賦值 。<br><br>但是對於指標類的型態 就有深淺層拷貝的差別，跟在C++中基本差不多，指向同一對像，生成新對像。</p>
 <p>Xcode 為了優化 對於不可變(immutable)的Object 進行COPY 預設的都是淺層拷貝。</p>
-<p>例如</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="constant">NSDictionary</span> *firstDic = [[<span class="constant">NSDictionary</span> alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="keyword">nil</span>];
-<span class="constant">NSDictionary</span> *secondDic= [firstDic copy];
-<span class="constant">NSLog</span>(@<span class="string">"first Dict:%p,retain Count: %ld\n second Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);
-</pre></td></tr></table></figure>
-
-
+<p>例如<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSDictionary *firstDic = [[NSDictionary alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="literal">nil</span>];</div><div class="line">NSDictionary *secondDic= [firstDic copy];</div><div class="line">NSLog(@<span class="string">"first Dict:%p,retain Count: %ld\n second Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);</div></pre></td></tr></table></figure></p>
 <p>輸出結果會是<br><br><code>first Dict:0x100115570,retain Count: 2</code> <br><br><code>second Dict:0x100115570, retain Count: 2</code></p>
 <p>兩個指針指向同一個地方，RetainCount +1 證明他是指向同一個對象</p>
 <p>這也很好理解 調用copy 他會返回一個不可變的對象，原本的firstDic也是一個不可變，因為都是不可變，<br>所以就乾脆指向同一位址就可以了。 所以這邊的COPY和Retain是並無差別</p>
 <p>如果把NSDictionary 改成NSMutableDictionary 的話，</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="constant">NSMutableDictionary</span> *firstDic = [[<span class="constant">NSDictionary</span> alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="keyword">nil</span>];
-<span class="constant">NSMutableDictionary</span> *secondDic= [firstDic copy];
-<span class="constant">NSLog</span>(@<span class="string">"test Dict:%p,retain Count: %ld\ndest Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSMutableDictionary *firstDic = [[NSDictionary alloc]<span class="symbol">initWithObjectsAndKeys:</span>@<span class="string">"hello"</span>, @<span class="string">"test"</span>,<span class="literal">nil</span>];</div><div class="line">NSMutableDictionary *secondDic= [firstDic copy];</div><div class="line">NSLog(@<span class="string">"test Dict:%p,retain Count: %ld\ndest Dict:%p, retain Count: %ld"</span>,firstDic,[firstDic retainCount],secondDic,[secondDic retainCount]);</div></pre></td></tr></table></figure>
 <p>輸出結果會發現RetainCount 兩個都變成 1 指向的位址也變成不同。</p>
 <p>但是需注意的是這裡SecondDic雖然你宣告的一個NSMutableDictionary 可是copy返回的是一個不可變的，<br><br> 所以如果你要對SecondDic做操作時，可能馬上就會Crash。</p>
 <p>所以這邊NSMutableDictionary SecondDic 需改成NSDictionary secondDic 才行</p>
@@ -128,48 +122,18 @@
 <p><code>m檔中</code></p>
 <p>實現 <code>- (id)copyWithZone:(NSZone *)zone;</code></p>
 <p>假如你的Class 名叫做 Family </p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-</pre></td><td class="code"><pre>
-- (id)copyWithZone:(NSZone *)zone;
-{   //shallow Copy
-/*	Family *f = [[[self class]allocWithZone:zone]init];
-	f.name = _Name;
-	f.peopleCount = _peopleCount;*/
-	
-	//Deep Copy
-	Family *f = [[[self class]allocWithZone:zone]init];
-	f.name = [_name copy]; //NSString 
-	f.peopleCount = [_peopleCount copy]; //NSNumber
-	[_Name release];
-	[_peopleCount release];
-		
-	return person;
-}
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (id)copyWithZone:(NSZone *)zone;</div><div class="line">&#123;   //shallow Copy</div><div class="line">/*	Family *f = [[[self class]allocWithZone:zone]init];</div><div class="line">	f.name = _Name;</div><div class="line">	f.peopleCount = _peopleCount;*/</div><div class="line">	</div><div class="line">	//Deep Copy</div><div class="line">	Family *f = [[[self class]allocWithZone:zone]init];</div><div class="line">	f.name = [_name copy]; //NSString </div><div class="line">	f.peopleCount = [_peopleCount copy]; //NSNumber</div><div class="line">	[_Name release];</div><div class="line">	[_peopleCount release];</div><div class="line">		</div><div class="line">	return person;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>可以NSLog一下 兩個family 和 family.name 的指針</p>
 <p>會發現淺拷貝的變量指針是指向同一對象，也就是雖然他COPY了兩個物件，可是內容物還是指向同一塊空間</p>
 <p>再看看深層拷貝， 就會發現family的name 兩個指針是不同的，也代表這是真正的實現了COPY這個定義</p>
-<h2>但是</h2>
-<p>這樣是只針對常量而言，如果Array中包的是object呢?<br>當用了mutableCopy後，兩個array的指標是不一樣，但是數組內的內容指標還是指向同一個位址。 要如何解決呢？</p>
-<p>有三種方法<br>1. 用 [[]NSArray alloc]initWithArray:copyitems] 這個函數，他會copy數組內的每個元素調用copy函數，並把返回的id加入到新的數組中。<br>2. 用archiver方式，NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyArchiver archivedDataWithRootObject:oldArr]];<br>3. 用category 實現自定義的copy</p>
-<h2>結論</h2>
+<p>##但是<br>這樣是只針對常量而言，如果Array中包的是object呢?<br>當用了mutableCopy後，兩個array的指標是不一樣，但是數組內的內容指標還是指向同一個位址。 要如何解決呢？</p>
+<p>有三種方法</p>
+<ol>
+<li>用 [[]NSArray alloc]initWithArray:copyitems] 這個函數，他會copy數組內的每個元素調用copy函數，並把返回的id加入到新的數組中。</li>
+<li>用archiver方式，NSArray *arr = [NSKeyedUnarchiver unarchiveObjectWithData:[NSKeyArchiver archivedDataWithRootObject:oldArr]];</li>
+<li>用category 實現自定義的copy</li>
+</ol>
+<p>##結論</p>
 <ul>
 <li><p>在Foundation中，當我們COPY是一個immutable(不可變)對象時，它的作用相當於retain (Xcode 優化)</p>
 </li>
@@ -221,7 +185,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -233,19 +197,19 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜尋">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分類</h3>
   <ul class="entry">
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>15</small></li>
   
   </ul>
 </div>
@@ -253,16 +217,16 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>15</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
@@ -286,7 +250,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 Red Scor
+  &copy; 2017 Red Scor
   
 </div>
 <div class="clearfix"></div></footer>

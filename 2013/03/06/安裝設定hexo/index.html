@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>安裝設定Hexo | RedScor's Blog</title>
+  <title>安裝設定Hexo | RedScor&#39;s Blog</title>
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="本來在OctoPress上架了一個Blog
@@ -17,14 +17,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="安裝設定Hexo"/>
-  <meta property="og:site_name" content="RedScor's Blog"/>
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -45,7 +45,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">RedScor's Blog</a></h1>
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -70,6 +70,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -90,45 +102,19 @@
 <p>所以當文件過多時 處理效率就會過低</p>
 <p>這方面Ruby明顯遜於Node.js</p>
 <p>所以就來試用一下這個新的寵兒</p>
-<p><a id="more"></a><br>在官方文件上一步步可以很容易的安裝完Node.js和Blog</p>
-<p>但是當我試到指令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> deploy
-</pre></td></tr></table></figure>
-
-
-<p>老是出現</p>
-<img src="http://i.imgur.com/rl0O8Ba.png" title="錯誤訊息">
-
-
+<a id="more"></a>
+<p>在官方文件上一步步可以很容易的安裝完Node.js和Blog</p>
+<p>但是當我試到指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
+<p>老是出現<br><img src="http://i.imgur.com/rl0O8Ba.png" title="錯誤訊息"></p>
 <p>看了作者的github 總是要設定 _config.yml這個檔裡github</p>
 <p>可是試了一天都沒辦法deploy到github上<br><br>後來想到反正我產生靜態網頁檔後，都會存到Public這個資料夾</p>
 <p>想說道理應該一樣，就用我平常開發的方式上傳到github好了<br><br>在Mac 中，我習慣用SourceTree這個圖形化界面去處理git的問題</p>
-<p>打開你的SourceTree 然後打開你的Finder 找到你剛剛init的資料夾<br>裡面應該會找的跟我一樣</p>
-<img src="http://i.imgur.com/NPVGd4Y.png" title="Finder">
-
-
-<p>然後把Public資料夾拖到SourceTree中 類似下圖</p>
-<img src="http://i.imgur.com/g94E4qz.png" title="SoureTree">
-
-
-<p>然後點進去設定 點選右上方的setting -&gt;Add<br>填入如下圖的樣子</p>
-<img src="http://i.imgur.com/kqnVrbo.png" title="填入基本資料">
-
-
+<p>打開你的SourceTree 然後打開你的Finder 找到你剛剛init的資料夾<br>裡面應該會找的跟我一樣<br><img src="http://i.imgur.com/NPVGd4Y.png" title="Finder"></p>
+<p>然後把Public資料夾拖到SourceTree中 類似下圖<br><img src="http://i.imgur.com/g94E4qz.png" title="SoureTree"></p>
+<p>然後點進去設定 點選右上方的setting -&gt;Add<br>填入如下圖的樣子<br><img src="http://i.imgur.com/kqnVrbo.png" title="填入基本資料"></p>
 <p>上面的URL /path 可以到你的github中看到<br>選擇SSH的方式你需要先建立一個SSH Key import到github中</p>
 <p>選擇Http的話～你需要每次上傳都要填入帳號密碼</p>
-<p>這樣當你每次下</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> init <span class="string">"新文章"</span>
-</pre></td></tr></table></figure>
-
-<p>寫完文章後，產生靜態網頁</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="title">hexo</span> generate
-</pre></td></tr></table></figure>
-
-
+<p>這樣當你每次下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init &quot;新文章&quot;</div></pre></td></tr></table></figure><br>寫完文章後，產生靜態網頁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure></p>
 <p>就可以打開SourceTree中 點選Add /Remove鈕<br>然後把你的文件commit &amp; push 到github中囉</p>
 <p>如果你熟悉Command line中git指令 同樣的步驟也可以<br><br><del>絕對不是我忘了git指令</del></p>
 
@@ -169,7 +155,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -181,19 +167,19 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜尋">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分類</h3>
   <ul class="entry">
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>15</small></li>
   
   </ul>
 </div>
@@ -201,16 +187,16 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>15</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
@@ -234,7 +220,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 Red Scor
+  &copy; 2017 Red Scor
   
 </div>
 <div class="clearfix"></div></footer>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>NSDate倒數計時的小心得 | RedScor's Blog</title>
+  <title>NSDate倒數計時的小心得 | RedScor&#39;s Blog</title>
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="關於NSDate用法，常配合NSDateFormatter使用，一般我們想到要計算現在到幾天後過期，一般直覺就是取現在時間，然後把他用TimeInterval1970時間，再去加上多少杪來算時間，再去比較時間大小。
@@ -14,14 +14,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="NSDate倒數計時的小心得"/>
-  <meta property="og:site_name" content="RedScor's Blog"/>
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -42,7 +42,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">RedScor's Blog</a></h1>
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -67,6 +67,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -85,14 +97,9 @@
 <p>這在一般單純需要計算時，是蠻有用的，但是如果你是要處理一些檔案，設定幾天後到期，</p>
 <p>例如你把下載的資料或是圖片存到某一資料夾，你設第三天後過期，又不想一次把整個資料夾全砍掉，現在提供一種方法給大家參考。</p>
 <a id="more"></a>
-
 <p>在檔案管理的API中，<code>attributesOfItemAtPath</code> 這個方法可以取得檔案的資訊，</p>
 <p>你可以這樣寫</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="constant">NSDictionary</span> *attrs = [[<span class="constant">NSFileManager</span> defaultManager] <span class="symbol">attributesOfItemAtPath:</span>filePath <span class="symbol">error:</span><span class="keyword">nil</span>];
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSDictionary *attrs = [[NSFileManager defaultManager] <span class="symbol">attributesOfItemAtPath:</span>filePath <span class="symbol">error:</span><span class="literal">nil</span>];</div></pre></td></tr></table></figure>
 <p>filePath你可以隨便給個檔案然後去Print-Object 一下attrs，</p>
 <p>會發現有很多屬性，諸如: NSFileSize , NSFileModificationDate 等等</p>
 <p>你可以取檔案中的Modify Date，然後去跟你設定的時間去做比較，</p>
@@ -101,27 +108,7 @@
 <p><code>- (NSDate *)earlierDate:(NSDate *)anotherDate;</code></p>
 <p><code>- (NSDate *)laterDate:(NSDate *)anotherDate;</code></p>
 <p>earlierDate是輸入一個NSDate時間，取比較早的時間返回，用法如下</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>
-<span class="constant">NSDate</span> *nowDate = [<span class="constant">NSDate</span> date];
-<span class="constant">NSDate</span> *tomorrowDate = [<span class="constant">NSDate</span> <span class="symbol">dateWithTimeIntervalSinceNow:</span><span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>]
-
-<span class="constant">NSDate</span> *answerDate = [nowDate <span class="symbol">earlierDate:</span>tomorrowDate];
-<span class="regexp">//</span>結果會傳回nowDate 
-
-用<span class="symbol">laterDate:</span> 則會回傳tomorrowDate
-
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">NSDate *nowDate = [NSDate date];</div><div class="line">NSDate *tomorrowDate = [NSDate <span class="symbol">dateWithTimeIntervalSinceNow:</span><span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>]</div><div class="line"></div><div class="line">NSDate *answerDate = [nowDate <span class="symbol">earlierDate:</span>tomorrowDate];</div><div class="line"><span class="regexp">//</span>結果會傳回nowDate </div><div class="line"></div><div class="line">用<span class="symbol">laterDate:</span> 則會回傳tomorrowDate</div><div class="line"></div></pre></td></tr></table></figure>
 <p>這作法跟轉成TimeInterval 去比大小是一樣的意思，不過既然內建有好用的api 那就用吧。<br><br> 程式碼也縮短不少呢</p>
 
       
@@ -166,7 +153,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -178,19 +165,19 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜尋">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分類</h3>
   <ul class="entry">
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>15</small></li>
   
   </ul>
 </div>
@@ -198,16 +185,16 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>15</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
@@ -231,7 +218,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 Red Scor
+  &copy; 2017 Red Scor
   
 </div>
 <div class="clearfix"></div></footer>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>@property &amp; @synthesize | RedScor's Blog</title>
+  <title>property &amp; synthesize | RedScor&#39;s Blog</title>
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="今天來聊聊一下自己對於@synthesize和 @property的見解。
@@ -13,15 +13,15 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="@property &amp; @synthesize"/>
-  <meta property="og:site_name" content="RedScor's Blog"/>
+  <meta property="og:title" content="property &amp; synthesize"/>
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -42,7 +42,7 @@
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">RedScor's Blog</a></h1>
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -67,6 +67,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -75,7 +87,7 @@
       
       
   
-    <h1 class="title">@property &amp; @synthesize</h1>
+    <h1 class="title">property &amp; synthesize</h1>
   
 
     </header>
@@ -84,25 +96,12 @@
         <p>今天來聊聊一下自己對於@synthesize和 @property的見解。</p>
 <p>也就是新手常稿混的 @synthesize foo = _foo , self.foo 跟 _foo的差別。</p>
 <p>食蜂  </p>
-<img src="http://i.imgur.com/BHsFkmL.png" title="可愛的食蜂" alt="食蜂女王">
-
-
+<img src="http://i.imgur.com/BHsFkmL.png" title="可愛的食蜂 食蜂女王">
 <a id="more"></a>
-
 <p>
 
-<p>一般我們設全域變數通常會再@interface 中 例如</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="variable">@interface</span> <span class="constant">Test</span> <span class="symbol">:</span> <span class="constant">NSObject</span>
-{
-	<span class="constant">NSString</span> *carName;
-}
-</pre></td></tr></table></figure>
-
-
+</p><p>一般我們設全域變數通常會再@interface 中 例如</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@interface Test : NSObject</div><div class="line">&#123;</div><div class="line">	NSString *carName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在@interface 中可以設定<code>@private</code> <code>@protected</code> <code>@public</code> 不過這不是重點今天先不聊</p>
 <p>當你在@interface中定義變數時， 在m檔中賦值都是直接賦值的. 我們稱為iVar (instance variable)<br><br>ex <code>carName = @&quot;BMW&quot;</code> <code>myName = carName (myName = BMW)</code></p>
 <p>當你寫成<code>@property (nonatomic,retain)NSString *carName;</code></p>
@@ -116,72 +115,18 @@
 <p>當我們使用self.carName時，我們會調用Setter </p>
 <p>所以在objc 2.0版本前 需手動補上setter 和getter</p>
 <p>上面的@interface 就會多了兩個method<br><code>- (void) setcarName(NSString *)carName</code> <br><br><code>- (NSString *) carName</code></p>
-<p>一般簡單的Setter 我們會這樣寫<br></p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>
-- (void) setcarName(<span class="constant">NSString</span> *)carName
-{
-	_carName = [carName retain]; <span class="regexp">//retain</span>是取決於你property 中設定的值 	
-}	
-</pre></td></tr></table></figure>
-
-
+<p>一般簡單的Setter 我們會這樣寫<br><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (void) setcarName(NSString *)carName</div><div class="line">&#123;</div><div class="line">	_carName = [carName retain]; <span class="regexp">//retain</span>是取決於你property 中設定的值 	</div><div class="line">&#125;	</div></pre></td></tr></table></figure></p>
 <p>getter 會變成這樣</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre>
-- (<span class="constant">NSString</span> *) carName
-{
-<span class="keyword">return</span> _carName;
-}
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (NSString *) carName</div><div class="line">&#123;</div><div class="line"><span class="keyword">return</span> _carName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>到此有注意到什麼嗎??</p>
-<p>經由self 給值的他會通過setter  等於我們調用 [self setcarName:@“”]; <br><br>他會經由Property 中你設定的值 會先retain(or copy ,assign) 一次再賦值給全域變數</p>
+<p>經由self 給值的他會通過setter  等於我們調用 [self setcarName:@””]; <br><br>他會經由Property 中你設定的值 會先retain(or copy ,assign) 一次再賦值給全域變數</p>
 <p>你取值時，也是得到retain過後的值, 為什麼要先retain呢</p>
 <p>這就牽扯到物件的所有權 其實setter的完整寫法應該如下</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre>
-- (void) setcarName(NSString *)carName
-{
-	if (_carName != carName){ //先判斷是否跟上次存的值相同，不同時才去進行賦值
-	[_carName release]; //先釋放舊的物件
-	_carName = [carName retain]; // 把新的物件retain 把控制權給 _carName
-	//因為carName 跳出method後就被釋放
-	 }
-}	
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (void) setcarName(NSString *)carName</div><div class="line">&#123;</div><div class="line">	if (_carName != carName)&#123; //先判斷是否跟上次存的值相同，不同時才去進行賦值</div><div class="line">	[_carName release]; //先釋放舊的物件</div><div class="line">	_carName = [carName retain]; // 把新的物件retain 把控制權給 _carName</div><div class="line">	//因為carName 跳出method後就被釋放</div><div class="line">	 &#125;</div><div class="line">&#125;	</div></pre></td></tr></table></figure>
 <p>getter 則是完全不變，所以我們建議賦值時都給用self. (dot noation) 去賦值。</p>
 <p>除非你這個值是不會變動或是不在被autorelease 的物件用到，不然需手動加retain</p>
 <p>這也就是很多書上寫的， 你alloc retain copy一個Object 需手動釋放，<br><br>誰用他誰就負責釋放.</p>
-<p>在dealloc 下面，我個人是建議釋放掉iVar 也就是</p>
-<figure class="highlight lang-ruby"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>- (void) dealloc{
-  [_carName release];
-}
-</pre></td></tr></table></figure>
-
-
+<p>在dealloc 下面，我個人是建議釋放掉iVar 也就是<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (void) dealloc&#123;</div><div class="line">  [_carName release];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>至於寫成 <code>@synthesize carName;</code></p>
 <p>則是把原本的_carName 用carName取代掉，其他功能都一樣。</p>
 <p>不過就是因為寫成這樣～很多人會混用self.carName = 和carName = ;</p>
@@ -231,7 +176,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -243,19 +188,19 @@
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜尋">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分類</h3>
   <ul class="entry">
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>15</small></li>
   
   </ul>
 </div>
@@ -263,16 +208,16 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>15</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
@@ -296,7 +241,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 Red Scor
+  &copy; 2017 Red Scor
   
 </div>
 <div class="clearfix"></div></footer>

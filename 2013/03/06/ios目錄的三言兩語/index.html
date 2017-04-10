@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS目錄的三言兩語 | RedScor's Blog</title>
+  <title>iOS目錄的三言兩語 | RedScor&#39;s Blog</title>
   <meta name="author" content="Red Scor">
   
   <meta name="description" content="發文章先幹一下，媽的蘋果又退我們件，又是該死的iap問題
@@ -15,22 +15,22 @@
 你要查看你存的東西會不會被備份可以用此方法
 
 Install and launch your app
-Go to Settings &gt; iCloud &gt; Storage &amp; Backup &gt; Manage Storage 
+Go to Settings &amp;gt; iCloud &amp;gt; Storage &amp;amp; Backup &amp;gt; Manage Storage 
 If necessary, tap “Show all apps”
-Check your app&amp;#39;s storage">
+Check your app’s storage">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="iOS目錄的三言兩語"/>
-  <meta property="og:site_name" content="RedScor's Blog"/>
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
 
   
     <meta property="og:image" content="undefined"/>
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="RedScor's Blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
@@ -51,7 +51,7 @@ Check your app&amp;#39;s storage">
 
 <body>
   <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">RedScor's Blog</a></h1>
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
   <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
 </div>
 <nav id="main-nav" class="alignright">
@@ -75,6 +75,18 @@ Check your app&amp;#39;s storage">
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
   <div class="post-content">
     <header>
@@ -101,103 +113,18 @@ Check your app&amp;#39;s storage">
 <li>Install and launch your app</li>
 <li>Go to Settings &gt; iCloud &gt; Storage &amp; Backup &gt; Manage Storage </li>
 <li>If necessary, tap “Show all apps”</li>
-<li>Check your app&#39;s storage</li>
+<li>Check your app’s storage</li>
 </ul>
 <a id="more"></a>
-
 <hr>
 <p>因為我用的圖片暫存是我自己寫的，不是用網路上找的，例如SDWebImage這個有名的第三方Library。</p>
 <p>所以著手來改一下自己的程式碼吧。</p>
-<p>原本找到Document資料夾下的語法應該是這樣</p>
-<figure class="highlight lang-objc"><figcaption><span>Document directory </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="comment">//找到Document目錄</span>
-<span class="built_in">NSString</span> *applicationDocumentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, <span class="literal">YES</span>) objectAtIndex:<span class="number">0</span>];
-<span class="comment">//儲存到Document目錄下</span>
-<span class="built_in">NSString</span> *storePath = [applicationDocumentsDir stringByAppendingPathComponent:你的String];
-</pre></td></tr></table></figure>
-
-
+<p>原本找到Document資料夾下的語法應該是這樣<br><figure class="highlight objc"><figcaption><span>Document directory</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找到Document目錄</span></div><div class="line"><span class="built_in">NSString</span> *applicationDocumentsDir = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) objectAtIndex:<span class="number">0</span>];</div><div class="line"><span class="comment">//儲存到Document目錄下</span></div><div class="line"><span class="built_in">NSString</span> *storePath = [applicationDocumentsDir stringByAppendingPathComponent:你的String];</div></pre></td></tr></table></figure></p>
 <p>現在要改成如下 </p>
-<figure class="highlight lang-objc"><figcaption><span>找到cache Dir 創建自定目錄 </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="comment">//找到根目錄下的cache目錄</span>
-<span class="built_in">NSArray</span> *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
-<span class="comment">//再找到cache目錄下的ImageCache資料夾</span>
-<span class="comment">//因為我想把照片都存到一個目錄去管理，而不是都丟到cache下</span>
-<span class="built_in">NSString</span> *cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">"ImageCache"</span>];
-<span class="comment">//設一布林值去做判斷</span>
-<span class="built_in">BOOL</span> isDir = <span class="literal">NO</span>;
-<span class="built_in">NSError</span> *error;
-<span class="comment">//如果cacheDirectory目錄不存在，則先建立一個cacheDirectory</span>
-<span class="comment">//也就是上面寫的ImageCache目錄</span>
-<span class="keyword">if</span> (! [[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:cacheDirectory isDirectory:&amp;isDir] &amp;&amp; isDir == <span class="literal">NO</span>) {
-		[[<span class="built_in">NSFileManager</span> defaultManager] createDirectoryAtPath:cacheDirectory withIntermediateDirectories:<span class="literal">NO</span> attributes:<span class="literal">nil</span> error:&amp;error];
-}
-<span class="comment">//寫入cacheDirectory中</span>
-<span class="built_in">NSString</span> *storePath  = [cacheDirectory stringByAppendingPathComponent:你的String];
-</pre></td></tr></table></figure>
-
-
+<figure class="highlight objc"><figcaption><span>找到cache Dir 創建自定目錄</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//找到根目錄下的cache目錄</span></div><div class="line"><span class="built_in">NSArray</span> *paths = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</div><div class="line"><span class="comment">//再找到cache目錄下的ImageCache資料夾</span></div><div class="line"><span class="comment">//因為我想把照片都存到一個目錄去管理，而不是都丟到cache下</span></div><div class="line"><span class="built_in">NSString</span> *cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:<span class="string">@"ImageCache"</span>];</div><div class="line"><span class="comment">//設一布林值去做判斷</span></div><div class="line"><span class="built_in">BOOL</span> isDir = <span class="literal">NO</span>;</div><div class="line"><span class="built_in">NSError</span> *error;</div><div class="line"><span class="comment">//如果cacheDirectory目錄不存在，則先建立一個cacheDirectory</span></div><div class="line"><span class="comment">//也就是上面寫的ImageCache目錄</span></div><div class="line"><span class="keyword">if</span> (! [[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:cacheDirectory isDirectory:&amp;isDir] &amp;&amp; isDir == <span class="literal">NO</span>) &#123;</div><div class="line">		[[<span class="built_in">NSFileManager</span> defaultManager] createDirectoryAtPath:cacheDirectory withIntermediateDirectories:<span class="literal">NO</span> attributes:<span class="literal">nil</span> error:&amp;error];</div><div class="line">&#125;</div><div class="line"><span class="comment">//寫入cacheDirectory中</span></div><div class="line"><span class="built_in">NSString</span> *storePath  = [cacheDirectory stringByAppendingPathComponent:你的String];</div></pre></td></tr></table></figure>
 <p>上面你的String中，你可先做UTF8編碼或是base64做處理，隨自己高興</p>
 <p>這樣就完成了把照片存到/library/cache中的ImageCache中</p>
-<p>有些友善的APP還會提供刪除暫存的工作，可以用如下Method</p>
-<figure class="highlight lang-objc"><figcaption><span>刪除自定cache中資料夾檔案 </span></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-</pre></td><td class="code"><pre>+(<span class="keyword">void</span>)RemoveCacheFiles
-{
-	<span class="built_in">NSArray</span> *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, <span class="literal">YES</span>);
-	<span class="built_in">NSString</span> *cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:@<span class="string">"ImageCache"</span>];
-	<span class="built_in">NSFileManager</span> *fileMgr = [[[<span class="built_in">NSFileManager</span> alloc] init] autorelease];
-	<span class="built_in">NSError</span> *error = <span class="literal">nil</span>;
-	<span class="built_in">NSArray</span> *directoryContents = [fileMgr contentsOfDirectoryAtPath:cacheDirectory error:&amp;error];
-	<span class="keyword">if</span> (error == <span class="literal">nil</span>) {
-		<span class="keyword">for</span> (<span class="built_in">NSString</span> *path in directoryContents) {
-			<span class="built_in">NSString</span> *fullPath = [cacheDirectory stringByAppendingPathComponent:path];
-			<span class="built_in">BOOL</span> removeSuccess = [fileMgr removeItemAtPath:fullPath error:&amp;error];
-			<span class="keyword">if</span> (!removeSuccess) {
-				<span class="comment">// Error handling</span>
-			}
-		}
-	} <span class="keyword">else</span> {
-		<span class="comment">// Error handling</span>
-	}
-}
-</pre></td></tr></table></figure>
-
-
+<p>有些友善的APP還會提供刪除暫存的工作，可以用如下Method<br><figure class="highlight objc"><figcaption><span>刪除自定cache中資料夾檔案</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">+(<span class="keyword">void</span>)RemoveCacheFiles</div><div class="line">&#123;</div><div class="line">	<span class="built_in">NSArray</span> *paths = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</div><div class="line">	<span class="built_in">NSString</span> *cacheDirectory = [paths[<span class="number">0</span>] stringByAppendingPathComponent:<span class="string">@"ImageCache"</span>];</div><div class="line">	<span class="built_in">NSFileManager</span> *fileMgr = [[[<span class="built_in">NSFileManager</span> alloc] init] autorelease];</div><div class="line">	<span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</div><div class="line">	<span class="built_in">NSArray</span> *directoryContents = [fileMgr contentsOfDirectoryAtPath:cacheDirectory error:&amp;error];</div><div class="line">	<span class="keyword">if</span> (error == <span class="literal">nil</span>) &#123;</div><div class="line">		<span class="keyword">for</span> (<span class="built_in">NSString</span> *path <span class="keyword">in</span> directoryContents) &#123;</div><div class="line">			<span class="built_in">NSString</span> *fullPath = [cacheDirectory stringByAppendingPathComponent:path];</div><div class="line">			<span class="built_in">BOOL</span> removeSuccess = [fileMgr removeItemAtPath:fullPath error:&amp;error];</div><div class="line">			<span class="keyword">if</span> (!removeSuccess) &#123;</div><div class="line">				<span class="comment">// Error handling</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="comment">// Error handling</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>這樣就完成了改寫自己程式碼的東西了，暫存的資料既不會被iTunes備份也不會上傳到iCloud更不會因為這原因被APPLE退件了。</p>
 
       
@@ -242,7 +169,7 @@ Check your app&amp;#39;s storage">
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -254,19 +181,19 @@ Check your app&amp;#39;s storage">
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜尋">
     <input type="hidden" name="q" value="site:redscor.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分類</h3>
   <ul class="entry">
   
     <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
   
-    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+    <li><a href="/categories/iOS/">iOS</a><small>15</small></li>
   
   </ul>
 </div>
@@ -274,16 +201,16 @@ Check your app&amp;#39;s storage">
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Justin.tv/">Justin.tv</a><small>1</small></li>
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
   
     <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
-    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+    <li><a href="/tags/iPhone/">iPhone</a><small>15</small></li>
   
     <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
   
@@ -307,7 +234,7 @@ Check your app&amp;#39;s storage">
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2014 Red Scor
+  &copy; 2017 Red Scor
   
 </div>
 <div class="clearfix"></div></footer>
