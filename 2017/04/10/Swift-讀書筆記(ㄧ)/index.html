@@ -211,7 +211,7 @@ animals.flatMap {animal in
     return ids.map {id in (animal, id)}
 }    
 //[(&quot;cat&quot;, 1), (&quot;cat&quot;, 2), (&quot;cat&quot;, 3), (&quot;dog&quot;, 1), (&quot;dog&quot;, 2), (&quot;dog&quot;, 3), (&quot;pig&quot;, 1), (&quot;pig&quot;, 2), (&quot;pig&quot;, 3)]
-</code></pre><h3 id="DictionAry"><a href="#DictionAry" class="headerlink" title="DictionAry"></a>DictionAry</h3><p>其實dictionary 相關操作跟Objective-C差不多就不多講。</p>
+</code></pre><h3 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h3><p>其實dictionary 相關操作跟Objective-C差不多就不多講。</p>
 <p>值得注意的是要當Dictionary的key必須是可以計算hash()的。例如Int, String, Float, Double, Bool, Date … 等等</p>
 <p>如果是我們custom的 struct呢，swift都是通過protocol去遵從某些規格，所以我們要遵循<code>HashAble protocol</code> <br><br>假設我們有如下struct</p>
 <pre><code>struct Profile {
@@ -239,6 +239,7 @@ extension Profile:Hashable,Equatable {
        } // 在swift中， 運算符必須要定義成static 方法
 }
 </code></pre><p>這樣，我們自定義的struct就可以放進Dictionary 中當key用了。</p>
+<p>Set 懶的寫了  囧….</p>
 
       
     </div>
