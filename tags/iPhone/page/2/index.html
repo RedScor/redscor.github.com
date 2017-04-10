@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | iPhone | RedScor&#39;s Blog</title>
+  <meta name="author" content="Red Scor">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="RedScor&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="RedScor&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39025083-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">RedScor&#39;s Blog</a></h1>
+  <h2><a href="/">分享iPhone開發 &amp; ACG 的一個地方</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="https://github.com/RedScor">GitHub</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="http://zh-tw.justin.tv/redscor02">實況網站</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title tag">iPhone</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-06-14T07:53:16.000Z"><a href="/2013/06/14/shallow-&-deep-copy/">Jun 14 2013  (15:53:16)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/06/14/shallow-&-deep-copy/">shallow &amp;amp; Deep Copy</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天無聊，又快要離職了，來寫點心得，也是去面試時碰到的題目。</p>
+<p>就是深層copy 和 淺copy</p>
+<p>在Objective - C 中 像是NSDictionaryt, NSArray 等等 他們都可以實現COPY / MutableCopy 這個語法。</p>
+<p>你按住Command 點進去會發現他們都實現了NSCopying 這個Protocol 。</p>
+<p>也就是說～如果你在Objective - C中沒看到NSCopying的Protocol時，程式就會當掉<br><br>例如 <code>[[UIColor redColor]copy];</code></p>
+<p>
+
+<hr>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/06/14/shallow-&-deep-copy/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-05-09T02:09:09.000Z"><a href="/2013/05/09/nsdate倒數計時的小心得/">May 9 2013  (10:09:09)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/05/09/nsdate倒數計時的小心得/">NSDate倒數計時的小心得</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>關於NSDate用法，常配合NSDateFormatter使用，一般我們想到要計算現在到幾天後過期，一般直覺就是取現在時間，然後把他用TimeInterval1970時間，再去加上多少杪來算時間，再去比較時間大小。</p>
+<p>這在一般單純需要計算時，是蠻有用的，但是如果你是要處理一些檔案，設定幾天後到期，</p>
+<p>例如你把下載的資料或是圖片存到某一資料夾，你設第三天後過期，又不想一次把整個資料夾全砍掉，現在提供一種方法給大家參考。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/05/09/nsdate倒數計時的小心得/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-15T13:37:55.000Z"><a href="/2013/04/15/ios評分功能/">Apr 15 2013  (21:37:55)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/15/ios評分功能/">iOS評分功能</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>一般我們評分功能在以前iOS 6之前都是給個網址，然後跳轉去讀Device內建的App Store裡<br>自己App裡評分的頁面，如下</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[[UIApplication sharedApplication] <span class="symbol">openURL:</span></div><div class="line"> [NSURL <span class="symbol">URLWithString:</span>[NSString <span class="symbol">stringWithFormat:</span></div><div class="line"> @<span class="string">"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/</div><div class="line"> viewContentsUserReviews?type=Purple+Software&amp;id=%@"</span>,APP_STORE_ID]]];</div></pre></td></tr></table></figure>
+<p>現在由於iOS 6提供了很多新功能像Social的FrameWork，也在原本的SKStore裡新增了一個新功能，<br><br>在app直接經由ModelViewController彈出一個視窗，直接在應用程式中打開app store連結，可以省去離開app的困惱。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/15/ios評分功能/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-12T06:45:48.000Z"><a href="/2013/04/12/egotableviewpullrefresh下拉更新/">Apr 12 2013  (14:45:48)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/12/egotableviewpullrefresh下拉更新/">EGOTableViewPullRefresh下拉更新</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在很久之前 Twitter一個APP實現了這個下拉式更新的方式。</p>
+<p>可是因為沒有對外發表，網路一堆人在詢問，這時github上有個人實現了這個方法。</p>
+<p>把他叫做EGOTableViewPullRefresh，之後Facebook App還偷拿去用，因此扯上官司。</p>
+<p>廢話不多講，這次當然不是要講如何去用這個Library，而是實現類似Facebook一登入後，取代著螢幕中間有個黑方塊的等待視窗，而是用預設下拉式的更新。</p>
+<p>如圖<br><img src="http://i.imgur.com/nPbAw2g.png" title="更新 更新"></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/12/egotableviewpullrefresh下拉更新/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-11T05:58:10.000Z"><a href="/2013/03/11/像facebook一樣左滑效果/">Mar 11 2013  (13:58:10)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/11/像facebook一樣左滑效果/">像Facebook一樣左滑效果</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>其實這個效果是一個國外的APP叫Path首先推出，然後Facebook引進來用。</p>
+<p>當這個效果出來後，很多人都在問這怎麼做的，當然我這篇不是講要怎麼做。</p>
+<p>而是我之前某個app用到了ZUUIRevealController這個Library寫的一個差不多效果的東西。</p>
+<p>把他兩個檔引進進來，很容易的可以做到點一下像FaceBook一樣拉出左邊的選單列，<br><br>然後再點一下按鈕可以自動彈回來或是手動拉回來。</p>
+<p>之前遇到個問題是，他Pan手勢是做在NavigationController上，所以只有拉上面才會出拖動，</p>
+<p>想要在中間(FrontView)主頁面也要加上手勢功能的話，就要做一點處理。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/03/11/像facebook一樣左滑效果/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-06T05:35:42.000Z"><a href="/2013/03/06/ios目錄的三言兩語/">Mar 6 2013  (13:35:42)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/06/ios目錄的三言兩語/">iOS目錄的三言兩語</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>發文章先幹一下，媽的蘋果又退我們件，又是該死的iap問題</p>
+<p><strong> Audio story is set to consumable. </strong></p>
+<p>這什麼鳥理由，怕我們跟apple 線上音樂衝突到嗎，查了一下StackOverFlow也是有一堆人因為這問題被退。</p>
+<p>好吧，先不管iap的事情，這次還有一個退件原因是因為我把暫存圖存到了Document資料夾下<br><br>因為在iOS SandBox下 只有tmp和library/cache下不會被iTunes和iCloud備份。</p>
+<p>你硬要存到Document的話，要寫一段Code去特別聲明這個資料夾是不備份的。</p>
+<p>但你要存一些東西又要暫存資料呢，只好另尋方法。<br><br>網路最常用的就是存到library/cache中，這樣你存得資料就不會被備份到。</p>
+<p>你要查看你存的東西會不會被備份可以用此方法</p>
+<ul>
+<li>Install and launch your app</li>
+<li>Go to Settings &gt; iCloud &gt; Storage &amp; Backup &gt; Manage Storage </li>
+<li>If necessary, tap “Show all apps”</li>
+<li>Check your app’s storage</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/03/06/ios目錄的三言兩語/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-03-05T04:48:25.000Z"><a href="/2013/03/05/iphone-app/">Mar 5 2013  (12:48:25)</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/03/05/iphone-app/">iPhone App</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>##Listen-Travel(英譯)</p>
+<img src="http://2.bp.blogspot.com/-fbO93EAlZR4/URN4cirx2GI/AAAAAAAB4s0/IOF22JvMERg/s200/hearhere.png" title="聽旅行聽旅行Logo">
+<p>來這公司也一年多了，之前都是開發公司自有產品電子書方面的東西<br><br>像是幫一些有名的美食Blog把他們blog內的Content放到我們app中</p>
+<p>中間也接了幾個案子來做，現在又要開發屬於我們公司的產品</p>
+<p>主要功能是為了做到導覽的功能<br>比如說我去那個景點 使用了我們app可以聽到這地方的語音介紹<br>和一些故事。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/03/05/iphone-app/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/tags/iPhone/" class="alignleft prev">上一页</a>
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:redscor.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/ACG/">ACG</a><small>9</small></li>
+  
+    <li><a href="/categories/iOS/">iOS</a><small>14</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Justin-tv/">Justin.tv</a><small>1</small></li>
+  
+    <li><a href="/tags/Pixiv/">Pixiv</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/iPhone/">iPhone</a><small>14</small></li>
+  
+    <li><a href="/tags/ニコニコ動画/">ニコニコ動画</a><small>1</small></li>
+  
+    <li><a href="/tags/光之美少女/">光之美少女</a><small>5</small></li>
+  
+    <li><a href="/tags/動畫/">動畫</a><small>1</small></li>
+  
+    <li><a href="/tags/動畫歌曲/">動畫歌曲</a><small>1</small></li>
+  
+    <li><a href="/tags/心跳！光之美少女/">心跳！光之美少女</a><small>2</small></li>
+  
+    <li><a href="/tags/漫畫/">漫畫</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2017 Red Scor
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'redscor';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<script type="text/javascript">
+function addBlankTargetForLinks () {
+  $('a[href^="http"]').each(function(){
+		$(this).attr('target', '_blank');
+	});
+}
+ 
+$(document).bind('DOMNodeInserted', function(event) {
+	addBlankTargetForLinks();
+});
+</script>
+</body>
+</html>
