@@ -113,7 +113,7 @@ var ints = [1, 2, 3]
 // [1, 2, 3]
 var mergeArray = threeInts + ints
 // [1, 1, 1, 1, 2, 3]
-</code></pre><p>當然我們也可以像Objective-C一樣使用count 來知道有幾個元素<br><br>也可以始用isEmpty 來查詢array是否為空</p>
+</code></pre><p>當然我們也可以像Objective-C一樣使用count 來知道有幾個元素<br><br>也可以用isEmpty 來查詢array是否為空</p>
 <pre><code>mergeArray.count // 6
 mergeArray.isEmpty // false
 </code></pre><p>基本上，在swift 中, 我們不建議直接使用索引值去取值，例如</p>
@@ -121,7 +121,7 @@ mergeArray.isEmpty // false
 </code></pre><p>我們可以使用 </p>
 <pre><code>type(of: mergeArray) // Array&lt;Int&gt;.Type
 </code></pre><p>他回傳的是一個Array type 而不是optional type <br><br>回傳 optional type 代表的意思是查找不到時會回傳為 nil<br>這是一個swift保護的措施。</p>
-<p></p><p><br>回傳直接的type代表他取不到想要的值時，程式會直接崩潰。<br>array 的 remove(ar:) , removeLast() 都是這種，<br><br>也代表你要自行保證使用Array 安全，要移除最後一個元素應該優先使用popLast()。</p>
+<p></p><p><br>回傳直接的type代表他取不到想要的值時，程式會直接崩潰。<br>array 的 remove(at:) , removeLast() 都是這種，<br><br>也代表你要自行保證使用Array 安全，要移除最後一個元素應該優先使用popLast()。</p>
 <p> <code>遍歷Array</code></p>
 <p>我們有三種方式可以遍歷各種Connection 或Sequence</p>
 <pre><code>for in
